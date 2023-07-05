@@ -1,0 +1,53 @@
+{
+    "image": "ghcr.io/onslowcollege/swifttemplate:latest",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "sswg.swift-lang",
+                "vknabel.vscode-apple-swift-format",
+                "vadimcn.vscode-lldb",
+                "eamodio.gitlens",
+                "GitHub.vscode-pull-request-github",
+                "yzhang.markdown-all-in-one",
+                "hediet.vscode-drawio",
+                "oderwat.indent-rainbow",
+                "usernamehw.errorlens",
+                "aaron-bond.better-comments",
+                "vsls-contrib.gitdoc",
+                "danielgjackson.auto-dark-mode-windows"
+            ],
+            "settings": {
+                "apple-swift-format.path": [
+                    "/root/.mint/bin/swift-format"
+                ],
+                "gitlens.showWhatsNewAfterUpgrades": false,
+                "gitlens.showWelcomeOnInstall": false,
+                "editor.wordWrap": "on",
+                "editor.inlayHints.enabled": "off",
+                "editor.fontSize": 16,
+                "editor.formatOnSave": true,
+                "editor.formatOnSaveMode": "modificationsIfAvailable",
+                "editor.formatOnType": true,
+                "editor.rulers": [
+                    120
+                ],
+                "editor.tokenColorCustomizations": {
+                    "textMateRules": [
+                        {
+                            "scope": "comment",
+                            "settings": {
+                                "fontStyle": "italic"
+                            }
+                        }
+                    ]
+                },
+                "gitdoc.commitValidationLevel": "none",
+                "gitdoc.enabled": true,
+                "workbench.colorTheme": "Default Light Modern",
+                "workbench.preferredDarkColorTheme": "Default Dark Modern",
+                "workbench.preferredLightColorTheme": "Default Light Modern"
+            }
+        }
+    },
+    "postStartCommand": "bash -c git remote set-url origin 'https://github.com/OnslowCollege/$(basename $(pwd))'"
+}

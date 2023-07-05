@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Debug OCProgram",
+            "program": "${workspaceFolder:SwiftTemplate}/.build/debug/OCProgram",
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftTemplate}",
+            "preLaunchTask": "swift: Build Debug OCProgram"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "sourceLanguages": [
+                "swift"
+            ],
+            "name": "Release OCProgram",
+            "program": "${workspaceFolder:SwiftTemplate}/.build/release/OCProgram",
+            "args": [],
+            "cwd": "${workspaceFolder:SwiftTemplate}",
+            "preLaunchTask": "swift: Build Release OCProgram"
+        }
+    ]
+}
