@@ -14,7 +14,8 @@
                 "usernamehw.errorlens",
                 "aaron-bond.better-comments",
                 "vsls-contrib.gitdoc",
-                "danielgjackson.auto-dark-mode-windows"
+                "danielgjackson.auto-dark-mode-windows",
+                "seunlanlege.action-buttons"
             ],
             "settings": {
                 "apple-swift-format.path": [
@@ -25,9 +26,6 @@
                 "editor.wordWrap": "on",
                 "editor.inlayHints.enabled": "off",
                 "editor.fontSize": 16,
-                "editor.formatOnSave": true,
-                "editor.formatOnSaveMode": "modificationsIfAvailable",
-                "editor.formatOnType": true,
                 "editor.rulers": [
                     120
                 ],
@@ -45,7 +43,39 @@
                 "gitdoc.enabled": true,
                 "workbench.colorTheme": "Default Light Modern",
                 "workbench.preferredDarkColorTheme": "Default Dark Modern",
-                "workbench.preferredLightColorTheme": "Default Light Modern"
+                "workbench.preferredLightColorTheme": "Default Light Modern",
+                "actionButtons": {
+                    "commands": [
+                        {
+                            "cwd": "${workspaceFolder}",
+                            "name": "$(triangle-right) Run Swift file",
+                            "color": "green",
+                            "singleInstance": true,
+                            "command": "swift ${file}" // This is executed in the terminal.
+                        },
+                        {
+                            "cwd": "{workspaceFolder}",
+                            "name": "Format file",
+                            "color": "blue",
+                            "useVsCodeApi": true,
+                            "command": "editor.action.formatDocument"
+                        },
+                        {
+                            "name": "New Terminal",
+                            "useVsCodeApi": true,
+                            "command": "workbench.action.terminal.newInActiveWorkspace"
+                        },
+                        {
+                            "name": "Kill all Terminals",
+                            "color": "red",
+                            "useVsCodeApi": true,
+                            "command": "workbench.action.terminal.killAll"
+                        }
+                    ],
+                    "defaultColor": "none",
+                    "reloadButton": "↻",
+                    "loadNpmCommands": false
+                }
             }
         }
     },
