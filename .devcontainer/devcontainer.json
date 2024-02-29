@@ -48,26 +48,29 @@
                     "commands": [
                         {
                             "cwd": "${workspaceFolder}",
-                            "name": "$(triangle-right) Run Swift file",
-                            "color": "green",
+                            "name": "$(run) Run swift",
+                            "singleInstance": true,
+                            "command": "swift ${file}" // This is executed in the terminal.
+                        },
+                        {
+                            "cwd": "${workspaceFolder}",
+                            "name": "$(run-all) Run swift-sh",
                             "singleInstance": true,
                             "command": "swift ${file}" // This is executed in the terminal.
                         },
                         {
                             "cwd": "{workspaceFolder}",
-                            "name": "Format file",
-                            "color": "blue",
+                            "name": "$(pencil) Format file",
                             "useVsCodeApi": true,
                             "command": "editor.action.formatDocument"
                         },
                         {
-                            "name": "New Terminal",
+                            "name": "$(terminal-view-icon) New Terminal",
                             "useVsCodeApi": true,
                             "command": "workbench.action.terminal.newInActiveWorkspace"
                         },
                         {
-                            "name": "Kill all Terminals",
-                            "color": "red",
+                            "name": "$(terminal-kill) Kill all Terminals",
                             "useVsCodeApi": true,
                             "command": "workbench.action.terminal.killAll"
                         }
