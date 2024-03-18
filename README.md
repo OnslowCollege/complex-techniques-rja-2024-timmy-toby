@@ -2,19 +2,17 @@
 
 ## Swift Template
 
-Use this template to develop a text-based program in Swift 5.9.1 on a Linux host.
+Use this template to develop a text-based program in Swift 5.10 on a Linux host.
 
 This template includes:
 
 - Default SPM structure (`Sources/main.swift`)
 - Extensions to support Swift development
 - swift-format linter/formatter enabled to ensure code follows conventions
-- Mint to download external Swift software
+- Mint to run external Swift-based software
+- Remi preinstalled for use with the OCGUI library
 - Integration for diagrams.net (for files ending in `.drawio`)
 
 ## How to run your code
 
-Once your Codespace has loaded:
-
-1. to debug your code, click on the Run menu and select "Start Debugging" (or press F5)
-2. to run without debugging, click on the Run menu and select "Run Without Debugging" (or press Ctrl-F5)
+Once your Codespace has loaded, click on the Build and Run button in the status bar.
