@@ -14,7 +14,8 @@
                 "usernamehw.errorlens",
                 "aaron-bond.better-comments",
                 "vsls-contrib.gitdoc",
-                "seunlanlege.action-buttons"
+                "seunlanlege.action-buttons",
+                "tomoki1207.pdf"
             ],
             "settings": {
                 "apple-swift-format.path": [
