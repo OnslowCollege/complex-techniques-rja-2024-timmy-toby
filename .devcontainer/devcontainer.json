@@ -1,8 +1,5 @@
 {
     "image": "ghcr.io/onslowcollege/swifttemplate:latest",
-    "features": {
-        "ghcr.io/devcontainers/features/desktop-lite:1": {}
-    },
     "customizations": {
         "vscode": {
             "extensions": [
