@@ -10,12 +10,6 @@ config_version=5
 
 [application]
 
-config/name="[Working title] Toby's inferno"
-run/main_scene="res://test_node.tscn"
+config/name="Turning"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
-
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
