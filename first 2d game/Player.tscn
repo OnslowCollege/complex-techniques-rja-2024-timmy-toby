@@ -32,10 +32,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bid1h"]
-radius = 11.2357
-height = 22.4714
+radius = 7.97621
+height = 21.1495
 
 [node name="Player" type="Area2D"]
+position = Vector2(1, -5)
 script = ExtResource("1_xos2h")
 metadata/_edit_group_ = true
 
