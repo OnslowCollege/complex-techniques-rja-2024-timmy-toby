@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx2n6pdgfbn7c"
-path="res://.godot/imported/tileset.png-09c8c67ec52d976ade6bec0d80d0f8a3.ctex"
+uid="uid://nlnhmuuhogtc"
+path="res://.godot/imported/Limbo-Lust tileset.png-ab6d93e78a26714b80db5f1fa16a452b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemaps/floor 1/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-09c8c67ec52d976ade6bec0d80d0f8a3.ctex"]
+source_file="res://art/Limbo-Lust tileset.png"
+dest_files=["res://.godot/imported/Limbo-Lust tileset.png-ab6d93e78a26714b80db5f1fa16a452b.ctex"]
 
 [params]
 
