@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx2n6pdgfbn7c"
-path="res://.godot/imported/tileset.png-09c8c67ec52d976ade6bec0d80d0f8a3.ctex"
+uid="uid://6fbhla46pv8l"
+path="res://.godot/imported/Greed-Gluttony tileset.png-ffbea336d82d6d2b1a31ea2cea81802b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemaps/floor 1/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-09c8c67ec52d976ade6bec0d80d0f8a3.ctex"]
+source_file="res://art/Greed-Gluttony tileset.png"
+dest_files=["res://.godot/imported/Greed-Gluttony tileset.png-ffbea336d82d6d2b1a31ea2cea81802b.ctex"]
 
 [params]
 
