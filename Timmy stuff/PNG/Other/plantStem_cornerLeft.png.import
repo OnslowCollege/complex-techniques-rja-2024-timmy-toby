@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmscdp6yrk53h"
-path="res://.godot/imported/plantStem_cornerLeft.png-c4da959bcb2ac08b028b3509b74b2e35.ctex"
+path="res://.godot/imported/plantStem_cornerLeft.png-2e4d7d6585350faa838700f22dc49ccc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Other/plantStem_cornerLeft.png"
-dest_files=["res://.godot/imported/plantStem_cornerLeft.png-c4da959bcb2ac08b028b3509b74b2e35.ctex"]
+source_file="res://Timmy stuff/PNG/Other/plantStem_cornerLeft.png"
+dest_files=["res://.godot/imported/plantStem_cornerLeft.png-2e4d7d6585350faa838700f22dc49ccc.ctex"]
 
 [params]
 

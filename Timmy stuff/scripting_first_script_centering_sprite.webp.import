@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://de0lgxdiitlb"
-path="res://.godot/imported/scripting_first_script_centering_sprite.webp-b552b9761c83556b0bf6293b911f174e.ctex"
+path="res://.godot/imported/scripting_first_script_centering_sprite.webp-ac5d3d402fb63b63952b3dadce684844.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripting_first_script_centering_sprite.webp"
-dest_files=["res://.godot/imported/scripting_first_script_centering_sprite.webp-b552b9761c83556b0bf6293b911f174e.ctex"]
+source_file="res://Timmy stuff/scripting_first_script_centering_sprite.webp"
+dest_files=["res://.godot/imported/scripting_first_script_centering_sprite.webp-ac5d3d402fb63b63952b3dadce684844.ctex"]
 
 [params]
 

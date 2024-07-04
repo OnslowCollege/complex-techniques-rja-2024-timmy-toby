@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp5sfgjhh8n7n"
-path="res://.godot/imported/outlineKey.png-887130699f9ec09520a003a8e43a2a14.ctex"
+path="res://.godot/imported/outlineKey.png-86cb62f790d80a6224622543f0c2ac97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Items/outlineKey.png"
-dest_files=["res://.godot/imported/outlineKey.png-887130699f9ec09520a003a8e43a2a14.ctex"]
+source_file="res://Timmy stuff/PNG/Items/outlineKey.png"
+dest_files=["res://.godot/imported/outlineKey.png-86cb62f790d80a6224622543f0c2ac97.ctex"]
 
 [params]
 

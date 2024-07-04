@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://idoj8455f3mp"
-path="res://.godot/imported/outlineDisc_alt.png-0bfb86ae0b8e7298d1e788d923ed06c9.ctex"
+path="res://.godot/imported/outlineDisc_alt.png-e29ca0238960a519e1908f6d7c581386.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Items/outlineDisc_alt.png"
-dest_files=["res://.godot/imported/outlineDisc_alt.png-0bfb86ae0b8e7298d1e788d923ed06c9.ctex"]
+source_file="res://Timmy stuff/PNG/Items/outlineDisc_alt.png"
+dest_files=["res://.godot/imported/outlineDisc_alt.png-e29ca0238960a519e1908f6d7c581386.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm6tb75ac0eo2"
-path="res://.godot/imported/playerRed_walk5.png-df032da005778eddf3a1363b15853098.ctex"
+path="res://.godot/imported/playerRed_walk5.png-5ac6e4e322f5918a69299697010d350a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Players/Player Red/playerRed_walk5.png"
-dest_files=["res://.godot/imported/playerRed_walk5.png-df032da005778eddf3a1363b15853098.ctex"]
+source_file="res://Timmy stuff/PNG/Players/Player Red/playerRed_walk5.png"
+dest_files=["res://.godot/imported/playerRed_walk5.png-5ac6e4e322f5918a69299697010d350a.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dccqdapxgpnp7"
-path="res://.godot/imported/enemyFlying_3.png-06fcaefe8f885fdab8b1b8ef0c050c75.ctex"
+path="res://.godot/imported/enemyFlying_3.png-73ea3af3a6f94f0ebce9a47213e66887.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Enemies/enemyFlying_3.png"
-dest_files=["res://.godot/imported/enemyFlying_3.png-06fcaefe8f885fdab8b1b8ef0c050c75.ctex"]
+source_file="res://Timmy stuff/PNG/Enemies/enemyFlying_3.png"
+dest_files=["res://.godot/imported/enemyFlying_3.png-73ea3af3a6f94f0ebce9a47213e66887.ctex"]
 
 [params]
 

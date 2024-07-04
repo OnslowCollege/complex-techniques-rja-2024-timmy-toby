@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dak4eskr5847p"
-path="res://.godot/imported/enemySpikey_2.png-4769c28d3ce1aa34dc5ab085fad21e6b.ctex"
+path="res://.godot/imported/enemySpikey_2.png-5a8309ca1e5338b4d1a6d8d1970e9f32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Enemies/enemySpikey_2.png"
-dest_files=["res://.godot/imported/enemySpikey_2.png-4769c28d3ce1aa34dc5ab085fad21e6b.ctex"]
+source_file="res://Timmy stuff/PNG/Enemies/enemySpikey_2.png"
+dest_files=["res://.godot/imported/enemySpikey_2.png-5a8309ca1e5338b4d1a6d8d1970e9f32.ctex"]
 
 [params]
 
