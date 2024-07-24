@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn2vir360suiw"
-path="res://.godot/imported/greenGem.png-0a6027489f2e1f0391b209b1d4fed5d1.ctex"
+path="res://.godot/imported/greenGem.png-b6e57dbf44c543572a183879fe2ef032.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Items/greenGem.png"
-dest_files=["res://.godot/imported/greenGem.png-0a6027489f2e1f0391b209b1d4fed5d1.ctex"]
+source_file="res://Timmy stuff/PNG/Items/greenGem.png"
+dest_files=["res://.godot/imported/greenGem.png-b6e57dbf44c543572a183879fe2ef032.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8oeo8mcpjatr"
-path="res://.godot/imported/playerRed_swim1.png-08afd0a102dfa4be068cb5bc13c967b5.ctex"
+path="res://.godot/imported/playerRed_swim1.png-706cf02625822fd3e8940c2c4160334f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Players/Player Red/playerRed_swim1.png"
-dest_files=["res://.godot/imported/playerRed_swim1.png-08afd0a102dfa4be068cb5bc13c967b5.ctex"]
+source_file="res://Timmy stuff/PNG/Players/Player Red/playerRed_swim1.png"
+dest_files=["res://.godot/imported/playerRed_swim1.png-706cf02625822fd3e8940c2c4160334f.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jevaphjpyvo1"
-path="res://.godot/imported/redJewel.png-5ef6a45a04ba4f89258beefa9369a239.ctex"
+path="res://.godot/imported/redJewel.png-d6f979dcab9f36c5f38777e7b08ac7c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Items/redJewel.png"
-dest_files=["res://.godot/imported/redJewel.png-5ef6a45a04ba4f89258beefa9369a239.ctex"]
+source_file="res://Timmy stuff/PNG/Items/redJewel.png"
+dest_files=["res://.godot/imported/redJewel.png-d6f979dcab9f36c5f38777e7b08ac7c0.ctex"]
 
 [params]
 

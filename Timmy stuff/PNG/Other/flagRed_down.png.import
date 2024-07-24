@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drlodnk1hdhh4"
-path="res://.godot/imported/flagRed_down.png-10dc85ff8cebdffdf0469678bd54d24f.ctex"
+path="res://.godot/imported/flagRed_down.png-7edf2f327c9636e4ab02d493295a3cb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Other/flagRed_down.png"
-dest_files=["res://.godot/imported/flagRed_down.png-10dc85ff8cebdffdf0469678bd54d24f.ctex"]
+source_file="res://Timmy stuff/PNG/Other/flagRed_down.png"
+dest_files=["res://.godot/imported/flagRed_down.png-7edf2f327c9636e4ab02d493295a3cb3.ctex"]
 
 [params]
 

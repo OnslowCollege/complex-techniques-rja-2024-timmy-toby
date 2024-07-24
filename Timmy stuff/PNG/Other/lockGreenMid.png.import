@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7qwr0m4gr5ba"
-path="res://.godot/imported/lockGreenMid.png-676a659a7ff25ad8bba73e2519324eb2.ctex"
+path="res://.godot/imported/lockGreenMid.png-64ad7ec284c51290186c35573feaf835.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Other/lockGreenMid.png"
-dest_files=["res://.godot/imported/lockGreenMid.png-676a659a7ff25ad8bba73e2519324eb2.ctex"]
+source_file="res://Timmy stuff/PNG/Other/lockGreenMid.png"
+dest_files=["res://.godot/imported/lockGreenMid.png-64ad7ec284c51290186c35573feaf835.ctex"]
 
 [params]
 

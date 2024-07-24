@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bx5ribnbvxi6o"
-path="res://.godot/imported/greenJewel.png-45100589988e75c4789fa9ff3655e495.ctex"
+path="res://.godot/imported/greenJewel.png-0267a3945370563863bb43a52cac02fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Items/greenJewel.png"
-dest_files=["res://.godot/imported/greenJewel.png-45100589988e75c4789fa9ff3655e495.ctex"]
+source_file="res://Timmy stuff/PNG/Items/greenJewel.png"
+dest_files=["res://.godot/imported/greenJewel.png-0267a3945370563863bb43a52cac02fa.ctex"]
 
 [params]
 

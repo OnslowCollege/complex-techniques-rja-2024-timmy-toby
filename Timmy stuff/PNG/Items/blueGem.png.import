@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://g85m8kl0vwa8"
-path="res://.godot/imported/blueGem.png-89279b1834c72121de9e1585cbaad120.ctex"
+path="res://.godot/imported/blueGem.png-44f9858eda836da519848973591eebf3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Items/blueGem.png"
-dest_files=["res://.godot/imported/blueGem.png-89279b1834c72121de9e1585cbaad120.ctex"]
+source_file="res://Timmy stuff/PNG/Items/blueGem.png"
+dest_files=["res://.godot/imported/blueGem.png-44f9858eda836da519848973591eebf3.ctex"]
 
 [params]
 

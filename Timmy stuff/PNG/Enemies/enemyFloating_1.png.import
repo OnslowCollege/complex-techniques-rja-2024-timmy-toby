@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4ut44jb4tufl"
-path="res://.godot/imported/enemyFloating_1.png-6196be3c0e74e4d85b5391c19c1ff44f.ctex"
+path="res://.godot/imported/enemyFloating_1.png-8d20a9e2b472d080178e8f633f17f4fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Enemies/enemyFloating_1.png"
-dest_files=["res://.godot/imported/enemyFloating_1.png-6196be3c0e74e4d85b5391c19c1ff44f.ctex"]
+source_file="res://Timmy stuff/PNG/Enemies/enemyFloating_1.png"
+dest_files=["res://.godot/imported/enemyFloating_1.png-8d20a9e2b472d080178e8f633f17f4fd.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cux6441lmlbjk"
-path="res://.godot/imported/doorGreen_top.png-e7ac8b6005f2e51866e6fb883f0ba54f.ctex"
+path="res://.godot/imported/doorGreen_top.png-ce159a1f886ea1a92e1fb9a66d5acd56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PNG/Other/doorGreen_top.png"
-dest_files=["res://.godot/imported/doorGreen_top.png-e7ac8b6005f2e51866e6fb883f0ba54f.ctex"]
+source_file="res://Timmy stuff/PNG/Other/doorGreen_top.png"
+dest_files=["res://.godot/imported/doorGreen_top.png-ce159a1f886ea1a92e1fb9a66d5acd56.ctex"]
 
 [params]
 
