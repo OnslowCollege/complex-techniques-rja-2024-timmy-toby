@@ -41,3 +41,24 @@ func _on_body_entered(body):
 	print("Blocked")
 	current_position = previous_position
 	## Add some sort of exclamation??
+
+
+func _on_floor_0_position_information(moveOptions, currentTileType):
+	## Parses the string output of the signal
+	
+	## 0 : "Start",
+	## 3 : "Boss",
+	## 4 : "Enemy",
+	## 5 : "Bonfire",
+	## 6 : "Lore",
+	
+	if currentTileType == "Boss" || currentTileType == "Enemy":
+		print("Send to combat screen")
+	elif currentTileType == "Bonfire":
+		print("Restore health")
+	elif currentTileType == "Lore":
+		print("yap yap yap")
+	else:
+		pass
+	
+	

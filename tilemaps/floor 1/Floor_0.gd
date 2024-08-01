@@ -1,6 +1,6 @@
 extends TileMap
 
-signal position_information(moveOptions, currentTileID)
+signal position_information(moveOptions, currentTileType)
 
 ## Set starting coords for this tilemap here
 @export var starting_coords_tilemap = Vector2i(6, 1)
@@ -21,7 +21,7 @@ var moveOptions = [
 ## Related to getting the current tile the player is on
 var currentTileID
 var currentTileType
-const tileTypeKey = {
+const tileTypeKey = { # Likely will have to be tweaked per level
 	0 : "Start",
 	3 : "Boss",
 	4 : "Enemy",
@@ -54,6 +54,7 @@ func _on_player_new_position(current_position):
 		print(moveOptions[i][0], ",", moveOptions[i][1])
 	
 	## Identifying the cell currently occupied
+	## Processed here so player code is consistent
 	currentTileID = get_cell_source_id(0, newPosition_map)
 	print("Atlas Coords ", currentTileID)
 	
