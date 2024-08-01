@@ -19,3 +19,4 @@ script = ExtResource("3_ulksh")
 [node name="Player" parent="." instance=ExtResource("2_oum8o")]
 
 [connection signal="give_start_coords" from="Floor_0" to="Player" method="_on_floor_0_give_start_coords"]
+[connection signal="new_position" from="Player" to="Floor_0" method="_on_player_new_position"]
