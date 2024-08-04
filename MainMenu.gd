@@ -12,7 +12,8 @@ func _process(delta):
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file(("res://tilemaps/floor 1/Map.tscn"))
+	get_tree().change_scene_to_file(("res://tilemaps/floor 1/LimbustFloor.tscn"))
+	print("reached")
 
 
 func _on_options_pressed():
@@ -20,4 +21,4 @@ func _on_options_pressed():
 
 
 func _on_exit_pressed():
-	pass # Replace with function body.
+	get_tree().quit()

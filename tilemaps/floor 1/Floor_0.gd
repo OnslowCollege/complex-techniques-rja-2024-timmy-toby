@@ -62,6 +62,7 @@ func _on_player_new_position(current_position):
 		currentTileType = tileTypeKey[currentTileID]
 		print(currentTileType)
 	else:
+		currentTileType = "Floor"
 		print("Floor")
 	
 	position_information.emit(moveOptions, currentTileType)

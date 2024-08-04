@@ -23,18 +23,22 @@ func _input(event):
 	if event.is_action_pressed("step_up"):
 		print("Up")
 		current_position[1] -= step_size
+		new_position.emit(current_position)
 	if event.is_action_pressed("step_down"):
 		print("Down")
 		current_position[1] += step_size
+		new_position.emit(current_position)
 	if event.is_action_pressed("step_right"):
 		print("Left")
 		current_position[0] += step_size
+		new_position.emit(current_position)
 	if event.is_action_pressed("step_left"):
 		print("Right")
 		current_position[0] -= step_size
+		new_position.emit(current_position)
 	
 	self.position = Vector2(current_position[0], current_position[1])
-	new_position.emit(current_position)
+	
 
 
 func _on_body_entered(body):
@@ -45,12 +49,6 @@ func _on_body_entered(body):
 
 func _on_floor_0_position_information(moveOptions, currentTileType):
 	## Parses the string output of the signal
-	
-	## 0 : "Start",
-	## 3 : "Boss",
-	## 4 : "Enemy",
-	## 5 : "Bonfire",
-	## 6 : "Lore",
 	
 	if currentTileType == "Boss" || currentTileType == "Enemy":
 		print("Send to combat screen")
