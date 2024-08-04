@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://hj0x6kqcc4k3"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_sywfs"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sywfs")
+
+[node name="ButtonVBox" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.422839
+anchor_top = 0.768717
+anchor_right = 0.57716
+anchor_bottom = 0.903743
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Start" type="Button" parent="ButtonVBox"]
+layout_mode = 2
+text = "Start"
+
+[node name="Options" type="Button" parent="ButtonVBox"]
+layout_mode = 2
+text = "Options"
+
+[node name="Exit" type="Button" parent="ButtonVBox"]
+layout_mode = 2
+text = "Exit "
+
+[connection signal="pressed" from="ButtonVBox/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonVBox/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="ButtonVBox/Exit" to="." method="_on_exit_pressed"]
