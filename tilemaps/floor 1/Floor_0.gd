@@ -1,13 +1,16 @@
 extends TileMap
 
+signal floor_information
 signal position_information(moveOptions, currentTileType)
 
+## Related to floor actions on startup
 ## Set starting coords for this tilemap here
 @export var starting_coords_tilemap = Vector2i(6, 1)
 ## Related to converting tilemap coordinates to world/pixel coordinates
 @export var starting_coords_local: Vector2 = map_to_local(starting_coords_tilemap)
 var starting_coords_global: Vector2 = to_global(starting_coords_local) 
 ## I don't need to convert to global since tilemap pos is already at 0,0. Keeping this here just in case.
+
 
 ## Related to getting the movement options for the player.
 var newPosition_local
@@ -30,7 +33,7 @@ const tileTypeKey = { # Likely will have to be tweaked per level
 }
 
 
-signal give_start_coords(starting_coords_global: Vector2)
+signal give_start_coords(starting_coords_global: Vector2, current_level)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
