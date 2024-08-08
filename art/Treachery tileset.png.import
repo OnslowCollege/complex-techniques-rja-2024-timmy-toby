@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1s8afxuo3jaj"
-path="res://.godot/imported/tileset.png-67c814337666304d35c11100e3df38f1.ctex"
+uid="uid://b8jx5aamtt048"
+path="res://.godot/imported/Treachery tileset.png-4755a226789945e2569c758de3263ed1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemaps/floor 5/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-67c814337666304d35c11100e3df38f1.ctex"]
+source_file="res://art/Treachery tileset.png"
+dest_files=["res://.godot/imported/Treachery tileset.png-4755a226789945e2569c758de3263ed1.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1s8afxuo3jaj"
-path="res://.godot/imported/tileset.png-67c814337666304d35c11100e3df38f1.ctex"
+uid="uid://bm8lq8kmgfo1u"
+path="res://.godot/imported/Stamina bar.png-ea8fdfcb7b35f1ee75cf680c10eadd89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemaps/floor 5/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-67c814337666304d35c11100e3df38f1.ctex"]
+source_file="res://HUD elements/Stamina bar.png"
+dest_files=["res://.godot/imported/Stamina bar.png-ea8fdfcb7b35f1ee75cf680c10eadd89.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1s8afxuo3jaj"
-path="res://.godot/imported/tileset.png-67c814337666304d35c11100e3df38f1.ctex"
+uid="uid://chk87mxhg1ptp"
+path="res://.godot/imported/Health bar.png-2170c4b6519784284245fdb535be4626.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemaps/floor 5/tileset.png"
-dest_files=["res://.godot/imported/tileset.png-67c814337666304d35c11100e3df38f1.ctex"]
+source_file="res://HUD elements/Health bar.png"
+dest_files=["res://.godot/imported/Health bar.png-2170c4b6519784284245fdb535be4626.ctex"]
 
 [params]
 
