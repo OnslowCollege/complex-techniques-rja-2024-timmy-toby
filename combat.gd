@@ -1,5 +1,12 @@
 extends Control
 
+## This node is so ephemeral, I just need a way to move between levels so I can implement them
+
+const = 
+
+func _input(event):
+	if event is InputEventKey:
+		
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,16 +16,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-func _on_start_pressed():
-	get_tree().change_scene_to_file(("res://tilemaps/floor 1/LimbustFloor.tscn"))
-	print("reached")
-
-
-func _on_options_pressed():
-	pass # Replace with function body.
-
-
-func _on_exit_pressed():
-	get_tree().quit()
