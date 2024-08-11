@@ -33,7 +33,7 @@ const tileTypeKey = { # Likely will have to be tweaked per level
 }
 
 
-signal give_start_coords(starting_coords_global: Vector2, current_level)
+signal give_start_coords(starting_coords_global: Vector2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
