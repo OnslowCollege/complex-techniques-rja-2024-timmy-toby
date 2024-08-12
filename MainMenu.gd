@@ -3,6 +3,7 @@ extends Control
 const position_save_path = "res://Game/position.save"
 
 var current_position: Vector2
+var ignore_tile_effect: Array = [Vector2(1, 1)]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,6 +29,7 @@ func _on_options_pressed():
 func _on_exit_pressed():
 	get_tree().quit()
 
-func saveposition(): # Actually moronic solution, position is saved 
+func saveposition():
 	var file = FileAccess.open(position_save_path, FileAccess.WRITE)
 	file.store_var(current_position)
+	file.store_var(ignore_tile_effect)

@@ -4,6 +4,7 @@ extends Control
 
 ## Relevant to position
 var current_position
+var ignore_tile_effect
 
 ## Related to players saved stats
 var player_class: String
@@ -33,11 +34,12 @@ func _input(event):
 			find_next_level()
 		"Enemy":
 			print("Enemy")
-			
+			find_next_level()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	loadcombat()
+	loadposition()
 	print(bosses_killed, "onready")
 
 
@@ -51,11 +53,13 @@ func find_next_level():
 			bosses_killed += 1
 			print(bosses_killed, " Bosses killed")
 			savecombat()
-			match bosses_killed:
+			match bosses_killed: ## Probably more appropriate to have these just assign to a variable for flexibility
 				1:
 					get_tree().change_scene_to_file("res://tilemaps/floor 1/LimbustFloor.tscn")
 				2:
 					get_tree().change_scene_to_file("res://tilemaps/floor 2/GleedFloor.tscn")
+					current_position = Vector2(1, 1)
+					saveposition()
 		"Enemy": 
 			match bosses_killed:
 				1: # Conviniently, you can't fight any enemies before killing at least one boss
@@ -103,9 +107,11 @@ func loadcombat():
 func saveposition():
 	var file = FileAccess.open(position_save_path, FileAccess.WRITE)
 	file.store_var(current_position)
+	file.store_var(ignore_tile_effect)
 
 func loadposition():
 	if FileAccess.file_exists(position_save_path):
 		var file = FileAccess.open(position_save_path, FileAccess.READ)
 		current_position = file.get_var()
+		ignore_tile_effect = file.get_var()
 

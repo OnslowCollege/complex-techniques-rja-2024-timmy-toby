@@ -2,13 +2,12 @@ extends Area2D
 
 ## Signals
 signal new_position(current_position)
-signal step
 
 ## Related to players position
 var previous_position = Vector2(0, 0)
 @export var current_position = Vector2(0, 0)
 @export var step_size: int = 25
-var ignore_tile_effect: Array[Vector2] # Keeps player from using tiles they've already been on
+var ignore_tile_effect: Array = [Vector2(1, 1)] # Keeps player from using tiles they've already been on
 
 ## Related to players saved stats
 var player_class: String
@@ -29,7 +28,7 @@ const combat_save_path = "res://Game/combat.save"
 
 func _on_floor_0_give_start_coords(starting_coords_global):
 	loadposition()
-	if current_position == Vector2(1, 1): # As 0, 0 classifies as a null instance
+	if current_position == Vector2(1, 1):
 		print(starting_coords_global)
 		previous_position = starting_coords_global
 		current_position = starting_coords_global
@@ -38,17 +37,16 @@ func _on_floor_0_give_start_coords(starting_coords_global):
 		current_position = starting_coords_global
 	else:
 		pass
+
 	self.position = Vector2(current_position[0], current_position[1])
 
 func _ready():
+	saveposition()
 	loadplayer() # initial loading upon scene startup
 	loadcombat()
 
 ## Credit to Coding Quests
 func _input(event):
-	if Input.is_anything_pressed() == true:
-		step.emit()
-	await step
 	previous_position = current_position
 	if event.is_action_pressed("step_up"):
 		print("Up")
@@ -65,6 +63,7 @@ func _input(event):
 	
 	new_position.emit(current_position)
 	self.position = Vector2(current_position[0], current_position[1])
+	print(self.position)
 	saveposition()
 
 
@@ -92,6 +91,7 @@ func _on_floor_0_position_information(moveOptions, currentTileType):
 			else:
 				ignore_tile_effect.append(current_position)
 				enemy_or_boss = currentTileType
+				saveposition()
 				savecombat()
 				print("Fight!!!")
 				get_tree().change_scene_to_file("res://combat.tscn")
@@ -102,6 +102,7 @@ func _on_floor_0_position_information(moveOptions, currentTileType):
 			else:
 				ignore_tile_effect.append(current_position)
 				enemy_or_boss = currentTileType
+				saveposition()
 				savecombat()
 				print("Fight!!!")
 				get_tree().change_scene_to_file("res://combat.tscn")
@@ -116,6 +117,7 @@ func saveplayer():
 	file.store_var(stamina)
 	file.store_var(karma)
 	file.store_var(karma_level)
+
 
 func loadplayer():
 	if FileAccess.file_exists(player_save_path):
@@ -134,6 +136,7 @@ func loadplayer():
 	else:
 		print("No such file")
 
+
 func savecombat():
 	var file = FileAccess.open(combat_save_path, FileAccess.WRITE)
 	file.store_var(enemy_or_boss)
@@ -145,15 +148,22 @@ func loadcombat():
 		var file = FileAccess.open(combat_save_path, FileAccess.READ)
 		enemy_or_boss = file.get_var()
 		bosses_killed = file.get_var()
+	else:
+		print("No such file")
 
 
 func saveposition():
 	var file = FileAccess.open(position_save_path, FileAccess.WRITE)
 	file.store_var(current_position)
+	file.store_var(ignore_tile_effect)
+
 
 func loadposition():
 	if FileAccess.file_exists(position_save_path):
 		var file = FileAccess.open(position_save_path, FileAccess.READ)
 		current_position = file.get_var()
+		ignore_tile_effect = file.get_var()
+	else:
+		print("No such file")
 
 
