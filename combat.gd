@@ -59,6 +59,7 @@ func find_next_level():
 				2:
 					get_tree().change_scene_to_file("res://tilemaps/floor 2/GleedFloor.tscn")
 					current_position = Vector2(1, 1)
+					ignore_tile_effect = [Vector2(1, 1)]
 					saveposition()
 		"Enemy": 
 			match bosses_killed:
