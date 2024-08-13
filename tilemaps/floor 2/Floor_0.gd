@@ -2,6 +2,7 @@ extends TileMap
 
 signal floor_information
 signal position_information(moveOptions, currentTileType)
+signal give_start_coords(starting_coords_global: Vector2)
 
 ## Related to floor actions on startup
 ## Set starting coords for this tilemap here
@@ -26,14 +27,12 @@ var currentTileID
 var currentTileType
 const tileTypeKey = { # Likely will have to be tweaked per level
 	0 : "Start",
-	3 : "Boss",
-	4 : "Enemy",
-	5 : "Bonfire",
-	6 : "Lore",
+	1 : "Lore",
+	2 : "Enemy",
+	3 : "Bonfire",
+	4 : "Boss",
 }
 
-
-signal give_start_coords(starting_coords_global: Vector2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
