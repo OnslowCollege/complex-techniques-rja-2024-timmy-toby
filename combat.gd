@@ -4,6 +4,7 @@ extends Control
 ## Relevant to position
 var current_position
 var ignore_tile_effect
+var next_level
 
 ## Related to players saved stats
 var player_class: String
@@ -29,8 +30,7 @@ signal textbox_closed
 ## Combat functionality
 
 func _input(event):
-	## Level functionality
-	if Input.is_anything_pressed() == true && battle_over == true:
+	if Input.is_action_just_pressed("debug_win_button") || battle_over == true:
 		exit_victory_screen.emit()
 	else:
 		if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $MarginContainer/Dialoguebox.visible:
@@ -44,7 +44,7 @@ func _input(event):
 		"Enemy":
 			print("Enemy Find next")
 			find_next_level()
-	## Combat functionality
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -70,29 +70,79 @@ func find_next_level():
 	## Level functionality
 	match enemy_or_boss:
 		"Boss":
-			print("Boss option reached")
 			bosses_killed += 1
-			print(bosses_killed, " Bosses killed")
 			savecombat()
-			match bosses_killed: ## Probably more appropriate to have these just assign to a variable for flexibility
-				1:
-					get_tree().change_scene_to_file("res://tilemaps/floor 1/LimbustFloor.tscn")
-				2:
-					get_tree().change_scene_to_file("res://tilemaps/floor 2/GleedFloor.tscn")
-					current_position = Vector2(1, 1)
-					ignore_tile_effect = [Vector2(1, 1)]
-					saveposition()
-		"Enemy": 
-			print("Enemy option reached")
-			match bosses_killed:
-				1: # Conviniently, you can't fight any enemies before killing at least one boss
-					print("Enemy reached 1")
-					get_tree().change_scene_to_file("res://tilemaps/floor 1/LimbustFloor.tscn")
-				2:
-					print("Enemy reached 2")
-					get_tree().change_scene_to_file("res://tilemaps/floor 2/GleedFloor.tscn")
-				_:
-					print(bosses_killed)
+			print(bosses_killed, " Bosses killed")
+			print("Boss option reached")
+		"Enemy":
+			pass
+	match bosses_killed:
+		1:
+			next_level = "Limbust"
+		2:
+			next_level = "Gleed"
+			current_position = Vector2(1, 1)
+			ignore_tile_effect = [Vector2(1, 1)]
+			saveposition()
+		3:
+			next_level = "Wreresy"
+			current_position = Vector2(1, 1)
+			ignore_tile_effect = [Vector2(1, 1)]
+			saveposition()
+		4:
+			next_level = "Vraud"
+			current_position = Vector2(1, 1)
+			ignore_tile_effect = [Vector2(1, 1)]
+			saveposition()
+		5:
+			next_level = "Treachery"
+			current_position = Vector2(1, 1)
+			ignore_tile_effect = [Vector2(1, 1)]
+			saveposition()
+			
+	match next_level:
+		"Limbust":
+			get_tree().change_scene_to_file("res://tilemaps/floor 1/LimbustFloor.tscn")
+		"Gleed":
+			get_tree().change_scene_to_file("res://tilemaps/floor 2/GleedFloor.tscn")
+		"Wreresy":
+			get_tree().change_scene_to_file("res://tilemaps/floor 3/Wreresy.tscn")
+		"Vraud":
+			get_tree().change_scene_to_file("res://tilemaps/floor 4/Vraud.tscn")
+		"Treachery":
+			get_tree().change_scene_to_file("res://tilemaps/floor 5/Treachery.tscn")
+
+#			print("Boss option reached")
+#			bosses_killed += 1
+#			print(bosses_killed, " Bosses killed")
+#			savecombat()
+#			match bosses_killed: ## Probably more appropriate to have these just assign to a variable for flexibility
+#				1:
+#					next_level = "Limbust"
+#					get_tree().change_scene_to_file("res://tilemaps/floor 1/LimbustFloor.tscn")
+#				2:
+#					next_level = "Gleed"
+#					get_tree().change_scene_to_file("res://tilemaps/floor 2/GleedFloor.tscn")
+#					current_position = Vector2(1, 1)
+#					ignore_tile_effect = [Vector2(1, 1)]
+#					saveposition()
+#				3:
+#					next_level = "Vreresy"
+#				4:
+#					next_level = "Vraud"
+#				5:
+#					next_level = "Treachery"
+#		"Enemy": 
+#			print("Enemy option reached")
+#			match bosses_killed:
+#				1: # Conviniently, you can't fight any enemies before killing at least one boss
+#					print("Enemy reached 1")
+#					get_tree().change_scene_to_file("res://tilemaps/floor 1/LimbustFloor.tscn")
+#				2:
+#					print("Enemy reached 2")
+#					get_tree().change_scene_to_file("res://tilemaps/floor 2/GleedFloor.tscn")
+#				_:
+#					print(bosses_killed)
 	
 	## Combat functionality
 
