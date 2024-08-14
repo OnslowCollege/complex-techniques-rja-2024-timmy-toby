@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://b26rwhud0dbuo"]
 
 [ext_resource type="Script" path="res://combat.gd" id="1_66u5g"]
-[ext_resource type="Texture2D" uid="uid://bfpwyiirx1gs6" path="res://tilemaps/floor 2/Jensen_Ackles.webp" id="2_2sixm"]
-[ext_resource type="FontFile" uid="uid://dq7aacpd0f72o" path="res://art/NESCyrillic.ttf" id="3_j33ip"]
-[ext_resource type="Texture2D" uid="uid://dm7qe5wtg7hdb" path="res://tilemaps/floor 2/Screenshot 2024-08-04 231532.png" id="3_vpj1t"]
+[ext_resource type="Texture2D" path="res://tilemaps/floor 2/Jensen_Ackles.webp" id="2_2sixm"]
+[ext_resource type="FontFile" path="res://art/NESCyrillic.ttf" id="3_j33ip"]
+[ext_resource type="Texture2D" path="res://tilemaps/floor 2/Screenshot 2024-08-04 231532.png" id="3_vpj1t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b80b5"]
 bg_color = Color(0.870588, 0, 0, 1)
