@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://rp71h32tua34"]
+
+[ext_resource type="Texture2D" uid="uid://cmphn3evldpil" path="res://character/Warrior/Warrior front_view.png" id="1_57apd"]
+[ext_resource type="FontFile" uid="uid://bd1yqlqefl5ng" path="res://fonts/Mountain king/MountainKingRegular-woBYn.ttf" id="1_jghhm"]
+[ext_resource type="Texture2D" uid="uid://d3rroux044ibk" path="res://character/Mage/Mage front_view.png" id="2_e6ucf"]
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 11.0
+offset_right = 32.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 109.0
+offset_top = 24.0
+offset_right = 387.0
+offset_bottom = 59.0
+scale = Vector2(0.05, 0.05)
+theme_override_fonts/font = ExtResource("1_jghhm")
+theme_override_font_sizes/font_size = 800
+text = "Choose your character!
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 0
+offset_left = 160.0
+offset_top = 122.0
+offset_right = 471.0
+offset_bottom = 292.0
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer"]
+texture = ExtResource("2_e6ucf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="HBoxContainer"]
+position = Vector2(96, 0)
+texture = ExtResource("1_57apd")
