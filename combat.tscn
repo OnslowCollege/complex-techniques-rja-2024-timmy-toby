@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b26rwhud0dbuo"]
+[gd_scene load_steps=13 format=3 uid="uid://b26rwhud0dbuo"]
 
 [ext_resource type="Script" path="res://combat.gd" id="1_66u5g"]
 [ext_resource type="Texture2D" uid="uid://bfpwyiirx1gs6" path="res://art/Jensen_Ackles.webp" id="2_2sixm"]
 [ext_resource type="FontFile" uid="uid://dq7aacpd0f72o" path="res://art/NESCyrillic.ttf" id="3_j33ip"]
 [ext_resource type="Texture2D" uid="uid://dm7qe5wtg7hdb" path="res://art/Screenshot 2024-08-04 231532.png" id="3_vpj1t"]
+[ext_resource type="Script" path="res://Act1.gd" id="5_6u5j3"]
 [ext_resource type="FontFile" uid="uid://8sogtswtibr3" path="res://art/Adventurer.ttf" id="5_uev22"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b80b5"]
@@ -227,6 +228,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_h6ek0")
 text = "Act"
+script = ExtResource("5_6u5j3")
 
 [node name="Act2" type="Button" parent="ActionPanel/ActionMargin/ActionHbox"]
 texture_filter = 1
@@ -324,3 +326,5 @@ size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("5_uev22")
 theme_override_font_sizes/font_size = 16
 text = ">"
+
+[connection signal="pressed" from="ActionPanel/ActionMargin/ActionHbox/Act1" to="." method="_on_act_1_pressed"]

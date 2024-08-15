@@ -163,5 +163,3 @@ func loadposition():
 		ignore_tile_effect = file.get_var()
 	else:
 		print("No such file")
-
-

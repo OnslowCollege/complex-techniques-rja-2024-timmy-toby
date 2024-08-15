@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm5bx80tgv07w"
-path="res://.godot/imported/VreresyFloor.png-bc591886bf0c359da724d07961da9853.ctex"
+uid="uid://dyxgs1vpqi7xm"
+path="res://.godot/imported/tileset.png-ca11face22a62aa22cf2f5ae6b957f4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemaps/floor 3/VreresyFloor.png"
-dest_files=["res://.godot/imported/VreresyFloor.png-bc591886bf0c359da724d07961da9853.ctex"]
+source_file="res://tilemaps/floor_5/tileset.png"
+dest_files=["res://.godot/imported/tileset.png-ca11face22a62aa22cf2f5ae6b957f4a.ctex"]
 
 [params]
 

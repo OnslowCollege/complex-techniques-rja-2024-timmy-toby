@@ -30,7 +30,7 @@ signal textbox_closed
 ## Combat functionality
 
 func _input(event):
-	if Input.is_action_just_pressed("debug_win_button") || battle_over == true:
+	if battle_over == true:
 		exit_victory_screen.emit()
 	else:
 		if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $MarginContainer/Dialoguebox.visible:
@@ -39,7 +39,7 @@ func _input(event):
 	await exit_victory_screen
 	match enemy_or_boss:
 		"Boss":
-			print("Boss")	
+			print("Boss")
 			find_next_level()
 		"Enemy":
 			print("Enemy Find next")
@@ -99,18 +99,30 @@ func find_next_level():
 			current_position = Vector2(1, 1)
 			ignore_tile_effect = [Vector2(1, 1)]
 			saveposition()
-			
-	match next_level:
-		"Limbust":
-			get_tree().change_scene_to_file("res://tilemaps/floor 1/LimbustFloor.tscn")
-		"Gleed":
-			get_tree().change_scene_to_file("res://tilemaps/floor 2/GleedFloor.tscn")
-		"Wreresy":
-			get_tree().change_scene_to_file("res://tilemaps/floor 3/Wreresy.tscn")
-		"Vraud":
-			get_tree().change_scene_to_file("res://tilemaps/floor 4/Vraud.tscn")
-		"Treachery":
-			get_tree().change_scene_to_file("res://tilemaps/floor 5/Treachery.tscn")
+		_:
+			next_level = "Missed"
+	if next_level == "Limbust":
+		print(next_level)
+		get_tree().change_scene_to_file("res://tilemaps/floor 1/Limbust.tscn")
+		print("Send to ", next_level)
+	elif next_level == "Gleed":
+		print(next_level)
+		get_tree().change_scene_to_file("res://tilemaps/floor 2/Gleed.tscn")
+		print("Send to ", next_level)
+	elif next_level == "Wreresy":
+		print(next_level)
+		get_tree().change_scene_to_file("res://tilemaps/floor 3/Wreresy.tscn")
+		print("Send to ", next_level)
+	elif next_level == "Vraud":
+		print(next_level)
+		get_tree().change_scene_to_file("res://tilemaps/floor 4/Vraud.tscn")
+		print("Send to ", next_level)
+	elif next_level == "Treachery":
+		print(next_level)
+		get_tree().change_scene_to_file("res://tilemaps/floor 5/Treachery.tscn")
+		print("Send to ", next_level)
+	else:
+		print(next_level)
 
 #			print("Boss option reached")
 #			bosses_killed += 1
@@ -204,3 +216,6 @@ func loadposition():
 		current_position = file.get_var()
 		ignore_tile_effect = file.get_var()
 
+
+func _on_act_1_pressed():
+	exit_victory_screen.emit()
