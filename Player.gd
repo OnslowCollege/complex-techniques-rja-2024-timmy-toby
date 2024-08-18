@@ -78,9 +78,7 @@ func _on_floor_0_position_information(moveOptions, currentTileType):
 	
 	match currentTileType:
 		"Start":
-			bosses_killed = 0
-			savecombat()
-			print("Cleared")
+			pass
 		"Bonfire":
 			print("Restore health")
 		"Lore":
@@ -165,5 +163,3 @@ func loadposition():
 		ignore_tile_effect = file.get_var()
 	else:
 		print("No such file")
-
-
