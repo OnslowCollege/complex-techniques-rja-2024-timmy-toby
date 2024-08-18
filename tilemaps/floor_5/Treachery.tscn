@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://ceev8uwwxdxs8"]
 
-[ext_resource type="PackedScene" path="res://tilemaps/floor 5/Walls_0.tscn" id="0"]
-[ext_resource type="PackedScene" path="res://tilemaps/floor 5/floor_1.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://tilemaps/floor_5/Walls_0.tscn" id="0"]
+[ext_resource type="PackedScene" path="res://tilemaps/floor_5/floor_1.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://xpf8jacsm1ps" path="res://Player.tscn" id="3_1sce4"]
-[ext_resource type="Script" path="res://tilemaps/floor 5/floor_1.gd" id="3_423tg"]
+[ext_resource type="Script" path="res://tilemaps/floor_5/floor_1.gd" id="3_423tg"]
 
 [node name="Gender treachery" type="Node2D"]
 

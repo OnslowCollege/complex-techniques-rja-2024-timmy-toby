@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8u4eqas3v2p8"]
 
-[ext_resource type="PackedScene" path="res://tilemaps/floor 2/Walls_1.tscn" id="1_0m3j8"]
-[ext_resource type="PackedScene" path="res://tilemaps/floor 2/Floor_0.tscn" id="2_xea3v"]
-[ext_resource type="Script" path="res://tilemaps/floor 2/Floor_0.gd" id="3_j1hay"]
+[ext_resource type="PackedScene" path="res://tilemaps/floor_2/Walls_1.tscn" id="1_0m3j8"]
+[ext_resource type="PackedScene" path="res://tilemaps/floor_2/Floor_0.tscn" id="2_xea3v"]
+[ext_resource type="Script" path="res://tilemaps/floor_2/Floor_0.gd" id="3_j1hay"]
 [ext_resource type="PackedScene" uid="uid://xpf8jacsm1ps" path="res://Player.tscn" id="4_0pxye"]
 
 [node name="map" type="Node2D"]

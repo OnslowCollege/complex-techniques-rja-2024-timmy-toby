@@ -35,7 +35,7 @@ func _on_start_pressed():
 	current_position = Vector2(1, 1)
 	ignore_tile_effect = [Vector2(1, 1)]
 	saveposition()
-	get_tree().change_scene_to_file("res://tilemaps/floor 1/Limbust.tscn")
+	get_tree().change_scene_to_file("res://tilemaps/floor_1/Limbust.tscn")
 	bosses_killed = 0
 	savecombat()
 	print("Cleared")

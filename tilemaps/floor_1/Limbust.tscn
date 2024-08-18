@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsid3db82nx3c"]
 
-[ext_resource type="PackedScene" path="res://tilemaps/floor 1/Walls_1.tscn" id="1_nw0kg"]
-[ext_resource type="PackedScene" path="res://tilemaps/floor 1/Floor_0.tscn" id="2_mtpi5"]
-[ext_resource type="Script" path="res://tilemaps/floor 1/Floor_0.gd" id="3_07mng"]
+[ext_resource type="PackedScene" path="res://tilemaps/floor_1/Walls_1.tscn" id="1_nw0kg"]
+[ext_resource type="PackedScene" path="res://tilemaps/floor_1/Floor_0.tscn" id="2_mtpi5"]
+[ext_resource type="Script" path="res://tilemaps/floor_1/Floor_0.gd" id="3_07mng"]
 [ext_resource type="PackedScene" uid="uid://xpf8jacsm1ps" path="res://Player.tscn" id="4_vlf6l"]
 
 [node name="Limbust" type="Node2D"]

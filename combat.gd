@@ -37,13 +37,6 @@ func _input(event):
 			$MarginContainer/Dialoguebox.hide()
 			textbox_closed.emit()
 	await exit_victory_screen
-	match enemy_or_boss:
-		"Boss":
-			print("Boss")
-			find_next_level()
-		"Enemy":
-			print("Enemy Find next")
-			find_next_level()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -103,23 +96,23 @@ func find_next_level():
 			next_level = "Missed"
 	if next_level == "Limbust":
 		print(next_level)
-		get_tree().change_scene_to_file("res://tilemaps/floor 1/Limbust.tscn")
+		get_tree().change_scene_to_file("res://tilemaps/floor_1/Limbust.tscn")
 		print("Send to ", next_level)
 	elif next_level == "Gleed":
 		print(next_level)
-		get_tree().change_scene_to_file("res://tilemaps/floor 2/Gleed.tscn")
+		get_tree().change_scene_to_file("res://tilemaps/floor_2/Gleed.tscn")
 		print("Send to ", next_level)
 	elif next_level == "Wreresy":
 		print(next_level)
-		get_tree().change_scene_to_file("res://tilemaps/floor 3/Wreresy.tscn")
+		get_tree().change_scene_to_file("res://tilemaps/floor_3/Wreresy.tscn")
 		print("Send to ", next_level)
 	elif next_level == "Vraud":
 		print(next_level)
-		get_tree().change_scene_to_file("res://tilemaps/floor 4/Vraud.tscn")
+		get_tree().change_scene_to_file("res://tilemaps/floor_4/Vraud.tscn")
 		print("Send to ", next_level)
 	elif next_level == "Treachery":
 		print(next_level)
-		get_tree().change_scene_to_file("res://tilemaps/floor 5/Treachery.tscn")
+		get_tree().change_scene_to_file("res://tilemaps/floor_5/Treachery.tscn")
 		print("Send to ", next_level)
 	else:
 		print(next_level)
@@ -218,4 +211,12 @@ func loadposition():
 
 
 func _on_act_1_pressed():
+	## Eventually transfer this functionality over to the eventual continue button.
 	exit_victory_screen.emit()
+	match enemy_or_boss:
+		"Boss":
+			print("Boss")
+			find_next_level()
+		"Enemy":
+			print("Enemy Find next")
+			find_next_level()

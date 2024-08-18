@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxn2wx6mb765b"]
 
-[ext_resource type="PackedScene" path="res://tilemaps/floor 4/Floor_0.tscn" id="0"]
-[ext_resource type="PackedScene" path="res://tilemaps/floor 4/Walls_1.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://tilemaps/floor_4/Floor_0.tscn" id="0"]
+[ext_resource type="PackedScene" path="res://tilemaps/floor_4/Walls_1.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://xpf8jacsm1ps" path="res://Player.tscn" id="3_hc66o"]
-[ext_resource type="Script" path="res://tilemaps/floor 4/Floor_0.gd" id="3_rpuf6"]
+[ext_resource type="Script" path="res://tilemaps/floor_4/Floor_0.gd" id="3_rpuf6"]
 
 [node name="Viraud" type="Node2D"]
 
