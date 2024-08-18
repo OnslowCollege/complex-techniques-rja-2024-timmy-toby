@@ -56,10 +56,9 @@ offset_bottom = 283.0
 
 [node name="Paladin" type="Button" parent="Control_Paladin"]
 layout_mode = 2
-offset_left = -3.0
-offset_top = -2.0
-offset_right = 105.0
-offset_bottom = 106.0
+offset_left = -6.0
+offset_right = 102.0
+offset_bottom = 108.0
 tooltip_text = "Paladin
 "
 icon = ExtResource("5_fxaj1")
@@ -87,8 +86,8 @@ offset_bottom = 285.0
 
 [node name="Acolyte" type="Button" parent="Control_acolyte"]
 layout_mode = 2
-offset_left = -9.0
-offset_right = 99.0
+offset_left = -11.0
+offset_right = 97.0
 offset_bottom = 108.0
 icon = ExtResource("3_ei6er")
 
@@ -114,10 +113,8 @@ offset_bottom = 283.0
 
 [node name="Mage" type="Button" parent="Control_Mage"]
 layout_mode = 2
-offset_left = 4.0
-offset_top = -2.0
-offset_right = 112.0
-offset_bottom = 106.0
+offset_right = 108.0
+offset_bottom = 108.0
 icon = ExtResource("2_e6ucf")
 
 [node name="Mage_label" type="Label" parent="Control_Mage"]
@@ -143,8 +140,8 @@ offset_bottom = 283.0
 
 [node name="Performer" type="Button" parent="Control_performer"]
 layout_mode = 2
-offset_left = -1.0
-offset_right = 107.0
+offset_left = -4.0
+offset_right = 104.0
 offset_bottom = 108.0
 icon = ExtResource("6_st3l2")
 
@@ -171,8 +168,8 @@ offset_bottom = 283.0
 
 [node name="Warrior" type="Button" parent="Control_warrior"]
 layout_mode = 2
-offset_left = 1.0
-offset_right = 109.0
+offset_left = -1.0
+offset_right = 107.0
 offset_bottom = 108.0
 icon = ExtResource("1_57apd")
 
@@ -191,16 +188,26 @@ High damage"
 
 [connection signal="mouse_entered" from="Control_Paladin" to="." method="_on_control_paladin_mouse_entered"]
 [connection signal="mouse_exited" from="Control_Paladin" to="." method="_on_control_paladin_mouse_exited"]
+[connection signal="mouse_entered" from="Control_Paladin/Paladin" to="." method="_on_paladin_mouse_entered"]
+[connection signal="mouse_exited" from="Control_Paladin/Paladin" to="." method="_on_paladin_mouse_exited"]
 [connection signal="pressed" from="Control_Paladin/Paladin" to="." method="_on_paladin_pressed"]
 [connection signal="mouse_entered" from="Control_acolyte" to="." method="_on_control_acolyte_mouse_entered"]
 [connection signal="mouse_exited" from="Control_acolyte" to="." method="_on_control_acolyte_mouse_exited"]
+[connection signal="mouse_entered" from="Control_acolyte/Acolyte" to="." method="_on_acolyte_mouse_entered"]
+[connection signal="mouse_exited" from="Control_acolyte/Acolyte" to="." method="_on_acolyte_mouse_exited"]
 [connection signal="pressed" from="Control_acolyte/Acolyte" to="." method="_on_acolyte_pressed"]
 [connection signal="mouse_entered" from="Control_Mage" to="." method="_on_control_mage_mouse_entered"]
 [connection signal="mouse_exited" from="Control_Mage" to="." method="_on_control_mage_mouse_exited"]
+[connection signal="mouse_entered" from="Control_Mage/Mage" to="." method="_on_mage_mouse_entered"]
+[connection signal="mouse_exited" from="Control_Mage/Mage" to="." method="_on_mage_mouse_exited"]
 [connection signal="pressed" from="Control_Mage/Mage" to="." method="_on_mage_pressed"]
 [connection signal="mouse_entered" from="Control_performer" to="." method="_on_control_performer_mouse_entered"]
 [connection signal="mouse_exited" from="Control_performer" to="." method="_on_control_performer_mouse_exited"]
+[connection signal="mouse_entered" from="Control_performer/Performer" to="." method="_on_performer_mouse_entered"]
+[connection signal="mouse_exited" from="Control_performer/Performer" to="." method="_on_performer_mouse_exited"]
 [connection signal="pressed" from="Control_performer/Performer" to="." method="_on_performer_pressed"]
 [connection signal="mouse_entered" from="Control_warrior" to="." method="_on_control_warrior_mouse_entered"]
 [connection signal="mouse_exited" from="Control_warrior" to="." method="_on_control_warrior_mouse_exited"]
+[connection signal="mouse_entered" from="Control_warrior/Warrior" to="." method="_on_warrior_mouse_entered"]
+[connection signal="mouse_exited" from="Control_warrior/Warrior" to="." method="_on_warrior_mouse_exited"]
 [connection signal="pressed" from="Control_warrior/Warrior" to="." method="_on_warrior_pressed"]
