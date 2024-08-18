@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://ca58vk5x1e12n"
-=======
-uid="uid://di5fthlpyhw3u"
->>>>>>> Stashed changes
-path="res://.godot/imported/Background.png-f9a72b86ae7510fae4437c7dbeec9bbd.ctex"
+uid="uid://d3rroux044ibk"
+path="res://.godot/imported/Mage front_view.png-604dcfe004f1b75b23e8abbde6b43c81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HUD elements/Background.png"
-dest_files=["res://.godot/imported/Background.png-f9a72b86ae7510fae4437c7dbeec9bbd.ctex"]
+source_file="res://character/Mage/Mage front_view.png"
+dest_files=["res://.godot/imported/Mage front_view.png-604dcfe004f1b75b23e8abbde6b43c81.ctex"]
 
 [params]
 

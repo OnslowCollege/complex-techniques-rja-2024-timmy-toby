@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://ca58vk5x1e12n"
-=======
-uid="uid://di5fthlpyhw3u"
->>>>>>> Stashed changes
-path="res://.godot/imported/Background.png-f9a72b86ae7510fae4437c7dbeec9bbd.ctex"
+uid="uid://bspoep5ypp2vk"
+path="res://.godot/imported/Performer back_view.png-9cc10ccdbac5c44cfb7993d51153184c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HUD elements/Background.png"
-dest_files=["res://.godot/imported/Background.png-f9a72b86ae7510fae4437c7dbeec9bbd.ctex"]
+source_file="res://character/Performer/Performer back_view.png"
+dest_files=["res://.godot/imported/Performer back_view.png-9cc10ccdbac5c44cfb7993d51153184c.ctex"]
 
 [params]
 

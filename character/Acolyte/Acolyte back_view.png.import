@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://ca58vk5x1e12n"
-=======
-uid="uid://di5fthlpyhw3u"
->>>>>>> Stashed changes
-path="res://.godot/imported/Background.png-f9a72b86ae7510fae4437c7dbeec9bbd.ctex"
+uid="uid://c37hmfy0b0vvo"
+path="res://.godot/imported/Acolyte back_view.png-7d8c1859a8584a06f46c549fc329694a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HUD elements/Background.png"
-dest_files=["res://.godot/imported/Background.png-f9a72b86ae7510fae4437c7dbeec9bbd.ctex"]
+source_file="res://character/Acolyte/Acolyte back_view.png"
+dest_files=["res://.godot/imported/Acolyte back_view.png-7d8c1859a8584a06f46c549fc329694a.ctex"]
 
 [params]
 
