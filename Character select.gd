@@ -63,7 +63,7 @@ func _on_performer_pressed():
 
 func _on_warrior_pressed():
 	player_class = "Warrior"
-	health = 100
+	health = 80
 	stamina = 125
 	karma = 0
 	karma_level = 0
