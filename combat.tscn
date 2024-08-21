@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b26rwhud0dbuo"]
+[gd_scene load_steps=12 format=3 uid="uid://b26rwhud0dbuo"]
 
 [ext_resource type="Script" path="res://combat.gd" id="1_66u5g"]
 [ext_resource type="Texture2D" uid="uid://bfpwyiirx1gs6" path="res://art/Jensen_Ackles.webp" id="2_2sixm"]
-[ext_resource type="FontFile" uid="uid://dq7aacpd0f72o" path="res://art/NESCyrillic.ttf" id="3_j33ip"]
 [ext_resource type="Texture2D" uid="uid://dm7qe5wtg7hdb" path="res://art/Screenshot 2024-08-04 231532.png" id="3_vpj1t"]
 [ext_resource type="Script" path="res://Act1.gd" id="5_6u5j3"]
-[ext_resource type="FontFile" uid="uid://8sogtswtibr3" path="res://art/Adventurer.ttf" id="5_uev22"]
+[ext_resource type="FontFile" uid="uid://bd1yqlqefl5ng" path="res://fonts/Mountain king/MountainKingRegular-woBYn.ttf" id="5_dvgel"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b80b5"]
 bg_color = Color(0.870588, 0, 0, 1)
@@ -51,25 +50,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_66u5g")
 
-[node name="VictoryContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -33.0
-offset_right = 33.0
-offset_bottom = 23.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="VictoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "You win!
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -114,7 +94,7 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -153,10 +133,10 @@ theme_override_constants/margin_right = 20
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="PlayerPanel/PlayerMargin/PlayerDataHbox"]
+[node name="Playerlabel" type="Label" parent="PlayerPanel/PlayerMargin/PlayerDataHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 24
 text = "Player"
 horizontal_alignment = 1
@@ -173,7 +153,7 @@ value = 50.0
 rounded = true
 show_percentage = false
 
-[node name="Label" type="Label" parent="PlayerPanel/PlayerMargin/PlayerDataHbox/ProgressBar"]
+[node name="Playerhealth" type="Label" parent="PlayerPanel/PlayerMargin/PlayerDataHbox/ProgressBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -183,7 +163,7 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -222,7 +202,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
@@ -240,7 +220,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
@@ -257,7 +237,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
@@ -274,7 +254,7 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
@@ -313,8 +293,8 @@ texture_filter = 1
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("5_uev22")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("5_dvgel")
+theme_override_font_sizes/font_size = 20
 text = "IS THAT JENSEN ACKLES??!?!?!?!"
 autowrap_mode = 2
 
@@ -323,8 +303,29 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("5_uev22")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("5_dvgel")
+theme_override_font_sizes/font_size = 20
 text = ">"
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_top = -104.0
+offset_right = -21.0
+offset_bottom = -67.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_dvgel")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h6ek0")
+text = "Flee"
 
 [connection signal="pressed" from="ActionPanel/ActionMargin/ActionHbox/Act1" to="." method="_on_act_1_pressed"]

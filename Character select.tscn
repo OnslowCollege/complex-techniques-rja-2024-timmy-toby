@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://rp71h32tua34"]
+[gd_scene load_steps=9 format=3 uid="uid://s7i6orrlgrlx"]
 
 [ext_resource type="Texture2D" uid="uid://cmphn3evldpil" path="res://character/Warrior/Warrior front_view.png" id="1_57apd"]
 [ext_resource type="FontFile" uid="uid://bd1yqlqefl5ng" path="res://fonts/Mountain king/MountainKingRegular-woBYn.ttf" id="1_jghhm"]
