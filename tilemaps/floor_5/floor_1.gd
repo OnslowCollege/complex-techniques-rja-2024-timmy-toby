@@ -6,7 +6,7 @@ signal give_start_coords(starting_coords_global: Vector2)
 
 ## Related to floor actions on startup
 ## Set starting coords for this tilemap here
-@export var starting_coords_tilemap = Vector2i(6, 1)
+@export var starting_coords_tilemap = Vector2i(1, 1)
 ## Related to converting tilemap coordinates to world/pixel coordinates
 @export var starting_coords_local: Vector2 = map_to_local(starting_coords_tilemap)
 var starting_coords_global: Vector2 = to_global(starting_coords_local) 

@@ -77,20 +77,20 @@ func find_next_level():
 			next_level = "Limbust"
 		2:
 			next_level = "Gleed"
-			current_position = Vector2(1, 1)
-			ignore_tile_effect = [Vector2(1, 1)]
+			PositionVariables.current_position = Vector2(1, 1)
+			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		3:
 			next_level = "Wreresy"
-			current_position = Vector2(1, 1)
-			ignore_tile_effect = [Vector2(1, 1)]
+			PositionVariables.current_position = Vector2(1, 1)
+			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		4:
 			next_level = "Vraud"
-			current_position = Vector2(1, 1)
-			ignore_tile_effect = [Vector2(1, 1)]
+			PositionVariables.current_position = Vector2(1, 1)
+			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		5:
 			next_level = "Treachery"
-			current_position = Vector2(1, 1)
-			ignore_tile_effect = [Vector2(1, 1)]
+			PositionVariables.current_position = Vector2(1, 1)
+			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		_:
 			next_level = "Missed"
 	if next_level == "Limbust":

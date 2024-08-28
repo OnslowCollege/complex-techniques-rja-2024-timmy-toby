@@ -17,3 +17,6 @@ layer_0/tile_data = PackedInt32Array(65537, 12, 0, 131073, 13, 0, 196609, 14, 0,
 script = ExtResource("3_423tg")
 
 [node name="Player" parent="." instance=ExtResource("3_1sce4")]
+
+[connection signal="give_start_coords" from="Damn liberals" to="Player" method="_on_floor_0_give_start_coords"]
+[connection signal="position_information" from="Damn liberals" to="Player" method="_on_floor_0_position_information"]
