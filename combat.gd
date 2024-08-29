@@ -1,42 +1,32 @@
 extends Control
 
-## Level functionality
-## Relevant to position
-var current_position
-var ignore_tile_effect
+## Combat specific variables
 var next_level
+var combat_state
 
-## Related to players saved stats
-# var player_class: String
-# var health: int
-# var stamina: int
-# var karma: int
-# var karma_level: int # to help id the level the player should be returned to.
-# 
-# ## Related to combat
-# var enemy_or_boss: String # ID's the tile so an enemy or boss object can be used
-# var bosses_killed: int # Used for iding current level, since not all levels have one boss on them
-var battle_over: bool = false
-# 
-# ## Path to relevant save file
-# const position_save_path = "res://Game/position.save"
-# const player_save_path = "res://Game/player.save" 
-# const combat_save_path = "res://Game/combat.save"
+var enemy_health: int
+var enemy_damage: int
+var enemy_moveset: Array
+
+## Mockup enemy
+
 
 ## Signals
 signal exit_victory_screen
 signal textbox_closed
 
 ## Combat functionality
+enum COMBAT_STATES {
+	PLAYER,
+	ENEMY,
+	WIN,
+	LOSE,
+}
 
 func _input(event):
-	if battle_over == true:
-		exit_victory_screen.emit()
-	else:
-		if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $MarginContainer/Dialoguebox.visible:
+	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $MarginContainer/Dialoguebox.visible:
 			$MarginContainer/Dialoguebox.hide()
 			textbox_closed.emit()
-	await exit_victory_screen
 
 
 # Called when the node enters the scene tree for the first time.
@@ -53,11 +43,19 @@ func _ready():
 	display_text("IS THAT THE JENSEN ACKLES???")
 	await textbox_closed
 	$ActionPanel.show()
+	
+	# Combat functionality
+	
+	combat_state = COMBAT_STATES.PLAYER
+	
+	## Mockup enemy
+	
+	enemy_health = 50
+	enemy_damage = 12
+	enemy_moveset = []
+	
+	PlayerVariables.health = 100
 
-# func sethealth(progress_bar, max_health, current_health):
-# 	progress_bar.value = health
-# 	progress_bar.max = current_health
-# 	progress_bar.get_node("Playerhealth").text = "HP:%d%d" % [current_health, max_health]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -132,3 +130,57 @@ func _on_act_1_pressed():
 		"Enemy":
 			print("Enemy Find next")
 			find_next_level()
+	$ActionPanel.hide()
+
+func _on_act_2_pressed():
+	
+	$ActionPanel.hide()
+
+func _on_act_3_pressed():
+	
+	$ActionPanel.hide()
+
+func _on_act_4_pressed():
+	
+	$ActionPanel.hide()
+
+func _handle_combat(new_combat_state):
+	# Handle combat is used to chage states between turns, so new combat state will equal combat state.
+	combat_state = new_combat_state
+	
+	match combat_state:
+		COMBAT_STATES.PLAYER:
+			on_player_turn()
+		COMBAT_STATES.ENEMY:
+			on_enemy_turn()
+		COMBAT_STATES.WIN:
+			on_win()
+		COMBAT_STATES.LOSE:
+			on_lose()
+
+func on_player_turn():
+	$ActionPanel.show()
+	
+	match enemy_health:
+		0:
+			_handle_combat(COMBAT_STATES.WIN)
+		_:
+			_handle_combat(COMBAT_STATES.ENEMY)
+
+func on_enemy_turn():
+	
+	match PlayerVariables.health:
+		0:
+			_handle_combat(COMBAT_STATES.LOSE)
+		_:
+			_handle_combat(COMBAT_STATES.PLAYER)
+
+func on_win():
+	pass
+
+func on_lose():
+	pass
+
+
+
+

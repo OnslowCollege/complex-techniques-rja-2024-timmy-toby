@@ -11,47 +11,27 @@ func _ready():
 
 
 func _on_acolyte_pressed():
-	player_class = "Acolyte"
-	health = 100
-	stamina = 100
-	karma = 0
-	karma_level = 0
+	PlayerVariables.Assign_class("Acolyte")
 	# Put scene change here Timmy
 
 
 func _on_mage_pressed():
-	player_class = "Mage"
-	health = 100
-	stamina = 100
-	karma = 0
-	karma_level = 0
+	PlayerVariables.Assign_class("Acolyte")
 	# Put scene change here Timmy
 
 
 func _on_paladin_pressed():
-	player_class = "Paladin"
-	health = 100
-	stamina = 100
-	karma = 0
-	karma_level = 0
+	PlayerVariables.Assign_class("Acolyte")
 	# Put scene change here Timmy
 
 
 func _on_performer_pressed():
-	player_class = "Performer"
-	health = 100
-	stamina = 100
-	karma = 0
-	karma_level = 0
+	PlayerVariables.Assign_class("Acolyte")
 	# Put scene change here Timmy
 
 
 func _on_warrior_pressed():
-	player_class = "Warrior"
-	health = 100
-	stamina = 125
-	karma = 0
-	karma_level = 0
+	PlayerVariables.Assign_class("Acolyte")
 	# Put scene change here Timmy
 
 
