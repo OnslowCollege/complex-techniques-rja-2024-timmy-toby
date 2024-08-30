@@ -4,9 +4,23 @@ extends Control
 var next_level
 var combat_state
 
-var enemy_health: int
+## Fake stat blocks
+# Enemy
+var max_enemy_health: int
+var current_enemy_health: int
 var enemy_damage: int
 var enemy_moveset: Array
+
+# Player
+var max_health: int
+var current_health: int
+var damage: int
+var stamina: int
+var moveset: Array
+
+var karma: int
+var karma_level: int
+
 
 ## Mockup enemy
 
@@ -17,6 +31,7 @@ signal textbox_closed
 
 ## Combat functionality
 enum COMBAT_STATES {
+	START,
 	PLAYER,
 	ENEMY,
 	WIN,
@@ -31,30 +46,29 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	## Level functionality
+	combat_state = COMBAT_STATES.START
 	
-	
-	print(CombatVariables.bosses_killed, "onready")
-	
-	## Combat functionality
-	$MarginContainer/Dialoguebox.hide()
-	$ActionPanel.hide()
-	
-	display_text("IS THAT THE JENSEN ACKLES???")
-	await textbox_closed
-	$ActionPanel.show()
-	
-	# Combat functionality
-	
-	combat_state = COMBAT_STATES.PLAYER
 	
 	## Mockup enemy
 	
-	enemy_health = 50
+	max_enemy_health = 50
+	current_enemy_health = 50
 	enemy_damage = 12
 	enemy_moveset = []
 	
-	PlayerVariables.health = 100
+	## Mockup player
+	
+	max_health = 100
+	current_health = 100
+	damage = 25
+	stamina = 20
+	moveset = []
+	
+	karma = 0
+	karma_level = 0
+	
+	on_hit("Initialize", 0, "Initialize")
+	_handle_combat(COMBAT_STATES.START)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -131,37 +145,68 @@ func _on_act_1_pressed():
 			print("Enemy Find next")
 			find_next_level()
 	$ActionPanel.hide()
+	_handle_combat(COMBAT_STATES.ENEMY)
 
 func _on_act_2_pressed():
 	
 	$ActionPanel.hide()
+	_handle_combat(COMBAT_STATES.ENEMY)
 
 func _on_act_3_pressed():
 	
 	$ActionPanel.hide()
+	_handle_combat(COMBAT_STATES.ENEMY)
 
 func _on_act_4_pressed():
 	
 	$ActionPanel.hide()
+	_handle_combat(COMBAT_STATES.ENEMY)
+
+func on_hit(target, damage, source):
+	match target:
+		"Initialize": # Initial, sets the healthbar
+			# Changing the player healthbar to appropriate values
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.max_value = max_health
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.value = current_health
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar/Playerlabel.text = "HP: %s/%s" % [current_health, max_health]
+			
+			# Changing the enemies healthbar to appropriate values
+			$EnemyContainer/EnemyHealthbar.max_value = max_enemy_health
+			$EnemyContainer/EnemyHealthbar.value = current_enemy_health
+			$EnemyContainer/EnemyHealthbar/EnemyLabel.text = "HP: %s/%s" % [current_enemy_health, max_enemy_health]
+		"Player": # Called during enemies turn
+			pass
+		"Enemy": # Called during players turn
+			pass
 
 func _handle_combat(new_combat_state):
 	# Handle combat is used to chage states between turns, so new combat state will equal combat state.
 	combat_state = new_combat_state
 	
 	match combat_state:
+		COMBAT_STATES.START:
+			print(CombatVariables.bosses_killed, "onready")
+			
+			## Combat functionality
+			$MarginContainer/Dialoguebox.hide()
+			$ActionPanel.hide()
+			
+			display_text("IS THAT THE JENSEN ACKLES???")
+			await textbox_closed
+			$ActionPanel.show()
 		COMBAT_STATES.PLAYER:
 			on_player_turn()
 		COMBAT_STATES.ENEMY:
 			on_enemy_turn()
 		COMBAT_STATES.WIN:
-			on_win()
+			on_win() # Probably redundant
 		COMBAT_STATES.LOSE:
-			on_lose()
+			on_lose() # Probably redundant
 
 func on_player_turn():
 	$ActionPanel.show()
 	
-	match enemy_health:
+	match current_enemy_health:
 		0:
 			_handle_combat(COMBAT_STATES.WIN)
 		_:
@@ -169,7 +214,7 @@ func on_player_turn():
 
 func on_enemy_turn():
 	
-	match PlayerVariables.health:
+	match current_health:
 		0:
 			_handle_combat(COMBAT_STATES.LOSE)
 		_:

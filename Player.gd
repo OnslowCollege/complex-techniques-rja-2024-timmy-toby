@@ -38,7 +38,10 @@ func _on_floor_0_give_start_coords(starting_coords_global):
 	self.position = Vector2(PositionVariables.current_position[0], PositionVariables.current_position[1])
 
 func _ready():
-	pass
+	# Assign sprite based off of player class
+	match PlayerVariables.player_class:
+		"Mage"
+		
 
 ## Credit to Coding Quests
 func _input(event):

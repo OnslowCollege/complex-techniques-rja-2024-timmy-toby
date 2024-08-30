@@ -12,27 +12,27 @@ func _ready():
 
 func _on_acolyte_pressed():
 	PlayerVariables.Assign_class(PlayerVariables.property_key)
-	# Put scene change here Timmy
+	start_game()
 
 
 func _on_mage_pressed():
 	PlayerVariables.Assign_class(PlayerVariables.mage_stats)
-	# Put scene change here Timmy
+	start_game()
 
 
 func _on_paladin_pressed():
 	PlayerVariables.Assign_class(PlayerVariables.property_key)
-	# Put scene change here Timmy
+	start_game()
 
 
 func _on_performer_pressed():
 	PlayerVariables.Assign_class(PlayerVariables.property_key)
-	# Put scene change here Timmy
+	start_game()
 
 
 func _on_warrior_pressed():
 	PlayerVariables.Assign_class(PlayerVariables.property_key)
-	# Put scene change here Timmy
+	start_game()
 
 
 func _on_mage_mouse_entered():
@@ -73,3 +73,6 @@ func _on_paladin_mouse_entered():
 
 func _on_paladin_mouse_exited():
 	$Control_Paladin/Paladin_label.hide()
+
+func start_game():
+	get_tree().change_scene_to_file("res://tilemaps/floor_1/Limbust.tscn")

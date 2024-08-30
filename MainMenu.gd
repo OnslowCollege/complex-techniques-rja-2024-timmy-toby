@@ -34,7 +34,7 @@ func _on_start_pressed():
 	print("reached")
 	PositionVariables.current_position = Vector2(1, 1)
 	PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
-	get_tree().change_scene_to_file("res://tilemaps/floor_1/Limbust.tscn")
+	get_tree().change_scene_to_file("res://Character select.tscn")
 	CombatVariables.bosses_killed = 0
 	print("Cleared")
 

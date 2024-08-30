@@ -6,7 +6,8 @@ extends Node
 # Actual variables
 var player_class: String
 
-var health: int
+var max_health: int
+var current_health: int
 var damage: int
 var stamina: int
 var moveset: Array
@@ -23,7 +24,51 @@ var acolyte_class: Object
 # Stats are held in an array before assignment to the classes themselves.
 const mage_stats: Array = [
 	"Mage", # player_class
-	100, # health
+	100, # max_health
+	25, # damage
+	20, # stamina
+	[], # moveset
+	0, # karma
+	0, # karma_level
+	20, # test
+]
+
+const paladin_stats: Array = [
+	"Paladin", # player_class
+	100, # max_health
+	25, # damage
+	20, # stamina
+	[], # moveset
+	0, # karma
+	0, # karma_level
+	20, # test
+]
+
+const performer_stats: Array = [
+	"Performer", # player_class
+	100, # max_health
+	25, # damage
+	20, # stamina
+	[], # moveset
+	0, # karma
+	0, # karma_level
+	20, # test
+]
+
+const warrior_stats: Array = [
+	"Warrior", # player_class
+	100, # max_health
+	25, # damage
+	20, # stamina
+	[], # moveset
+	0, # karma
+	0, # karma_level
+	20, # test
+]
+
+const acolyte_stats: Array = [
+	"Acolyte", # player_class
+	100, # max_health
 	25, # damage
 	20, # stamina
 	[], # moveset
@@ -35,7 +80,7 @@ const mage_stats: Array = [
 # Used as the input for property names when adding stats to the instances
 const property_key: Array = [
 	"player_class",
-	"health",
+	"max_health",
 	"damage",
 	"stamina",
 	"moveset",
@@ -44,13 +89,12 @@ const property_key: Array = [
 	"test",
 ]
 
-## Stat block classes
-# Theoretically one more improvement could be to export values in the interests of balancing.
+## Class stat block
 
 class class_stat_block: # Funny name lol
 	var player_class: String
 	
-	var health: int
+	var max_health: int
 	var damage: int
 	var stamina: int
 	var moveset: Array
@@ -61,8 +105,13 @@ class class_stat_block: # Funny name lol
 
 
 ## Class assignment function
-
+## NOT WORKING (all properties will return 0 or nil other then test)
 func Assign_class(chosen_class):
+	mage_class = class_stat_block.new()
+	paladin_class = class_stat_block.new()
+	performer_class = class_stat_block.new()
+	warrior_class = class_stat_block.new()
+	acolyte_class = class_stat_block.new()
 	
 	for i in chosen_class.size():
 		match chosen_class:
@@ -70,31 +119,33 @@ func Assign_class(chosen_class):
 				print("Reached", i)
 				print(property_key[i])
 				print(mage_stats[i])
-				mage_class = class_stat_block.new()
 				mage_class.set(property_key[i], mage_stats[i])
-			"Paladin":
-				pass
-			"Performer":
-				pass
-			"Warrior":
-				pass
-			"Acolyte":
-				pass
+			paladin_stats:
+				print("Reached", i)
+				paladin_class.set(property_key[i], paladin_stats[i])
+			performer_stats:
+				print("Reached", i)
+				performer_class.set(property_key[i], performer_stats[i])
+			warrior_stats:
+				print("Reached", i)
+				warrior_class.set(property_key[i], warrior_stats[i])
+			acolyte_stats:
+				print("Reached", i)
+				acolyte_class.set(property_key[i], acolyte_stats[i])
 	match chosen_class:
 		mage_stats:
 			print(mage_class.player_class)
 			print(mage_class.test)
-			print(mage_class.health)
+			print(mage_class.max_health)
 			Assign_stats(mage_class)
-			
-		"Paladin":
-			pass
-		"Performer":
-			pass
-		"Warrior":
-			pass
-		"Acolyte":
-			pass
+		paladin_stats:
+			Assign_stats(paladin_class)
+		performer_stats:
+			Assign_class(performer_class)
+		warrior_stats:
+			Assign_class(warrior_class)
+		acolyte_stats:
+			Assign_class(acolyte_class)
 
 func Assign_stats(class_to_be_assigned):
 	
@@ -102,12 +153,17 @@ func Assign_stats(class_to_be_assigned):
 	print(class_to_be_assigned.test)
 	
 	player_class = class_to_be_assigned.get("player_class")
-	health = class_to_be_assigned.health
+	max_health = class_to_be_assigned.max_health
 	damage = class_to_be_assigned.damage
 	stamina = class_to_be_assigned.stamina
 	moveset = class_to_be_assigned.moveset
 	karma = class_to_be_assigned.karma
 	karma_level = class_to_be_assigned.karma_level
 	
-	print(player_class, " = Player class", health, " = Maximum health", damage, " = Damage", stamina, " = Stamina", karma, " = Karma", karma_level, " = Karma Level")
+	
+	print(player_class, " = Player class", max_health, " = Maximum max_health", damage, " = Damage", stamina, " = Stamina", karma, " = Karma", karma_level, " = Karma Level")
+
+## Moveset class
+
+
 

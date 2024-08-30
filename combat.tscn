@@ -74,7 +74,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="EnemyContainer"]
+[node name="EnemyHealthbar" type="ProgressBar" parent="EnemyContainer"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_vertical = 4
@@ -84,7 +84,7 @@ value = 50.0
 rounded = true
 show_percentage = false
 
-[node name="Label" type="Label" parent="EnemyContainer/ProgressBar"]
+[node name="EnemyLabel" type="Label" parent="EnemyContainer/EnemyHealthbar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,7 +153,7 @@ value = 50.0
 rounded = true
 show_percentage = false
 
-[node name="Playerhealth" type="Label" parent="PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar"]
+[node name="Playerlabel" type="Label" parent="PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -305,27 +305,6 @@ size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
 text = ">"
-
-[node name="Button" type="Button" parent="."]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -143.0
-offset_top = -104.0
-offset_right = -21.0
-offset_bottom = -67.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("5_dvgel")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h6ek0")
-text = "Flee"
 
 [connection signal="pressed" from="ActionPanel/ActionMargin/ActionHbox/Act1" to="." method="_on_act_1_pressed"]
 [connection signal="pressed" from="ActionPanel/ActionMargin/ActionHbox/Act2" to="." method="_on_act_2_pressed"]
