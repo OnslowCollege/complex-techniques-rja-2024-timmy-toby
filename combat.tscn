@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dm7qe5wtg7hdb" path="res://art/Screenshot 2024-08-04 231532.png" id="3_vpj1t"]
 [ext_resource type="Script" path="res://Act1.gd" id="5_6u5j3"]
 [ext_resource type="FontFile" uid="uid://bd1yqlqefl5ng" path="res://fonts/Mountain king/MountainKingRegular-woBYn.ttf" id="5_dvgel"]
+[ext_resource type="StyleBox" uid="uid://fbwtqhb0g4ti" path="res://button.tres" id="5_v1ddf"]
+[ext_resource type="StyleBox" uid="uid://ctuqm3j08eijs" path="res://buttonpressed.tres" id="6_reuvb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b80b5"]
 bg_color = Color(0.870588, 0, 0, 1)
@@ -14,22 +16,6 @@ bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3yj5"]
 bg_color = Color(0, 0, 0, 0.639216)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wo0nf"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ek0"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpo2y"]
 content_margin_bottom = 8.0
@@ -204,9 +190,9 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h6ek0")
+theme_override_styles/normal = ExtResource("5_v1ddf")
+theme_override_styles/hover = ExtResource("6_reuvb")
+theme_override_styles/pressed = ExtResource("6_reuvb")
 text = "Act"
 script = ExtResource("5_6u5j3")
 
@@ -222,9 +208,9 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h6ek0")
+theme_override_styles/normal = ExtResource("5_v1ddf")
+theme_override_styles/hover = ExtResource("6_reuvb")
+theme_override_styles/pressed = ExtResource("6_reuvb")
 text = "Act"
 
 [node name="Act3" type="Button" parent="ActionPanel/ActionMargin/ActionHbox"]
@@ -239,9 +225,9 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h6ek0")
+theme_override_styles/normal = ExtResource("5_v1ddf")
+theme_override_styles/hover = ExtResource("6_reuvb")
+theme_override_styles/pressed = ExtResource("6_reuvb")
 text = "Act"
 
 [node name="Act4" type="Button" parent="ActionPanel/ActionMargin/ActionHbox"]
@@ -256,9 +242,9 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h6ek0")
+theme_override_styles/normal = ExtResource("5_v1ddf")
+theme_override_styles/hover = ExtResource("6_reuvb")
+theme_override_styles/pressed = ExtResource("6_reuvb")
 text = "Act"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -305,6 +291,25 @@ size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
 text = ">"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = 351.0
+offset_right = -14.0
+offset_bottom = -58.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_dvgel")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("5_v1ddf")
+theme_override_styles/hover = ExtResource("6_reuvb")
+theme_override_styles/pressed = ExtResource("6_reuvb")
+text = "Win"
 
 [connection signal="pressed" from="ActionPanel/ActionMargin/ActionHbox/Act1" to="." method="_on_act_1_pressed"]
 [connection signal="pressed" from="ActionPanel/ActionMargin/ActionHbox/Act2" to="." method="_on_act_2_pressed"]

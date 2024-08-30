@@ -40,7 +40,8 @@ func _on_floor_0_give_start_coords(starting_coords_global):
 func _ready():
 	# Assign sprite based off of player class
 	match PlayerVariables.player_class:
-		"Mage"
+		"Mage":
+			pass
 		
 
 ## Credit to Coding Quests

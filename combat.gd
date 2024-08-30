@@ -135,35 +135,23 @@ func display_text(text):
 
 
 func _on_act_1_pressed():
-	## Eventually transfer this functionality over to the eventual continue button.
-	exit_victory_screen.emit()
-	match CombatVariables.enemy_or_boss:
-		"Boss":
-			print("Boss")
-			find_next_level()
-		"Enemy":
-			print("Enemy Find next")
-			find_next_level()
 	$ActionPanel.hide()
-	_handle_combat(COMBAT_STATES.ENEMY)
+	on_hit("Player", damage, 1)
 
 func _on_act_2_pressed():
 	
 	$ActionPanel.hide()
-	_handle_combat(COMBAT_STATES.ENEMY)
 
 func _on_act_3_pressed():
 	
 	$ActionPanel.hide()
-	_handle_combat(COMBAT_STATES.ENEMY)
 
 func _on_act_4_pressed():
 	
 	$ActionPanel.hide()
-	_handle_combat(COMBAT_STATES.ENEMY)
 
-func on_hit(target, damage, source):
-	match target:
+func on_hit(user, base_damage, source):
+	match user:
 		"Initialize": # Initial, sets the healthbar
 			# Changing the player healthbar to appropriate values
 			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.max_value = max_health
@@ -174,10 +162,18 @@ func on_hit(target, damage, source):
 			$EnemyContainer/EnemyHealthbar.max_value = max_enemy_health
 			$EnemyContainer/EnemyHealthbar.value = current_enemy_health
 			$EnemyContainer/EnemyHealthbar/EnemyLabel.text = "HP: %s/%s" % [current_enemy_health, max_enemy_health]
-		"Player": # Called during enemies turn
-			pass
-		"Enemy": # Called during players turn
-			pass
+		"Player": ## Called during players turn
+			current_enemy_health -= base_damage
+			
+			$EnemyContainer/EnemyHealthbar.value = current_enemy_health
+			$EnemyContainer/EnemyHealthbar/EnemyLabel.text = "HP: %s/%s" % [current_enemy_health, max_enemy_health]
+			_handle_combat(COMBAT_STATES.ENEMY)
+		"Enemy": ## Called during enemies turn
+			current_health -= base_damage
+			
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.value = current_health
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar/Playerlabel.text = "HP: %s/%s" % [current_health, max_health]
+			_handle_combat(COMBAT_STATES.PLAYER)
 
 func _handle_combat(new_combat_state):
 	# Handle combat is used to chage states between turns, so new combat state will equal combat state.
@@ -210,18 +206,25 @@ func on_player_turn():
 		0:
 			_handle_combat(COMBAT_STATES.WIN)
 		_:
-			_handle_combat(COMBAT_STATES.ENEMY)
+			pass
 
 func on_enemy_turn():
-	
+	await get_tree().create_timer(1).timeout
+	on_hit("Enemy", enemy_damage, 1)
 	match current_health:
 		0:
 			_handle_combat(COMBAT_STATES.LOSE)
 		_:
-			_handle_combat(COMBAT_STATES.PLAYER)
+			pass
 
 func on_win():
-	pass
+	match CombatVariables.enemy_or_boss:
+		"Boss":
+			print("Boss")
+			find_next_level()
+		"Enemy":
+			print("Enemy Find next")
+			find_next_level()
 
 func on_lose():
 	pass
