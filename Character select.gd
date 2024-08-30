@@ -16,12 +16,12 @@ func _on_acolyte_pressed():
 
 
 func _on_mage_pressed():
-	PlayerVariables.Assign_class("Acolyte")
+	PlayerVariables.Assign_class("Mage")
 	# Put scene change here Timmy
 
 
 func _on_paladin_pressed():
-	PlayerVariables.Assign_class("Acolyte")
+	PlayerVariables.Assign_class("Paladin")
 	# Put scene change here Timmy
 
 
