@@ -11,27 +11,27 @@ func _ready():
 
 
 func _on_acolyte_pressed():
-	PlayerVariables.Assign_class("Acolyte")
+	PlayerVariables.Assign_class(PlayerVariables.property_key)
 	# Put scene change here Timmy
 
 
 func _on_mage_pressed():
-	PlayerVariables.Assign_class("Mage")
+	PlayerVariables.Assign_class(PlayerVariables.mage_stats)
 	# Put scene change here Timmy
 
 
 func _on_paladin_pressed():
-	PlayerVariables.Assign_class("Paladin")
+	PlayerVariables.Assign_class(PlayerVariables.property_key)
 	# Put scene change here Timmy
 
 
 func _on_performer_pressed():
-	PlayerVariables.Assign_class("Acolyte")
+	PlayerVariables.Assign_class(PlayerVariables.property_key)
 	# Put scene change here Timmy
 
 
 func _on_warrior_pressed():
-	PlayerVariables.Assign_class("Acolyte")
+	PlayerVariables.Assign_class(PlayerVariables.property_key)
 	# Put scene change here Timmy
 
 

@@ -295,7 +295,6 @@ layout_mode = 2
 size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
-text = "IS THAT JENSEN ACKLES??!?!?!?!"
 autowrap_mode = 2
 
 [node name="Ticker" type="Label" parent="MarginContainer/Dialoguebox/MarginContainer"]
