@@ -11,7 +11,7 @@ func _ready():
 
 
 func _on_acolyte_pressed():
-	PlayerVariables.Assign_class(PlayerVariables.property_key)
+	PlayerVariables.Assign_class(PlayerVariables.acolyte_stats)
 	start_game()
 
 
@@ -21,17 +21,17 @@ func _on_mage_pressed():
 
 
 func _on_paladin_pressed():
-	PlayerVariables.Assign_class(PlayerVariables.property_key)
+	PlayerVariables.Assign_class(PlayerVariables.paladin_stats)
 	start_game()
 
 
 func _on_performer_pressed():
-	PlayerVariables.Assign_class(PlayerVariables.property_key)
+	PlayerVariables.Assign_class(PlayerVariables.performer_stats)
 	start_game()
 
 
 func _on_warrior_pressed():
-	PlayerVariables.Assign_class(PlayerVariables.property_key)
+	PlayerVariables.Assign_class(PlayerVariables.warrior_stats)
 	start_game()
 
 

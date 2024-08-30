@@ -24,7 +24,7 @@ var acolyte_class: Object
 # Stats are held in an array before assignment to the classes themselves.
 const mage_stats: Array = [
 	"Mage", # player_class
-	100, # max_health
+	1000, # max_health
 	25, # damage
 	20, # stamina
 	[], # moveset
@@ -35,7 +35,7 @@ const mage_stats: Array = [
 
 const paladin_stats: Array = [
 	"Paladin", # player_class
-	100, # max_health
+	10, # max_health
 	25, # damage
 	20, # stamina
 	[], # moveset
@@ -105,7 +105,6 @@ class class_stat_block: # Funny name lol
 
 
 ## Class assignment function
-## NOT WORKING (all properties will return 0 or nil other then test)
 func Assign_class(chosen_class):
 	mage_class = class_stat_block.new()
 	paladin_class = class_stat_block.new()
@@ -114,22 +113,22 @@ func Assign_class(chosen_class):
 	acolyte_class = class_stat_block.new()
 	
 	for i in chosen_class.size():
-		match chosen_class:
-			mage_stats:
+		match chosen_class[0]:
+			"Mage":
 				print("Reached", i)
 				print(property_key[i])
 				print(mage_stats[i])
 				mage_class.set(property_key[i], mage_stats[i])
-			paladin_stats:
+			"Paladin":
 				print("Reached", i)
 				paladin_class.set(property_key[i], paladin_stats[i])
-			performer_stats:
+			"Performer":
 				print("Reached", i)
 				performer_class.set(property_key[i], performer_stats[i])
-			warrior_stats:
+			"Warrior":
 				print("Reached", i)
 				warrior_class.set(property_key[i], warrior_stats[i])
-			acolyte_stats:
+			"Acolyte":
 				print("Reached", i)
 				acolyte_class.set(property_key[i], acolyte_stats[i])
 	match chosen_class:

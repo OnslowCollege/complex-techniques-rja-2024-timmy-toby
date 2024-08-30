@@ -1,7 +1,6 @@
 extends Control
 
 ## Combat specific variables
-var next_level
 var combat_state
 
 ## Fake stat blocks
@@ -51,21 +50,20 @@ func _ready():
 	
 	## Mockup enemy
 	
-	max_enemy_health = 50
-	current_enemy_health = 50
-	enemy_damage = 12
-	enemy_moveset = []
+	max_enemy_health = CombatVariables.max_enemy_health
+	current_enemy_health = CombatVariables.current_enemy_health
+	enemy_damage = CombatVariables.enemy_damage
+	enemy_moveset = CombatVariables.enemy_moveset
 	
 	## Mockup player
 	
-	max_health = 100
-	current_health = 100
-	damage = 25
-	stamina = 20
-	moveset = []
+	max_health = PlayerVariables.max_health
+	current_health = PlayerVariables.current_health
+	damage = PlayerVariables.damage
+	moveset = PlayerVariables.moveset
 	
-	karma = 0
-	karma_level = 0
+	karma = PlayerVariables.karma
+	karma_level = PlayerVariables.karma_level
 	
 	on_hit("Initialize", 0, "Initialize")
 	_handle_combat(COMBAT_STATES.START)
@@ -86,47 +84,47 @@ func find_next_level():
 			pass
 	match CombatVariables.bosses_killed:
 		1:
-			next_level = "Limbust"
+			CombatVariables.next_level = "Limbust"
 		2:
-			next_level = "Gleed"
+			CombatVariables.next_level = "Gleed"
 			PositionVariables.current_position = Vector2(1, 1)
 			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		3:
-			next_level = "Wreresy"
+			CombatVariables.next_level = "Wreresy"
 			PositionVariables.current_position = Vector2(1, 1)
 			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		4:
-			next_level = "Vraud"
+			CombatVariables.next_level = "Vraud"
 			PositionVariables.current_position = Vector2(1, 1)
 			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		5:
-			next_level = "Treachery"
+			CombatVariables.next_level = "Treachery"
 			PositionVariables.current_position = Vector2(1, 1)
 			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		_:
-			next_level = "Missed"
-	if next_level == "Limbust":
-		print(next_level)
+			CombatVariables.next_level = "Missed"
+	if CombatVariables.next_level == "Limbust":
+		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_1/Limbust.tscn")
-		print("Send to ", next_level)
-	elif next_level == "Gleed":
-		print(next_level)
+		print("Send to ", CombatVariables.next_level)
+	elif CombatVariables.next_level == "Gleed":
+		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_2/Gleed.tscn")
-		print("Send to ", next_level)
-	elif next_level == "Wreresy":
-		print(next_level)
+		print("Send to ", CombatVariables.next_level)
+	elif CombatVariables.next_level == "Wreresy":
+		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_3/Wreresy.tscn")
-		print("Send to ", next_level)
-	elif next_level == "Vraud":
-		print(next_level)
+		print("Send to ", CombatVariables.next_level)
+	elif CombatVariables.next_level == "Vraud":
+		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_4/Vraud.tscn")
-		print("Send to ", next_level)
-	elif next_level == "Treachery":
-		print(next_level)
+		print("Send to ", CombatVariables.next_level)
+	elif CombatVariables.next_level == "Treachery":
+		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_5/Treachery.tscn")
-		print("Send to ", next_level)
+		print("Send to ", CombatVariables.next_level)
 	else:
-		print(next_level)
+		print(CombatVariables.next_level)
 
 
 func display_text(text):
@@ -149,6 +147,9 @@ func _on_act_3_pressed():
 func _on_act_4_pressed():
 	
 	$ActionPanel.hide()
+
+func _on_win_button_pressed():
+	_handle_combat(COMBAT_STATES.WIN)
 
 func on_hit(user, base_damage, source):
 	match user:
@@ -229,6 +230,6 @@ func on_win():
 func on_lose():
 	pass
 
-
-
-
+func find_boss():
+	# Runs when on a boss tile, figures out the specific boss you're meant to fight
+	pass
