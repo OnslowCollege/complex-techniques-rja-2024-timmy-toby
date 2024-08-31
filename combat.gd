@@ -103,7 +103,7 @@ func find_next_level():
 			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		_:
 			CombatVariables.next_level = "Missed"
-	if CombatVariables.next_level == "Limbust":
+	if CombatVariables.next_level == "Limbust": # I don't know why this is an if/else block
 		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_1/Limbust.tscn")
 		print("Send to ", CombatVariables.next_level)
@@ -232,4 +232,31 @@ func on_lose():
 
 func find_boss():
 	# Runs when on a boss tile, figures out the specific boss you're meant to fight
-	pass
+	match CombatVariables.bosses_killed:
+		0:
+			pass # Minos
+		1:
+			pass # She-wolf
+		2:
+			pass # Cerberus
+		3:
+			pass # Minotaur
+		4:
+			pass # Geryon
+		5:
+			pass # Lucifer
+
+func find_enemy():
+	# Uses next_level, since its more readable and there are no enemies before Minos
+	match CombatVariables.next_level:
+		"Limbust":
+			pass
+		"Gleed":
+			pass
+		"Wreresy":
+			pass
+		"Vraud":
+			pass
+		"Treachery":
+			pass
+
