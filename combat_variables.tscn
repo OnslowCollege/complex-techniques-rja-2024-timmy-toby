@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkexqth102xaf"]
+
+[ext_resource type="Script" path="res://combat_variables.gd" id="1_q0pdx"]
+
+[node name="Combat_variables" type="Node"]
+script = ExtResource("1_q0pdx")

@@ -1,58 +1,72 @@
 extends Control
 
-## Level functionality
-## Relevant to position
-var current_position
-var ignore_tile_effect
-var next_level
+## Combat specific variables
+var combat_state
 
-## Related to players saved stats
-var player_class: String
-var health: int
+## Fake stat blocks
+# Enemy
+var max_enemy_health: int
+var current_enemy_health: int
+var enemy_damage: int
+var enemy_moveset: Array
+
+# Player
+var max_health: int
+var current_health: int
+var damage: int
 var stamina: int
+var moveset: Array
+
 var karma: int
-var karma_level: int # to help id the level the player should be returned to.
+var karma_level: int
 
-## Related to combat
-var enemy_or_boss: String # ID's the tile so an enemy or boss object can be used
-var bosses_killed: int # Used for iding current level, since not all levels have one boss on them
-var battle_over: bool = false
 
-## Path to relevant save file
-const position_save_path = "res://Game/position.save"
-const player_save_path = "res://Game/player.save" 
-const combat_save_path = "res://Game/combat.save"
+## Mockup enemy
+
 
 ## Signals
 signal exit_victory_screen
 signal textbox_closed
 
 ## Combat functionality
+enum COMBAT_STATES {
+	START,
+	PLAYER,
+	ENEMY,
+	WIN,
+	LOSE,
+}
 
 func _input(event):
-	if battle_over == true:
-		exit_victory_screen.emit()
-	else:
-		if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $MarginContainer/Dialoguebox.visible:
+	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $MarginContainer/Dialoguebox.visible:
 			$MarginContainer/Dialoguebox.hide()
 			textbox_closed.emit()
-	await exit_victory_screen
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	## Level functionality
-	loadcombat()
-	loadposition()
-	print(bosses_killed, "onready")
+	combat_state = COMBAT_STATES.START
 	
-	## Combat functionality
-	$MarginContainer/Dialoguebox.hide()
-	$ActionPanel.hide()
 	
-	display_text("IS THAT THE JENSEN ACKLES???")
-	await textbox_closed
-	$ActionPanel.show()
+	## Mockup enemy
+	
+	max_enemy_health = CombatVariables.max_enemy_health
+	current_enemy_health = CombatVariables.current_enemy_health
+	enemy_damage = CombatVariables.enemy_damage
+	enemy_moveset = CombatVariables.enemy_moveset
+	
+	## Mockup player
+	
+	max_health = PlayerVariables.max_health
+	current_health = PlayerVariables.current_health
+	damage = PlayerVariables.damage
+	moveset = PlayerVariables.moveset
+	
+	karma = PlayerVariables.karma
+	karma_level = PlayerVariables.karma_level
+	
+	on_hit("Initialize", 0, "Initialize")
+	_handle_combat(COMBAT_STATES.START)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,162 +75,188 @@ func _process(delta):
 
 func find_next_level():
 	## Level functionality
-	match enemy_or_boss:
+	match CombatVariables.enemy_or_boss:
 		"Boss":
-			bosses_killed += 1
-			savecombat()
-			print(bosses_killed, " Bosses killed")
+			CombatVariables.bosses_killed += 1
+			print(CombatVariables.bosses_killed, " Bosses killed")
 			print("Boss option reached")
 		"Enemy":
 			pass
-	match bosses_killed:
+	match CombatVariables.bosses_killed:
 		1:
-			next_level = "Limbust"
+			CombatVariables.next_level = "Limbust"
 		2:
-			next_level = "Gleed"
-			current_position = Vector2(1, 1)
-			ignore_tile_effect = [Vector2(1, 1)]
-			saveposition()
+			CombatVariables.next_level = "Gleed"
+			PositionVariables.current_position = Vector2(1, 1)
+			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		3:
-			next_level = "Wreresy"
-			current_position = Vector2(1, 1)
-			ignore_tile_effect = [Vector2(1, 1)]
-			saveposition()
+			CombatVariables.next_level = "Wreresy"
+			PositionVariables.current_position = Vector2(1, 1)
+			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		4:
-			next_level = "Vraud"
-			current_position = Vector2(1, 1)
-			ignore_tile_effect = [Vector2(1, 1)]
-			saveposition()
+			CombatVariables.next_level = "Vraud"
+			PositionVariables.current_position = Vector2(1, 1)
+			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		5:
-			next_level = "Treachery"
-			current_position = Vector2(1, 1)
-			ignore_tile_effect = [Vector2(1, 1)]
-			saveposition()
+			CombatVariables.next_level = "Treachery"
+			PositionVariables.current_position = Vector2(1, 1)
+			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
 		_:
-			next_level = "Missed"
-	if next_level == "Limbust":
-		print(next_level)
+			CombatVariables.next_level = "Missed"
+	if CombatVariables.next_level == "Limbust": # I don't know why this is an if/else block
+		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_1/Limbust.tscn")
-		print("Send to ", next_level)
-	elif next_level == "Gleed":
-		print(next_level)
+		print("Send to ", CombatVariables.next_level)
+	elif CombatVariables.next_level == "Gleed":
+		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_2/Gleed.tscn")
-		print("Send to ", next_level)
-	elif next_level == "Wreresy":
-		print(next_level)
+		print("Send to ", CombatVariables.next_level)
+	elif CombatVariables.next_level == "Wreresy":
+		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_3/Wreresy.tscn")
-		print("Send to ", next_level)
-	elif next_level == "Vraud":
-		print(next_level)
+		print("Send to ", CombatVariables.next_level)
+	elif CombatVariables.next_level == "Vraud":
+		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_4/Vraud.tscn")
-		print("Send to ", next_level)
-	elif next_level == "Treachery":
-		print(next_level)
+		print("Send to ", CombatVariables.next_level)
+	elif CombatVariables.next_level == "Treachery":
+		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_5/Treachery.tscn")
-		print("Send to ", next_level)
+		print("Send to ", CombatVariables.next_level)
 	else:
-		print(next_level)
+		print(CombatVariables.next_level)
 
-#			print("Boss option reached")
-#			bosses_killed += 1
-#			print(bosses_killed, " Bosses killed")
-#			savecombat()
-#			match bosses_killed: ## Probably more appropriate to have these just assign to a variable for flexibility
-#				1:
-#					next_level = "Limbust"
-#					get_tree().change_scene_to_file("res://tilemaps/floor 1/LimbustFloor.tscn")
-#				2:
-#					next_level = "Gleed"
-#					get_tree().change_scene_to_file("res://tilemaps/floor 2/GleedFloor.tscn")
-#					current_position = Vector2(1, 1)
-#					ignore_tile_effect = [Vector2(1, 1)]
-#					saveposition()
-#				3:
-#					next_level = "Vreresy"
-#				4:
-#					next_level = "Vraud"
-#				5:
-#					next_level = "Treachery"
-#		"Enemy": 
-#			print("Enemy option reached")
-#			match bosses_killed:
-#				1: # Conviniently, you can't fight any enemies before killing at least one boss
-#					print("Enemy reached 1")
-#					get_tree().change_scene_to_file("res://tilemaps/floor 1/LimbustFloor.tscn")
-#				2:
-#					print("Enemy reached 2")
-#					get_tree().change_scene_to_file("res://tilemaps/floor 2/GleedFloor.tscn")
-#				_:
-#					print(bosses_killed)
-	
-	## Combat functionality
 
 func display_text(text):
 	$MarginContainer/Dialoguebox.show()
 	$MarginContainer/Dialoguebox/MarginContainer/Dialogue.text = text
 
-## Save/load functions
-func saveplayer():
-	var file = FileAccess.open(player_save_path, FileAccess.WRITE)
-	file.store_var(player_class)
-	file.store_var(health)
-	file.store_var(stamina)
-	file.store_var(karma)
-	file.store_var(karma_level)
-
-
-func loadplayer():
-	if FileAccess.file_exists(player_save_path):
-		var file = FileAccess.open(player_save_path, FileAccess.READ)
-		
-		player_class = file.get_var()
-		print(player_class, " is the player class")
-		health = file.get_var()
-		print(health, " is the player's health")
-		stamina = file.get_var()
-		print(stamina, " is the players stamina")
-		karma = file.get_var()
-		print(karma, " is the players karma")
-		karma_level = file.get_var()
-		print(karma_level, " is the players karma level")
-	else:
-		print("No such file")
-
-
-func savecombat():
-	var file = FileAccess.open(combat_save_path, FileAccess.WRITE)
-	file.store_var(enemy_or_boss)
-	file.store_var(bosses_killed)
-
-
-func loadcombat():
-	if FileAccess.file_exists(combat_save_path):
-		var file = FileAccess.open(combat_save_path, FileAccess.READ)
-		enemy_or_boss = file.get_var()
-		bosses_killed = file.get_var()
-
-
-## Check relevance?
-func saveposition():
-	var file = FileAccess.open(position_save_path, FileAccess.WRITE)
-	file.store_var(current_position)
-	file.store_var(ignore_tile_effect)
-
-
-func loadposition():
-	if FileAccess.file_exists(position_save_path):
-		var file = FileAccess.open(position_save_path, FileAccess.READ)
-		current_position = file.get_var()
-		ignore_tile_effect = file.get_var()
-
 
 func _on_act_1_pressed():
-	## Eventually transfer this functionality over to the eventual continue button.
-	exit_victory_screen.emit()
-	match enemy_or_boss:
+	$ActionPanel.hide()
+	on_hit("Player", damage, 1)
+
+func _on_act_2_pressed():
+	
+	$ActionPanel.hide()
+
+func _on_act_3_pressed():
+	
+	$ActionPanel.hide()
+
+func _on_act_4_pressed():
+	
+	$ActionPanel.hide()
+
+func _on_win_button_pressed():
+	_handle_combat(COMBAT_STATES.WIN)
+
+func on_hit(user, base_damage, source):
+	match user:
+		"Initialize": # Initial, sets the healthbar
+			# Changing the player healthbar to appropriate values
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.max_value = max_health
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.value = current_health
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar/Playerlabel.text = "HP: %s/%s" % [current_health, max_health]
+			
+			# Changing the enemies healthbar to appropriate values
+			$EnemyContainer/EnemyHealthbar.max_value = max_enemy_health
+			$EnemyContainer/EnemyHealthbar.value = current_enemy_health
+			$EnemyContainer/EnemyHealthbar/EnemyLabel.text = "HP: %s/%s" % [current_enemy_health, max_enemy_health]
+		"Player": ## Called during players turn
+			current_enemy_health -= base_damage
+			
+			$EnemyContainer/EnemyHealthbar.value = current_enemy_health
+			$EnemyContainer/EnemyHealthbar/EnemyLabel.text = "HP: %s/%s" % [current_enemy_health, max_enemy_health]
+			_handle_combat(COMBAT_STATES.ENEMY)
+		"Enemy": ## Called during enemies turn
+			current_health -= base_damage
+			
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.value = current_health
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar/Playerlabel.text = "HP: %s/%s" % [current_health, max_health]
+			_handle_combat(COMBAT_STATES.PLAYER)
+
+func _handle_combat(new_combat_state):
+	# Handle combat is used to chage states between turns, so new combat state will equal combat state.
+	combat_state = new_combat_state
+	
+	match combat_state:
+		COMBAT_STATES.START:
+			print(CombatVariables.bosses_killed, "onready")
+			
+			## Combat functionality
+			$MarginContainer/Dialoguebox.hide()
+			$ActionPanel.hide()
+			
+			display_text("IS THAT THE JENSEN ACKLES???")
+			await textbox_closed
+			$ActionPanel.show()
+		COMBAT_STATES.PLAYER:
+			on_player_turn()
+		COMBAT_STATES.ENEMY:
+			on_enemy_turn()
+		COMBAT_STATES.WIN:
+			on_win() # Probably redundant
+		COMBAT_STATES.LOSE:
+			on_lose() # Probably redundant
+
+func on_player_turn():
+	$ActionPanel.show()
+	
+	match current_enemy_health:
+		0:
+			_handle_combat(COMBAT_STATES.WIN)
+		_:
+			pass
+
+func on_enemy_turn():
+	await get_tree().create_timer(1).timeout
+	on_hit("Enemy", enemy_damage, 1)
+	match current_health:
+		0:
+			_handle_combat(COMBAT_STATES.LOSE)
+		_:
+			pass
+
+func on_win():
+	match CombatVariables.enemy_or_boss:
 		"Boss":
 			print("Boss")
 			find_next_level()
 		"Enemy":
 			print("Enemy Find next")
 			find_next_level()
+
+func on_lose():
+	pass
+
+func find_boss():
+	# Runs when on a boss tile, figures out the specific boss you're meant to fight
+	match CombatVariables.bosses_killed:
+		0:
+			pass # Minos
+		1:
+			pass # She-wolf
+		2:
+			pass # Cerberus
+		3:
+			pass # Minotaur
+		4:
+			pass # Geryon
+		5:
+			pass # Lucifer
+
+func find_enemy():
+	# Uses next_level, since its more readable and there are no enemies before Minos
+	match CombatVariables.next_level:
+		"Limbust":
+			pass
+		"Gleed":
+			pass
+		"Wreresy":
+			pass
+		"Vraud":
+			pass
+		"Treachery":
+			pass
+
