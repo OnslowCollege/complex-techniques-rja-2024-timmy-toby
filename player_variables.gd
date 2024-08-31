@@ -151,7 +151,7 @@ func Assign_stats(class_to_be_assigned):
 	print(class_to_be_assigned.player_class)
 	print(class_to_be_assigned.test)
 	
-	player_class = class_to_be_assigned.get("player_class")
+	player_class = class_to_be_assigned.player_class
 	max_health = class_to_be_assigned.max_health
 	damage = class_to_be_assigned.damage
 	stamina = class_to_be_assigned.stamina
