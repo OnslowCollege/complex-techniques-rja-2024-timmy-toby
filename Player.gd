@@ -7,22 +7,13 @@ signal new_position(current_position)
 var previous_position = Vector2(0, 0)
 var step_size: int = 25
 
-## Related to players saved stats
-# var player_class: String
-# var health: int
-# var stamina: int
-# var karma: int
-# var karma_level: int # to help id the level the player should be returned to.
-# 
-# ## Related to combat
-# var enemy_or_boss: String # ID's the tile so an enemy or boss object can be used
-# var bosses_killed: int # Used for iding current level, since not all levels have one boss on them
-# 
-# ## Path to relevant save file
-# const position_save_path = "res://Game/position.save"
-# const player_save_path = "res://Game/player.save" 
-# const combat_save_path = "res://Game/combat.save"
+## Player sprite paths
 
+var mage_sprite = load("res://character/Mage/Mage overworld.png")
+var paladin_sprite = load("res://character/Paladin/Paladin overworld.png")
+var performer_sprite = load("res://character/Performer/Performer overworld.png")
+var warrior_sprite = load("res://character/Warrior/Warrior overworld.png")
+var acolyte_sprite = load("res://character/Acolyte/Acolyte overworld.png")
 
 func _on_floor_0_give_start_coords(starting_coords_global):
 	if PositionVariables.current_position == Vector2(1, 1):
@@ -38,10 +29,20 @@ func _on_floor_0_give_start_coords(starting_coords_global):
 	self.position = Vector2(PositionVariables.current_position[0], PositionVariables.current_position[1])
 
 func _ready():
+	
+	
 	# Assign sprite based off of player class
 	match PlayerVariables.player_class:
 		"Mage":
-			pass
+			$Sprite2D.set_texture(mage_sprite)
+		"Paladin":
+			$Sprite2D.set_texture(paladin_sprite)
+		"Performer":
+			$Sprite2D.set_texture(performer_sprite)
+		"Warrior":
+			$Sprite2D.set_texture(warrior_sprite)
+		"Acolyte":
+			$Sprite2D.set_texture(acolyte_sprite)
 		
 
 ## Credit to Coding Quests

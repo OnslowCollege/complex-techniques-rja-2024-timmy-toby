@@ -140,11 +140,11 @@ func Assign_class(chosen_class):
 		paladin_stats:
 			Assign_stats(paladin_class)
 		performer_stats:
-			Assign_class(performer_class)
+			Assign_stats(performer_class)
 		warrior_stats:
-			Assign_class(warrior_class)
+			Assign_stats(warrior_class)
 		acolyte_stats:
-			Assign_class(acolyte_class)
+			Assign_stats(acolyte_class)
 
 func Assign_stats(class_to_be_assigned):
 	
