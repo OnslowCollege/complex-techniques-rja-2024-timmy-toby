@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://b26rwhud0dbuo"]
+[gd_scene load_steps=12 format=3 uid="uid://b26rwhud0dbuo"]
 
 [ext_resource type="Script" path="res://combat.gd" id="1_66u5g"]
 [ext_resource type="Texture2D" uid="uid://bfpwyiirx1gs6" path="res://art/Jensen_Ackles.webp" id="2_2sixm"]
-[ext_resource type="FontFile" uid="uid://dq7aacpd0f72o" path="res://art/NESCyrillic.ttf" id="3_j33ip"]
 [ext_resource type="Texture2D" uid="uid://dm7qe5wtg7hdb" path="res://art/Screenshot 2024-08-04 231532.png" id="3_vpj1t"]
 [ext_resource type="Script" path="res://Act1.gd" id="5_6u5j3"]
-[ext_resource type="FontFile" uid="uid://8sogtswtibr3" path="res://art/Adventurer.ttf" id="5_uev22"]
+[ext_resource type="FontFile" uid="uid://bd1yqlqefl5ng" path="res://fonts/Mountain king/MountainKingRegular-woBYn.ttf" id="5_dvgel"]
+[ext_resource type="StyleBox" uid="uid://fbwtqhb0g4ti" path="res://button.tres" id="5_v1ddf"]
+[ext_resource type="StyleBox" uid="uid://ctuqm3j08eijs" path="res://buttonpressed.tres" id="6_reuvb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b80b5"]
 bg_color = Color(0.870588, 0, 0, 1)
@@ -15,22 +16,6 @@ bg_color = Color(0, 1, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3yj5"]
 bg_color = Color(0, 0, 0, 0.639216)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wo0nf"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ek0"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpo2y"]
 content_margin_bottom = 8.0
@@ -50,25 +35,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_66u5g")
-
-[node name="VictoryContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -33.0
-offset_right = 33.0
-offset_bottom = 23.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="VictoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-text = "You win!
-"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -94,7 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="EnemyContainer"]
+[node name="EnemyHealthbar" type="ProgressBar" parent="EnemyContainer"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_vertical = 4
@@ -104,7 +70,7 @@ value = 50.0
 rounded = true
 show_percentage = false
 
-[node name="Label" type="Label" parent="EnemyContainer/ProgressBar"]
+[node name="EnemyLabel" type="Label" parent="EnemyContainer/EnemyHealthbar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,7 +80,7 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -153,16 +119,16 @@ theme_override_constants/margin_right = 20
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="PlayerPanel/PlayerMargin/PlayerDataHbox"]
+[node name="Playerlabel" type="Label" parent="PlayerPanel/PlayerMargin/PlayerDataHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 24
 text = "Player"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="PlayerPanel/PlayerMargin/PlayerDataHbox"]
+[node name="Playerhealthbar" type="ProgressBar" parent="PlayerPanel/PlayerMargin/PlayerDataHbox"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -173,7 +139,7 @@ value = 50.0
 rounded = true
 show_percentage = false
 
-[node name="Label" type="Label" parent="PlayerPanel/PlayerMargin/PlayerDataHbox/ProgressBar"]
+[node name="Playerlabel" type="Label" parent="PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -183,7 +149,7 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -222,11 +188,11 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h6ek0")
+theme_override_styles/normal = ExtResource("5_v1ddf")
+theme_override_styles/hover = ExtResource("6_reuvb")
+theme_override_styles/pressed = ExtResource("6_reuvb")
 text = "Act"
 script = ExtResource("5_6u5j3")
 
@@ -240,11 +206,11 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h6ek0")
+theme_override_styles/normal = ExtResource("5_v1ddf")
+theme_override_styles/hover = ExtResource("6_reuvb")
+theme_override_styles/pressed = ExtResource("6_reuvb")
 text = "Act"
 
 [node name="Act3" type="Button" parent="ActionPanel/ActionMargin/ActionHbox"]
@@ -257,11 +223,11 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h6ek0")
+theme_override_styles/normal = ExtResource("5_v1ddf")
+theme_override_styles/hover = ExtResource("6_reuvb")
+theme_override_styles/pressed = ExtResource("6_reuvb")
 text = "Act"
 
 [node name="Act4" type="Button" parent="ActionPanel/ActionMargin/ActionHbox"]
@@ -274,11 +240,11 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
-theme_override_fonts/font = ExtResource("3_j33ip")
+theme_override_fonts/font = ExtResource("5_dvgel")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_wo0nf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_h6ek0")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_h6ek0")
+theme_override_styles/normal = ExtResource("5_v1ddf")
+theme_override_styles/hover = ExtResource("6_reuvb")
+theme_override_styles/pressed = ExtResource("6_reuvb")
 text = "Act"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -313,9 +279,8 @@ texture_filter = 1
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("5_uev22")
-theme_override_font_sizes/font_size = 16
-text = "IS THAT JENSEN ACKLES??!?!?!?!"
+theme_override_fonts/font = ExtResource("5_dvgel")
+theme_override_font_sizes/font_size = 20
 autowrap_mode = 2
 
 [node name="Ticker" type="Label" parent="MarginContainer/Dialoguebox/MarginContainer"]
@@ -323,8 +288,31 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("5_uev22")
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("5_dvgel")
+theme_override_font_sizes/font_size = 20
 text = ">"
 
+[node name="Win button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -101.0
+offset_top = 351.0
+offset_right = -14.0
+offset_bottom = -58.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_dvgel")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("5_v1ddf")
+theme_override_styles/hover = ExtResource("6_reuvb")
+theme_override_styles/pressed = ExtResource("6_reuvb")
+text = "Win"
+
 [connection signal="pressed" from="ActionPanel/ActionMargin/ActionHbox/Act1" to="." method="_on_act_1_pressed"]
+[connection signal="pressed" from="ActionPanel/ActionMargin/ActionHbox/Act2" to="." method="_on_act_2_pressed"]
+[connection signal="pressed" from="ActionPanel/ActionMargin/ActionHbox/Act3" to="." method="_on_act_3_pressed"]
+[connection signal="pressed" from="ActionPanel/ActionMargin/ActionHbox/Act4" to="." method="_on_act_4_pressed"]
+[connection signal="pressed" from="Win button" to="." method="_on_win_button_pressed"]

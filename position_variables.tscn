@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn5a4bad3jmrt"]
+
+[ext_resource type="Script" path="res://position_variables.gd" id="1_jwfke"]
+
+[node name="Position_variables" type="Node"]
+script = ExtResource("1_jwfke")
