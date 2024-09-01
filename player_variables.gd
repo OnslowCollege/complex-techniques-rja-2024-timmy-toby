@@ -32,11 +32,11 @@ var moveset: Array
 var karma: int
 var karma_level: int
 
-var mage_class: Object
-var paladin_class: Object
-var performer_class: Object
-var warrior_class: Object
-var acolyte_class: Object
+var mage_class: class_stat_block
+var paladin_class: class_stat_block
+var performer_class: class_stat_block
+var warrior_class: class_stat_block
+var acolyte_class: class_stat_block
 
 
 # Stats are held in an array before assignment to the classes themselves.
@@ -172,6 +172,7 @@ func Assign_stats(class_to_be_assigned):
 	
 	player_class = class_to_be_assigned.player_class
 	max_health = class_to_be_assigned.max_health
+	current_health = class_to_be_assigned.max_health
 	damage = class_to_be_assigned.damage
 	stamina = class_to_be_assigned.stamina
 	moveset = class_to_be_assigned.moveset

@@ -3,14 +3,14 @@ extends Control
 ## Combat specific variables
 var combat_state
 
-## Fake stat blocks
+## Stat blocks for each combat instance
 # Enemy
 var enemy_name: String
 var max_enemy_health: int
 var current_enemy_health: int
 var enemy_damage: int
 var enemy_moveset: Array
-var boss_effect: A
+var boss_effect: Object
 
 # Player
 var max_health: int
@@ -44,26 +44,6 @@ func _input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	combat_state = COMBAT_STATES.START
-	
-	
-	## Mockup enemy
-	
-	max_enemy_health = CombatVariables.max_enemy_health
-	current_enemy_health = CombatVariables.current_enemy_health
-	enemy_damage = CombatVariables.enemy_damage
-	enemy_moveset = CombatVariables.enemy_moveset
-	
-	## Mockup player
-	
-	max_health = PlayerVariables.max_health
-	current_health = PlayerVariables.current_health
-	damage = PlayerVariables.damage
-	moveset = PlayerVariables.moveset
-	
-	karma = PlayerVariables.karma
-	karma_level = PlayerVariables.karma_level
-	
-	on_hit("Initialize", 0, "Initialize")
 	_handle_combat(COMBAT_STATES.START)
 
 
@@ -184,8 +164,55 @@ func _handle_combat(new_combat_state):
 	
 	match combat_state:
 		COMBAT_STATES.START:
-			print(CombatVariables.bosses_killed, "onready")
+			print(CombatVariables.bosses_killed, " Bosses killed")
 			
+			max_health = PlayerVariables.max_health
+			current_health = PlayerVariables.current_health
+			damage = PlayerVariables.damage
+			moveset = PlayerVariables.moveset
+
+			karma = PlayerVariables.karma
+			karma_level = PlayerVariables.karma_level
+			
+			match CombatVariables.enemy_or_boss:
+				"Boss":
+					find_boss()
+				"Enemy":
+					find_enemy()
+			
+			enemy_name = CombatVariables.enemy_name
+			max_enemy_health = CombatVariables.max_enemy_health
+			current_enemy_health = CombatVariables.current_enemy_health
+			enemy_damage = CombatVariables.enemy_damage
+			enemy_moveset = CombatVariables.enemy_moveset
+			boss_effect = CombatVariables.boss_effect
+			
+			match enemy_name:
+				"King Minos":
+					$EnemyContainer/Enemy.texture = CombatVariables.minos_sprite
+				"She-wolf":
+					$EnemyContainer/Enemy.texture = CombatVariables.shewolf_sprite
+				"Cerberus":
+					$EnemyContainer/Enemy.texture = CombatVariables.cerberus_sprite
+				"Minotaur":
+					$EnemyContainer/Enemy.texture = CombatVariables.minotaur_sprite
+				"Geryon":
+					$EnemyContainer/Enemy.texture = CombatVariables.geryon_sprite
+				"Lucifer":
+					$EnemyContainer/Enemy.texture = CombatVariables.lucifer_sprite
+				"Limbust sinner":
+					pass
+				"Gleed sinner":
+					pass
+				"Wreresy sinner":
+					pass
+				"Vraud sinner":
+					pass
+				"Treachery sinner":
+					pass
+			
+			# Initializes player and enemy health bars
+			on_hit("Initialize", 0, "Initialize")
 			## Combat functionality
 			$MarginContainer/Dialoguebox.hide()
 			$ActionPanel.hide()
@@ -193,6 +220,7 @@ func _handle_combat(new_combat_state):
 			display_text("IS THAT THE JENSEN ACKLES???")
 			await textbox_closed
 			$ActionPanel.show()
+			
 		COMBAT_STATES.PLAYER:
 			on_player_turn()
 		COMBAT_STATES.ENEMY:
@@ -236,29 +264,31 @@ func find_boss():
 	# Runs when on a boss tile, figures out the specific boss you're meant to fight
 	match CombatVariables.bosses_killed:
 		0:
-			pass # Minos
+			CombatVariables.Assign_boss(CombatVariables.minos_boss_stats)
 		1:
-			pass # She-wolf
+			CombatVariables.Assign_boss(CombatVariables.shewolf_boss_stats)
 		2:
-			pass # Cerberus
+			CombatVariables.Assign_boss(CombatVariables.cerberus_boss_stats)
 		3:
-			pass # Minotaur
+			CombatVariables.Assign_boss(CombatVariables.minotaur_boss_stats)
 		4:
-			pass # Geryon
+			CombatVariables.Assign_boss(CombatVariables.geryon_boss_stats)
 		5:
-			pass # Lucifer
+			CombatVariables.Assign_boss(CombatVariables.lucifer_boss_stats)
+	
+	boss_effect = CombatVariables.boss_effect
 
 func find_enemy():
 	# Uses next_level, since its more readable and there are no enemies before Minos
 	match CombatVariables.next_level:
 		"Limbust":
-			pass
+			CombatVariables.Assign_enemy(CombatVariables.limbust_enemy_stats)
 		"Gleed":
-			pass
+			CombatVariables.Assign_enemy(CombatVariables.gleed_enemy_stats)
 		"Wreresy":
-			pass
+			CombatVariables.Assign_enemy(CombatVariables.wreresy_enemy_stats)
 		"Vraud":
-			pass
+			CombatVariables.Assign_enemy(CombatVariables.vraud_enemy_stats)
 		"Treachery":
-			pass
+			CombatVariables.Assign_enemy(CombatVariables.treachery_enemy_stats)
 
