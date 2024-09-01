@@ -22,3 +22,4 @@ script = ExtResource("3_423tg")
 
 [connection signal="give_start_coords" from="Damn liberals" to="Player" method="_on_floor_0_give_start_coords"]
 [connection signal="position_information" from="Damn liberals" to="Player" method="_on_floor_0_position_information"]
+[connection signal="new_position" from="Player" to="Damn liberals" method="_on_player_new_position"]

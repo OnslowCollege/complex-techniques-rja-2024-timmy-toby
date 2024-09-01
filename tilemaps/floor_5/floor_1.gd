@@ -26,11 +26,13 @@ var moveOptions = [
 var currentTileID
 var currentTileType
 const tileTypeKey = { # Likely will have to be tweaked per level
-	0 : "Start",
-	1 : "Lore",
-	2 : "Enemy",
-	3 : "Bonfire",
-	4 : "Boss",
+	12 : "Start",
+	13 : "Lore",
+	14 : "Enemy",
+	18 : "Enemy",
+	22 : "Enemy",
+	19 : "Bonfire",
+	21 : "Boss",
 }
 
 
