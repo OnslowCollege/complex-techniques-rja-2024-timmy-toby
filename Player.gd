@@ -29,20 +29,18 @@ func _on_floor_0_give_start_coords(starting_coords_global):
 	self.position = Vector2(PositionVariables.current_position[0], PositionVariables.current_position[1])
 
 func _ready():
-	
-	
 	# Assign sprite based off of player class
 	match PlayerVariables.player_class:
 		"Mage":
-			$Sprite2D.set_texture(mage_sprite)
+			$Sprite2D.set_texture(PlayerVariables.mage_overworld_sprite)
 		"Paladin":
-			$Sprite2D.set_texture(paladin_sprite)
+			$Sprite2D.set_texture(PlayerVariables.paladin_overworld_sprite)
 		"Performer":
-			$Sprite2D.set_texture(performer_sprite)
+			$Sprite2D.set_texture(PlayerVariables.performer_overworld_sprite)
 		"Warrior":
-			$Sprite2D.set_texture(warrior_sprite)
+			$Sprite2D.set_texture(PlayerVariables.warrior_overworld_sprite)
 		"Acolyte":
-			$Sprite2D.set_texture(acolyte_sprite)
+			$Sprite2D.set_texture(PlayerVariables.acolyte_overworld_sprite)
 		
 
 ## Credit to Coding Quests
