@@ -58,29 +58,29 @@ func find_next_level():
 			CombatVariables.bosses_killed += 1
 			print(CombatVariables.bosses_killed, " Bosses killed")
 			print("Boss option reached")
+			match CombatVariables.bosses_killed:
+				1:
+					CombatVariables.next_level = "Limbust"
+				2:
+					CombatVariables.next_level = "Gleed"
+					PositionVariables.current_position = Vector2(1, 1)
+					PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
+				3:
+					CombatVariables.next_level = "Wreresy"
+					PositionVariables.current_position = Vector2(1, 1)
+					PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
+				4:
+					CombatVariables.next_level = "Vraud"
+					PositionVariables.current_position = Vector2(1, 1)
+					PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
+				5:
+					CombatVariables.next_level = "Treachery"
+					PositionVariables.current_position = Vector2(1, 1)
+					PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
+				_:
+					CombatVariables.next_level = "Missed"
 		"Enemy":
 			pass
-	match CombatVariables.bosses_killed:
-		1:
-			CombatVariables.next_level = "Limbust"
-		2:
-			CombatVariables.next_level = "Gleed"
-			PositionVariables.current_position = Vector2(1, 1)
-			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
-		3:
-			CombatVariables.next_level = "Wreresy"
-			PositionVariables.current_position = Vector2(1, 1)
-			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
-		4:
-			CombatVariables.next_level = "Vraud"
-			PositionVariables.current_position = Vector2(1, 1)
-			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
-		5:
-			CombatVariables.next_level = "Treachery"
-			PositionVariables.current_position = Vector2(1, 1)
-			PositionVariables.ignore_tile_effect = [Vector2(1, 1)]
-		_:
-			CombatVariables.next_level = "Missed"
 	if CombatVariables.next_level == "Limbust": # I don't know why this is an if/else block
 		print(CombatVariables.next_level)
 		get_tree().change_scene_to_file("res://tilemaps/floor_1/Limbust.tscn")
@@ -201,15 +201,15 @@ func _handle_combat(new_combat_state):
 				"Lucifer":
 					$EnemyContainer/Enemy.texture = CombatVariables.lucifer_sprite
 				"Limbust sinner":
-					pass
+					$EnemyContainer/Enemy.texture = CombatVariables.limbust_sinner_sprite
 				"Gleed sinner":
-					pass
+					$EnemyContainer/Enemy.texture = CombatVariables.gleed_sinner_sprite
 				"Wreresy sinner":
-					pass
+					$EnemyContainer/Enemy.texture = CombatVariables.wreresy_sinner_sprite
 				"Vraud sinner":
-					pass
+					$EnemyContainer/Enemy.texture = CombatVariables.vraud_sinner_sprite
 				"Treachery sinner":
-					pass
+					$EnemyContainer/Enemy.texture = CombatVariables.treachery_sinner_sprite
 			
 			# Initializes player and enemy health bars
 			on_hit("Initialize", 0, "Initialize")

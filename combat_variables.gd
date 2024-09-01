@@ -39,6 +39,12 @@ var minotaur_sprite = load("res://bosses/Minotaur.png")
 var geryon_sprite = load("res://bosses/Geryon.png")
 var lucifer_sprite = load("res://bosses/Satan.png")
 
+var limbust_sinner_sprite = load("res://enemies/Limbust sinner.png")
+var gleed_sinner_sprite = load("res://enemies/Gleed sinner.png")
+var wreresy_sinner_sprite = load("res://enemies/Wreresy sinner.png")
+var vraud_sinner_sprite = load("res://enemies/Vraud sinner.png")
+var treachery_sinner_sprite = load("res://enemies/Treachery sinner.png")
+
 # Enemy stats
 const limbust_enemy_stats: Array = [
 	"Limbust sinner", # enemy_name
@@ -178,13 +184,13 @@ func Assign_enemy(encountered_enemy):
 			"Limbust sinner":
 				limbust_enemy.set(enemy_property_key[i], limbust_enemy_stats[i])
 			"Gleed sinner":
-				gleed_enemy.set(enemy_property_key[i], gleed_enemy_stats)
+				gleed_enemy.set(enemy_property_key[i], gleed_enemy_stats[i])
 			"Wreresy sinner":
 				wreresy_enemy.set(enemy_property_key[i], wreresy_enemy_stats[i])
 			"Vraud sinner":
 				vraud_enemy.set(enemy_property_key[i], vraud_enemy_stats[i])
 			"Treachery sinner":
-				treachery_enemy.set(enemy_property_key[i], treachery_enemy_stats)
+				treachery_enemy.set(enemy_property_key[i], treachery_enemy_stats[i])
 	match encountered_enemy[0]:
 		"Limbust sinner":
 			Assign_stats(limbust_enemy)
