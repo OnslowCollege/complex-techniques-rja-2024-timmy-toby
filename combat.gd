@@ -152,6 +152,10 @@ func _on_win_button_pressed():
 	_handle_combat(COMBAT_STATES.WIN)
 
 func on_hit(user, base_damage, source):
+	## Params:
+	# user = source of the health modification.
+	# base_damage = amount of damage to be multiplied off of
+	# source = button which the attack derived from, subtract by 1 to find the index for corresponding moveset list object.
 	match user:
 		"Initialize": # Initial, sets the healthbar
 			# Changing the player healthbar to appropriate values

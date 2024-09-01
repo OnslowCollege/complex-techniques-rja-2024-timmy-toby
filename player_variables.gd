@@ -3,6 +3,23 @@ extends Node
 ## Global storage for variables related to player statistics
 ## Conviniently, able to be called as if it was a normal variable yippee!!!!!.
 
+## Load class sprites
+
+var mage_overworld_sprite = load("res://character/Mage/Mage overworld.png")
+var mage_combat_sprite = load("res://character/Mage/Mage back_view.png")
+
+var paladin_overworld_sprite = load("res://character/Paladin/Paladin overworld.png")
+var paladin_combat_sprite = load("res://character/Paladin/Paladin back_view.png")
+
+var performer_overworld_sprite = load("res://character/Performer/Performer overworld.png")
+var performer_combat_sprite = load("res://character/Performer/Performer back_view.png")
+
+var warrior_overworld_sprite = load("res://character/Warrior/Warrior overworld.png")
+var warrior_combat_sprite = load("res://character/Warrior/Warrior back_view.png")
+
+var acolyte_overworld_sprite = load("res://character/Acolyte/Acolyte overworld.png")
+var acolyte_combat_sprite = load("res://character/Acolyte/Acolyte back_view.png")
+
 # Actual variables
 var player_class: String
 
@@ -20,6 +37,7 @@ var paladin_class: Object
 var performer_class: Object
 var warrior_class: Object
 var acolyte_class: Object
+
 
 # Stats are held in an array before assignment to the classes themselves.
 const mage_stats: Array = [
@@ -103,15 +121,16 @@ class class_stat_block: # Funny name lol
 	var karma_level: int
 	var test
 
-
-## Class assignment function
-func Assign_class(chosen_class):
+func _ready():
+	# Instancing class objects
 	mage_class = class_stat_block.new()
 	paladin_class = class_stat_block.new()
 	performer_class = class_stat_block.new()
 	warrior_class = class_stat_block.new()
 	acolyte_class = class_stat_block.new()
-	
+
+## Class assignment function
+func Assign_class(chosen_class):
 	for i in chosen_class.size():
 		match chosen_class[0]:
 			"Mage":
