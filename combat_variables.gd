@@ -27,7 +27,7 @@ var shewolf_boss: Object
 var cerberus_boss: Object
 var minotaur_boss: Object
 var geryon_boss: Object
-var lucicer_boss: Object
+var lucifer_boss: Object
 
 # Enemy stats
 const limbust_enemy_stats: Array = [
@@ -75,6 +75,14 @@ const minos_boss_stats: Array = [
 ]
 
 const shewolf_boss_stats: Array = [
+	# boss_name
+	# max_boss_health
+	# boss_damage
+	# boss_moveset
+	# boss_effect
+]
+
+const minotaur_boss_stats: Array = [
 	# boss_name
 	# max_boss_health
 	# boss_damage
@@ -173,9 +181,33 @@ func Assign_enemy(encountered_enemy):
 			pass
 
 func Assign_boss(encountered_boss):
-	for i in encountered_boss,size():
+	for i in encountered_boss.size():
 		match encountered_boss[0]:
 			"King Minos":
 				minos_boss.set(boss_property_key[i], minos_boss_stats[i])
 			"She-wolf":
-				
+				shewolf_boss.set(boss_property_key[i], shewolf_boss_stats[i])
+			"Cerberus":
+				cerberus_boss.set(boss_property_key[i], cerberus_boss_stats[i])
+			"Minotaur":
+				minotaur_boss.set(boss_property_key[i], minotaur_boss_stats[i])
+			"Geryon":
+				geryon_boss.set(boss_property_key[i], geryon_boss_stats[i])
+			"Lucifer":
+				lucifer_boss.set(boss_property_key[i], lucifer_boss_stats[i])
+	match encountered_boss[0]:
+			"King Minos":
+				pass
+			"She-wolf":
+				pass
+			"Cerberus":
+				pass
+			"Minotaur":
+				pass
+			"Geryon":
+				pass
+			"Lucifer":
+				pass
+
+func Assign_enemy_stats(enemy_to_be_assigned):
+	pass

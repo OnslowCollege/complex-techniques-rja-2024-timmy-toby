@@ -5,10 +5,12 @@ var combat_state
 
 ## Fake stat blocks
 # Enemy
+var enemy_name: String
 var max_enemy_health: int
 var current_enemy_health: int
 var enemy_damage: int
 var enemy_moveset: Array
+var boss_effect: A
 
 # Player
 var max_health: int
@@ -19,10 +21,6 @@ var moveset: Array
 
 var karma: int
 var karma_level: int
-
-
-## Mockup enemy
-
 
 ## Signals
 signal exit_victory_screen
