@@ -158,6 +158,7 @@ func on_hit(user, base_damage, source):
 			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar/Playerlabel.text = "HP: %s/%s" % [current_health, max_health]
 			_handle_combat(COMBAT_STATES.PLAYER)
 
+
 func _handle_combat(new_combat_state):
 	# Handle combat is used to chage states between turns, so new combat state will equal combat state.
 	combat_state = new_combat_state
@@ -277,6 +278,7 @@ func find_boss():
 			CombatVariables.Assign_boss(CombatVariables.lucifer_boss_stats)
 	
 	boss_effect = CombatVariables.boss_effect
+
 
 func find_enemy():
 	# Uses next_level, since its more readable and there are no enemies before Minos
