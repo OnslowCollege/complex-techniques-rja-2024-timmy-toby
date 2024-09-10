@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://hj0x6kqcc4k3"]
+[gd_scene load_steps=4 format=3 uid="uid://hj0x6kqcc4k3"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_sywfs"]
 [ext_resource type="Texture2D" uid="uid://222cn615j7dy" path="res://backgrounds/Main menu background.png" id="2_7otqc"]
+[ext_resource type="FontFile" uid="uid://bd1yqlqefl5ng" path="res://fonts/Mountain king/MountainKingRegular-woBYn.ttf" id="3_gw62v"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -26,26 +27,57 @@ texture = ExtResource("2_7otqc")
 [node name="ButtonVBox" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.422839
-anchor_top = 0.768717
-anchor_right = 0.57716
-anchor_bottom = 0.903743
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -250.0
+offset_right = 2050.0
+offset_bottom = 2161.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.08, 0.08)
 metadata/_edit_use_anchors_ = true
 
 [node name="Start" type="Button" parent="ButtonVBox"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gw62v")
+theme_override_font_sizes/font_size = 800
 text = "Start"
 
 [node name="Options" type="Button" parent="ButtonVBox"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gw62v")
+theme_override_font_sizes/font_size = 800
 text = "Options"
 
 [node name="Exit" type="Button" parent="ButtonVBox"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gw62v")
+theme_override_font_sizes/font_size = 800
 text = "Exit "
+
+[node name="LabelContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_top = 20.0
+offset_right = 4038.0
+offset_bottom = 813.0
+grow_horizontal = 2
+scale = Vector2(0.135, 0.135)
+
+[node name="Label" type="Label" parent="LabelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_gw62v")
+theme_override_font_sizes/font_size = 800
+text = "Toune's inferno"
 
 [connection signal="pressed" from="ButtonVBox/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonVBox/Options" to="." method="_on_options_pressed"]

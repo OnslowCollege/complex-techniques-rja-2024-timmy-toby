@@ -4,12 +4,10 @@
 [ext_resource type="FontFile" uid="uid://bd1yqlqefl5ng" path="res://fonts/Mountain king/MountainKingRegular-woBYn.ttf" id="1_jghhm"]
 [ext_resource type="Script" path="res://Character select.gd" id="1_kmymo"]
 [ext_resource type="Texture2D" uid="uid://d3rroux044ibk" path="res://character/Mage/Mage front_view.png" id="2_e6ucf"]
+[ext_resource type="Texture2D" uid="uid://cifxcqyc0aja5" path="res://backgrounds/Overworld background.png" id="2_oi3rk"]
 [ext_resource type="Texture2D" uid="uid://c8k5ykeua3je4" path="res://character/Acolyte/Acolyte front_view.png" id="3_ei6er"]
 [ext_resource type="Texture2D" uid="uid://8i3lyjl4ejfr" path="res://character/Paladin/Paladin front_view.png" id="5_fxaj1"]
 [ext_resource type="Texture2D" uid="uid://c7bbf2e2wqx7x" path="res://character/Performer/Performer front_view.png" id="6_st3l2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1661q"]
-bg_color = Color(0.306923, 0.306923, 0.306923, 1)
 
 [node name="Control" type="Control"]
 texture_filter = 1
@@ -17,21 +15,18 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 11.0
-offset_right = 32.0
-offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kmymo")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = -35.0
-offset_top = -15.0
-offset_right = 574.0
-offset_bottom = 443.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_1661q")
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_oi3rk")
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
