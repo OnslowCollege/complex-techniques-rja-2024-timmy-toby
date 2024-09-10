@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm2hbxnw4jjrp"
-path="res://.godot/imported/Limbust sinner.png-e993e2ed9f8086bb66cbd90398958b65.ctex"
+uid="uid://48315gvicvis"
+path="res://.godot/imported/Treachery sinner.png-5acd1fd04cad90404b8f66b6ec7df130.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/Limbust sinner.png"
-dest_files=["res://.godot/imported/Limbust sinner.png-e993e2ed9f8086bb66cbd90398958b65.ctex"]
+source_file="res://enemies/Treachery sinner.png"
+dest_files=["res://.godot/imported/Treachery sinner.png-5acd1fd04cad90404b8f66b6ec7df130.ctex"]
 
 [params]
 

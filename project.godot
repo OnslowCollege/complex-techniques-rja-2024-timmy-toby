@@ -25,7 +25,6 @@ PositionVariables="*res://position_variables.tscn"
 
 window/size/viewport_width=600
 window/size/viewport_height=450
-window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"

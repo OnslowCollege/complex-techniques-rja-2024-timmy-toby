@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://hj0x6kqcc4k3"]
+[gd_scene load_steps=3 format=3 uid="uid://hj0x6kqcc4k3"]
 
 [ext_resource type="Script" path="res://MainMenu.gd" id="1_sywfs"]
+[ext_resource type="Texture2D" uid="uid://222cn615j7dy" path="res://backgrounds/Main menu background.png" id="2_7otqc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,7 +10,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource("1_sywfs")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7otqc")
 
 [node name="ButtonVBox" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(100, 100)

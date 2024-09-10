@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm2hbxnw4jjrp"
-path="res://.godot/imported/Limbust sinner.png-e993e2ed9f8086bb66cbd90398958b65.ctex"
+uid="uid://772wk40pxyc5"
+path="res://.godot/imported/Fight background.png-91a19a39989fc55f106d35f008feb6e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/Limbust sinner.png"
-dest_files=["res://.godot/imported/Limbust sinner.png-e993e2ed9f8086bb66cbd90398958b65.ctex"]
+source_file="res://backgrounds/Fight background.png"
+dest_files=["res://.godot/imported/Fight background.png-91a19a39989fc55f106d35f008feb6e5.ctex"]
 
 [params]
 
