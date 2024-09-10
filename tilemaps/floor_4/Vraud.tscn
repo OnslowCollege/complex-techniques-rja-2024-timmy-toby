@@ -22,3 +22,4 @@ script = ExtResource("3_rpuf6")
 
 [connection signal="give_start_coords" from="Floor_0" to="Player" method="_on_floor_0_give_start_coords"]
 [connection signal="position_information" from="Floor_0" to="Player" method="_on_floor_0_position_information"]
+[connection signal="new_position" from="Player" to="Floor_0" method="_on_player_new_position"]

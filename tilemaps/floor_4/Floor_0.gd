@@ -27,10 +27,16 @@ var currentTileID
 var currentTileType
 const tileTypeKey = { # Likely will have to be tweaked per level
 	0 : "Start",
-	1 : "Lore",
-	2 : "Enemy",
+	2 : "Lore",
+	10 : "Lore",
+	4 : "Enemy",
+	6 : "Enemy",
+	12 : "Enemy",
+	15 : "Enemy",
 	3 : "Bonfire",
-	4 : "Boss",
+	7 : "Bonfire",
+	13 : "Bonfire",
+	1 : "Boss",
 }
 
 

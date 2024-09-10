@@ -73,7 +73,6 @@ func _on_body_entered(body):
 
 func _on_floor_0_position_information(moveOptions, currentTileType):
 	## Parses the string output of the signal
-	
 	match currentTileType:
 		"Start":
 			pass
@@ -87,8 +86,6 @@ func _on_floor_0_position_information(moveOptions, currentTileType):
 			else:
 				PositionVariables.ignore_tile_effect.append(PositionVariables.current_position)
 				CombatVariables.enemy_or_boss = currentTileType
-				
-				
 				print("Fight!!!")
 				get_tree().change_scene_to_file("res://combat.tscn")
 				

@@ -48,7 +48,6 @@ const mage_stats: Array = [
 	[], # moveset
 	0, # karma
 	0, # karma_level
-	20, # test
 ]
 
 const paladin_stats: Array = [
@@ -59,7 +58,6 @@ const paladin_stats: Array = [
 	[], # moveset
 	0, # karma
 	0, # karma_level
-	20, # test
 ]
 
 const performer_stats: Array = [
@@ -70,7 +68,6 @@ const performer_stats: Array = [
 	[], # moveset
 	0, # karma
 	0, # karma_level
-	20, # test
 ]
 
 const warrior_stats: Array = [
@@ -81,7 +78,6 @@ const warrior_stats: Array = [
 	[], # moveset
 	0, # karma
 	0, # karma_level
-	20, # test
 ]
 
 const acolyte_stats: Array = [
@@ -92,7 +88,6 @@ const acolyte_stats: Array = [
 	[], # moveset
 	0, # karma
 	0, # karma_level
-	20, # test
 ]
 
 # Used as the input for property names when adding stats to the instances
@@ -104,7 +99,6 @@ const property_key: Array = [
 	"moveset",
 	"karma",
 	"karma_level",
-	"test",
 ]
 
 ## Class stat block
@@ -119,7 +113,11 @@ class class_stat_block: # Funny name lol
 	
 	var karma: int
 	var karma_level: int
-	var test
+	
+	func setup_class(setup_player_class, setup_max_health, setup_damage, setup_stamina, setup_moveset, setup_karma, setup_karma_level):
+		pass
+	
+	
 
 func _ready():
 	# Instancing class objects
@@ -153,7 +151,6 @@ func Assign_class(chosen_class):
 	match chosen_class:
 		mage_stats:
 			print(mage_class.player_class)
-			print(mage_class.test)
 			print(mage_class.max_health)
 			Assign_stats(mage_class)
 		paladin_stats:
@@ -168,7 +165,6 @@ func Assign_class(chosen_class):
 func Assign_stats(class_to_be_assigned):
 	
 	print(class_to_be_assigned.player_class)
-	print(class_to_be_assigned.test)
 	
 	player_class = class_to_be_assigned.player_class
 	max_health = class_to_be_assigned.max_health
@@ -182,7 +178,89 @@ func Assign_stats(class_to_be_assigned):
 	
 	print(player_class, " = Player class", max_health, " = Maximum max_health", damage, " = Damage", stamina, " = Stamina", karma, " = Karma", karma_level, " = Karma Level")
 
+## Moveset class instances
+
+var m_attack_1: moveset_stat_block
+var m_attack_2: moveset_stat_block
+var m_attack_3: moveset_stat_block
+var m_attack_4: moveset_stat_block
+
+var pa_attack_1: moveset_stat_block
+var pa_attack_2: moveset_stat_block
+var pa_attack_3: moveset_stat_block
+var pa_attack_4: moveset_stat_block
+
+var pe_attack_1: moveset_stat_block
+var pe_attack_2: moveset_stat_block
+var pe_attack_3: moveset_stat_block
+var pe_attack_4: moveset_stat_block
+
+var w_attack_1: moveset_stat_block
+var w_attack_2: moveset_stat_block
+var w_attack_3: moveset_stat_block
+var w_attack_4: moveset_stat_block
+
+var a_attack_1: moveset_stat_block
+var a_attack_2: moveset_stat_block
+var a_attack_3: moveset_stat_block
+var a_attack_4: moveset_stat_block
+
+## 2d list of each class:es movement stat
+
+const m_attack_stats: Array = [
+	# 2nd dimension lists: attack_name, 
+	["Fireball", 200, 100, false],
+	["Fireball", 200, 100, false],
+	["Fireball", 200, 100, false],
+	["Fireball", 200, 100, false],
+]
+
+const pa_attack_stats: Array = [
+	["Sword swing", 200, 100, false],
+	["Sword swing", 200, 100, false],
+	["Sword swing", 200, 100, false],
+	["Sword swing", 200, 100, false],
+]
+
+const pe_attack_stats: Array = [
+	["Striptease", 200, 100, false],
+	["Striptease", 200, 100, false],
+	["Striptease", 200, 100, false],
+	["Striptease", 200, 100, false],
+]
+
+const w_attack_stats: Array = [
+	["Kills you", 100000, 100, false],
+	["Kills you", 100000, 100, false],
+	["Kills you", 100000, 100, false],
+	["Kills you", 100000, 100, false],
+]
+
+const a_attack_stats: Array = [
+	["Holy water spray", 10, 100, false],
+	["Holy water spray", 10, 100, false],
+	["Holy water spray", 10, 100, false],
+	["Holy water spray", 10, 100, false],
+]
+
 ## Moveset class
 
+class moveset_stat_block:
+	var attack_name: String # Name of the attack
+	
+	var motion_value: int # Percent modification of the base damage
+	var accuracy: int # Percent chance that the attack will hit 0%-100%
+	
+	var is_delayed: bool # If true, activates the delay 
+	
+	
+	func set_properties(attack_name_stat: String, motion_stat: int, accuracy_stat: int, is_delayed_stat: bool):
+		attack_name = attack_name_stat
+		motion_value = motion_stat
+		accuracy = accuracy_stat
+		is_delayed = is_delayed_stat
+	
+	func set_attack():
+		pass
 
-
+##
