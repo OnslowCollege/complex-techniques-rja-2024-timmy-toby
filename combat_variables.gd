@@ -147,22 +147,26 @@ const boss_property_key: Array = [
 
 ## Basic enemy class
 class enemy: 
-	var enemy_name
+	var enemy_name: String
 	
-	var max_enemy_health
-	var enemy_damage
+	var max_enemy_health: int
+	var enemy_damage: int
 	
-	var enemy_moveset
+	var enemy_moveset: Array
+	
+	func setup_properties(name: String, health: int, damage: int, moveset: Array):
+		enemy_name = name
+		max_enemy_health = health
+		enemy_damage = damage
+		enemy_moveset = moveset
 
 ## Boss class
 class boss:
-	var boss_name
+	extends enemy
 	
-	var max_boss_health
-	var boss_damage
-	
-	var boss_moveset
-	var boss_effect
+	var boss_effect: Object
+	func setup_effect(effect: Object):
+		boss_effect = effect
 
 func _ready():
 	limbust_enemy = enemy.new()
@@ -244,10 +248,9 @@ func Assign_stats(enemy_to_be_assigned):
 			enemy_damage = enemy_to_be_assigned.enemy_damage
 			enemy_moveset = enemy_to_be_assigned.enemy_moveset
 		"Boss":
-			enemy_name = enemy_to_be_assigned.boss_name
-			max_enemy_health = enemy_to_be_assigned.max_boss_health
-			current_enemy_health = enemy_to_be_assigned.max_boss_health
-			enemy_damage = enemy_to_be_assigned.boss_damage
-			enemy_moveset = enemy_to_be_assigned.boss_moveset
+			enemy_name = enemy_to_be_assigned.enemy_name
+			max_enemy_health = enemy_to_be_assigned.max_enemy_health
+			current_enemy_health = enemy_to_be_assigned.max_enemy_health
+			enemy_damage = enemy_to_be_assigned.enemy_damage
+			enemy_moveset = enemy_to_be_assigned.enemy_moveset
 			boss_effect = enemy_to_be_assigned.boss_effect
-	

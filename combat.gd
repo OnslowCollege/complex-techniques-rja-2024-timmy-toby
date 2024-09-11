@@ -167,7 +167,7 @@ func _handle_combat(new_combat_state):
 		COMBAT_STATES.START:
 			print(CombatVariables.bosses_killed, " Bosses killed")
 			
-			max_health = PlayerVariables.max_health
+			max_health = PlayerVariables.current_class.max_health
 			current_health = PlayerVariables.current_health
 			damage = PlayerVariables.damage
 			moveset = PlayerVariables.moveset
