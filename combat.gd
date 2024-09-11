@@ -284,7 +284,7 @@ func find_enemy():
 	# Uses next_level, since its more readable and there are no enemies before Minos
 	match CombatVariables.next_level:
 		"Limbust":
-			CombatVariables.Assign_enemy(CombatVariables.limbust_enemy_stats)
+			CombatVariables.choose
 		"Gleed":
 			CombatVariables.Assign_enemy(CombatVariables.gleed_enemy_stats)
 		"Wreresy":

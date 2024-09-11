@@ -157,13 +157,8 @@ class Attack_stat_block:
 
 ## Assigning stats to each object
 
-var atk_name = "Fireball"
-var atk_damage = 100
-var atk_accuracy = 100
-var atk_delay = false
-
 func Set_attack_properties():
-	mage_atk1 = mage_atk1.Set_properties(atk_name, atk_damage, atk_accuracy, atk_delay)
-	mage_atk2 = mage_atk2.Set_properties(atk_name, atk_damage, atk_accuracy, atk_delay)
-	mage_atk3 = mage_atk3.Set_properties(atk_name, atk_damage, atk_accuracy, atk_delay)
-	mage_atk4 = mage_atk4.Set_properties(atk_name, atk_damage, atk_accuracy, atk_delay)
+	mage_atk1.Set_properties("Fireball", 100, 100, false)
+	mage_atk2.Set_properties("Fireball", 100, 100, false)
+	mage_atk3.Set_properties("Fireball", 100, 100, false)
+	mage_atk4.Set_properties("Fireball", 100, 100, false)
