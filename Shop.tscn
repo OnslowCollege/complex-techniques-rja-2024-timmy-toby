@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuyr122k8mg3n"]
+
+[ext_resource type="Texture2D" uid="uid://3a7l8lty5cxh" path="res://backgrounds/Shop background.png" id="1_wuxyy"]
+[ext_resource type="Texture2D" uid="uid://dk8q1nw3mtks7" path="res://HUD elements/Karma points.png" id="2_4iw61"]
+[ext_resource type="Texture2D" uid="uid://wgdvd6pekugb" path="res://HUD elements/Karma level.png" id="2_cwtoj"]
+[ext_resource type="FontFile" uid="uid://bd1yqlqefl5ng" path="res://fonts/Mountain king/MountainKingRegular-woBYn.ttf" id="3_kne0i"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wuxyy")
+
+[node name="Karma level" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(49, 49)
+scale = Vector2(3, 3)
+texture = ExtResource("2_cwtoj")
+region_enabled = true
+region_rect = Rect2(0, 0, 23, 26)
+
+[node name="Karma points" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -139.0
+offset_top = 9.0
+offset_right = -97.0
+offset_bottom = 25.0
+grow_horizontal = 0
+scale = Vector2(3.125, 3.125)
+texture = ExtResource("2_4iw61")
+
+[node name="Point amount" type="Label" parent="Karma points"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.56389
+anchor_top = 1.54
+anchor_right = 1.56389
+anchor_bottom = 1.54
+offset_left = -40.4033
+offset_top = -22.4
+offset_right = 1111.6
+offset_bottom = 770.6
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.017, 0.017)
+theme_override_fonts/font = ExtResource("3_kne0i")
+theme_override_font_sizes/font_size = 800
+text = "000
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Blessing store" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -169.0
+offset_top = 9.0
+offset_right = 3758.0
+offset_bottom = 802.0
+grow_horizontal = 2
+scale = Vector2(0.08, 0.08)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_kne0i")
+theme_override_font_sizes/font_size = 800
+text = "Blessing store
+"
