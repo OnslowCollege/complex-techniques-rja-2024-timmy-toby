@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhtesmdgmi43t"]
+[gd_scene load_steps=3 format=3 uid="uid://7gu35m4nfksc"]
 
-[ext_resource type="Texture2D" uid="uid://222cn615j7dy" path="res://backgrounds/Main menu background.png" id="1_ooxoc"]
-[ext_resource type="FontFile" uid="uid://bd1yqlqefl5ng" path="res://fonts/Mountain king/MountainKingRegular-woBYn.ttf" id="2_rxyh6"]
+[ext_resource type="Texture2D" uid="uid://d2fljukoal108" path="res://backgrounds/Win screen.png" id="1_07ihk"]
+[ext_resource type="FontFile" uid="uid://bd1yqlqefl5ng" path="res://fonts/Mountain king/MountainKingRegular-woBYn.ttf" id="2_l2ute"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -18,25 +18,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ooxoc")
+texture = ExtResource("1_07ihk")
 
-[node name="You Lose!" type="Label" parent="."]
+[node name="You Win!" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -290.0
-offset_top = 30.0
-offset_right = 2758.0
-offset_bottom = 823.0
+offset_left = -260.0
+offset_right = 2404.0
+offset_bottom = 793.0
 grow_horizontal = 2
 scale = Vector2(0.19, 0.19)
-theme_override_fonts/font = ExtResource("2_rxyh6")
+theme_override_fonts/font = ExtResource("2_l2ute")
 theme_override_font_sizes/font_size = 800
-text = "YOU LOSE!
-"
+text = "YOU WIN!"
 
-[node name="Try again?" type="Button" parent="."]
+[node name="Play again?" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -45,11 +43,11 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
 offset_top = 25.0
-offset_right = 2809.0
+offset_right = 2985.0
 offset_bottom = 826.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.1, 0.1)
-theme_override_fonts/font = ExtResource("2_rxyh6")
+theme_override_fonts/font = ExtResource("2_l2ute")
 theme_override_font_sizes/font_size = 800
-text = "Try again?"
+text = "Play again?"
