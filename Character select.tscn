@@ -28,181 +28,166 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_oi3rk")
 
-[node name="Label" type="Label" parent="."]
+[node name="Choose your character" type="Label" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = 109.0
-offset_top = 79.0
-offset_right = 6701.0
-offset_bottom = 872.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_top = 75.0
+offset_right = 6427.0
+offset_bottom = 868.0
+grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
 theme_override_fonts/font = ExtResource("1_jghhm")
 theme_override_font_sizes/font_size = 800
 text = "Choose your character!
 "
 
-[node name="Control_Paladin" type="Control" parent="."]
-layout_mode = 2
-anchors_preset = 0
-offset_left = 109.0
-offset_top = 175.0
-offset_right = 212.0
-offset_bottom = 283.0
+[node name="Character_container" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -25.0
+offset_right = 276.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Paladin" type="Button" parent="Control_Paladin"]
+[node name="Paladin" type="Button" parent="Character_container"]
 layout_mode = 2
-offset_left = -6.0
-offset_right = 102.0
-offset_bottom = 108.0
 tooltip_text = "Paladin
 "
 icon = ExtResource("5_fxaj1")
 
-[node name="Paladin_label" type="Label" parent="Control_Paladin"]
-layout_mode = 0
-offset_left = -5.0
-offset_top = 113.0
-offset_right = 4307.0
-offset_bottom = 2498.0
-scale = Vector2(0.03, 0.03)
+[node name="Paladin_label" type="Label" parent="Character_container/Paladin"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = 2.0
+offset_right = 79.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_jghhm")
-theme_override_font_sizes/font_size = 800
+theme_override_font_sizes/font_size = 25
 text = "Paladin:
 Holy smite
 Sword attacks"
 
-[node name="Control_acolyte" type="Control" parent="."]
+[node name="Acolyte" type="Button" parent="Character_container"]
 layout_mode = 2
-anchors_preset = 0
-offset_left = 450.0
-offset_top = 175.0
-offset_right = 548.0
-offset_bottom = 285.0
-
-[node name="Acolyte" type="Button" parent="Control_acolyte"]
-layout_mode = 2
-offset_left = -11.0
-offset_right = 97.0
-offset_bottom = 108.0
 icon = ExtResource("3_ei6er")
 
-[node name="Acolyte_label" type="Label" parent="Control_acolyte"]
-layout_mode = 0
-offset_top = 111.0
-offset_right = 4008.0
-offset_bottom = 2496.0
-scale = Vector2(0.03, 0.03)
+[node name="Acolyte_label" type="Label" parent="Character_container/Acolyte"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = 2.0
+offset_right = 70.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_jghhm")
-theme_override_font_sizes/font_size = 800
+theme_override_font_sizes/font_size = 25
 text = "Acolyte:
 Mace attacks
 Holy powers"
 
-[node name="Control_Mage" type="Control" parent="."]
+[node name="Mage" type="Button" parent="Character_container"]
 layout_mode = 2
-anchors_preset = 0
-offset_left = -9.0
-offset_top = 175.0
-offset_right = 107.0
-offset_bottom = 283.0
-
-[node name="Mage" type="Button" parent="Control_Mage"]
-layout_mode = 2
-offset_right = 108.0
-offset_bottom = 108.0
 icon = ExtResource("2_e6ucf")
 
-[node name="Mage_label" type="Label" parent="Control_Mage"]
-layout_mode = 0
-offset_left = 7.00001
-offset_top = 110.0
-offset_right = 3215.0
-offset_bottom = 2495.0
-scale = Vector2(0.03, 0.03)
+[node name="Mage_label" type="Label" parent="Character_container/Mage"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -51.5
+offset_top = 2.0
+offset_right = 51.5
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_jghhm")
-theme_override_font_sizes/font_size = 800
+theme_override_font_sizes/font_size = 25
 text = "Mage:
 Spells
 More spells"
 
-[node name="Control_performer" type="Control" parent="."]
+[node name="Performer" type="Button" parent="Character_container"]
 layout_mode = 2
-anchors_preset = 0
-offset_left = 219.0
-offset_top = 175.0
-offset_right = 326.0
-offset_bottom = 283.0
-
-[node name="Performer" type="Button" parent="Control_performer"]
-layout_mode = 2
-offset_left = -4.0
-offset_right = 104.0
-offset_bottom = 108.0
 icon = ExtResource("6_st3l2")
 
-[node name="Performer_label" type="Label" parent="Control_performer"]
-layout_mode = 0
-offset_left = -9.00002
-offset_top = 111.0
-offset_right = 4718.0
-offset_bottom = 2496.0
-scale = Vector2(0.03, 0.03)
+[node name="Performer_label" type="Label" parent="Character_container/Performer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = 2.0
+offset_right = 87.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_jghhm")
-theme_override_font_sizes/font_size = 800
+theme_override_font_sizes/font_size = 25
 text = "Performer:
 Musical attacks
 Spells"
 
-[node name="Control_warrior" type="Control" parent="."]
+[node name="Warrior" type="Button" parent="Character_container"]
 layout_mode = 2
-anchors_preset = 0
-offset_left = 328.0
-offset_top = 175.0
-offset_right = 436.0
-offset_bottom = 283.0
-
-[node name="Warrior" type="Button" parent="Control_warrior"]
-layout_mode = 2
-offset_left = -1.0
-offset_right = 107.0
-offset_bottom = 108.0
 icon = ExtResource("1_57apd")
 
-[node name="Warrior_label" type="Label" parent="Control_warrior"]
-layout_mode = 0
-offset_left = -11.0
-offset_top = 111.0
-offset_right = 5293.0
-offset_bottom = 2496.0
-scale = Vector2(0.03, 0.03)
+[node name="Warrior_label" type="Label" parent="Character_container/Warrior"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = 2.0
+offset_right = 78.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_fonts/font = ExtResource("1_jghhm")
-theme_override_font_sizes/font_size = 800
+theme_override_font_sizes/font_size = 25
 text = "Warrior:
 Greataxe attacks
 High damage"
 
-[connection signal="mouse_entered" from="Control_Paladin" to="." method="_on_control_paladin_mouse_entered"]
-[connection signal="mouse_exited" from="Control_Paladin" to="." method="_on_control_paladin_mouse_exited"]
-[connection signal="mouse_entered" from="Control_Paladin/Paladin" to="." method="_on_paladin_mouse_entered"]
-[connection signal="mouse_exited" from="Control_Paladin/Paladin" to="." method="_on_paladin_mouse_exited"]
-[connection signal="pressed" from="Control_Paladin/Paladin" to="." method="_on_paladin_pressed"]
-[connection signal="mouse_entered" from="Control_acolyte" to="." method="_on_control_acolyte_mouse_entered"]
-[connection signal="mouse_exited" from="Control_acolyte" to="." method="_on_control_acolyte_mouse_exited"]
-[connection signal="mouse_entered" from="Control_acolyte/Acolyte" to="." method="_on_acolyte_mouse_entered"]
-[connection signal="mouse_exited" from="Control_acolyte/Acolyte" to="." method="_on_acolyte_mouse_exited"]
-[connection signal="pressed" from="Control_acolyte/Acolyte" to="." method="_on_acolyte_pressed"]
-[connection signal="mouse_entered" from="Control_Mage" to="." method="_on_control_mage_mouse_entered"]
-[connection signal="mouse_exited" from="Control_Mage" to="." method="_on_control_mage_mouse_exited"]
-[connection signal="mouse_entered" from="Control_Mage/Mage" to="." method="_on_mage_mouse_entered"]
-[connection signal="mouse_exited" from="Control_Mage/Mage" to="." method="_on_mage_mouse_exited"]
-[connection signal="pressed" from="Control_Mage/Mage" to="." method="_on_mage_pressed"]
-[connection signal="mouse_entered" from="Control_performer" to="." method="_on_control_performer_mouse_entered"]
-[connection signal="mouse_exited" from="Control_performer" to="." method="_on_control_performer_mouse_exited"]
-[connection signal="mouse_entered" from="Control_performer/Performer" to="." method="_on_performer_mouse_entered"]
-[connection signal="mouse_exited" from="Control_performer/Performer" to="." method="_on_performer_mouse_exited"]
-[connection signal="pressed" from="Control_performer/Performer" to="." method="_on_performer_pressed"]
-[connection signal="mouse_entered" from="Control_warrior" to="." method="_on_control_warrior_mouse_entered"]
-[connection signal="mouse_exited" from="Control_warrior" to="." method="_on_control_warrior_mouse_exited"]
-[connection signal="mouse_entered" from="Control_warrior/Warrior" to="." method="_on_warrior_mouse_entered"]
-[connection signal="mouse_exited" from="Control_warrior/Warrior" to="." method="_on_warrior_mouse_exited"]
-[connection signal="pressed" from="Control_warrior/Warrior" to="." method="_on_warrior_pressed"]
+[connection signal="mouse_entered" from="Character_container/Paladin" to="." method="_on_paladin_mouse_entered"]
+[connection signal="mouse_exited" from="Character_container/Paladin" to="." method="_on_paladin_mouse_exited"]
+[connection signal="pressed" from="Character_container/Paladin" to="." method="_on_paladin_pressed"]
+[connection signal="mouse_entered" from="Character_container/Acolyte" to="." method="_on_acolyte_mouse_entered"]
+[connection signal="mouse_exited" from="Character_container/Acolyte" to="." method="_on_acolyte_mouse_exited"]
+[connection signal="pressed" from="Character_container/Acolyte" to="." method="_on_acolyte_pressed"]
+[connection signal="mouse_entered" from="Character_container/Mage" to="." method="_on_mage_mouse_entered"]
+[connection signal="mouse_exited" from="Character_container/Mage" to="." method="_on_mage_mouse_exited"]
+[connection signal="pressed" from="Character_container/Mage" to="." method="_on_mage_pressed"]
+[connection signal="mouse_entered" from="Character_container/Performer" to="." method="_on_performer_mouse_entered"]
+[connection signal="mouse_exited" from="Character_container/Performer" to="." method="_on_performer_mouse_exited"]
+[connection signal="pressed" from="Character_container/Performer" to="." method="_on_performer_pressed"]
+[connection signal="mouse_entered" from="Character_container/Warrior" to="." method="_on_warrior_mouse_entered"]
+[connection signal="mouse_exited" from="Character_container/Warrior" to="." method="_on_warrior_mouse_exited"]
+[connection signal="pressed" from="Character_container/Warrior" to="." method="_on_warrior_pressed"]
