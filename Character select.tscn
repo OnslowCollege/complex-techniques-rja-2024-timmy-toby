@@ -34,12 +34,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -165.0
-offset_top = 75.0
-offset_right = 6427.0
-offset_bottom = 868.0
+offset_left = -263.0
+offset_top = 55.0
+offset_right = 6329.0
+offset_bottom = 848.0
 grow_horizontal = 2
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.08, 0.08)
 theme_override_fonts/font = ExtResource("1_jghhm")
 theme_override_font_sizes/font_size = 800
 text = "Choose your character!
@@ -72,14 +72,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -59.0
+offset_left = -64.0
 offset_top = 2.0
-offset_right = 79.0
-offset_bottom = 86.0
+offset_right = 475.0
+offset_bottom = 308.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("1_jghhm")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 100
 text = "Paladin:
 Holy smite
 Sword attacks"
@@ -97,12 +98,13 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -59.0
 offset_top = 2.0
-offset_right = 70.0
-offset_bottom = 86.0
+offset_right = 442.0
+offset_bottom = 308.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("1_jghhm")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 100
 text = "Acolyte:
 Mace attacks
 Holy powers"
@@ -120,12 +122,13 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -51.5
 offset_top = 2.0
-offset_right = 51.5
-offset_bottom = 86.0
+offset_right = 349.5
+offset_bottom = 308.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("1_jghhm")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 100
 text = "Mage:
 Spells
 More spells"
@@ -143,12 +146,13 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -64.0
 offset_top = 2.0
-offset_right = 87.0
-offset_bottom = 86.0
+offset_right = 527.0
+offset_bottom = 308.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("1_jghhm")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 100
 text = "Performer:
 Musical attacks
 Spells"
@@ -166,12 +170,13 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -93.0
 offset_top = 2.0
-offset_right = 78.0
-offset_bottom = 86.0
+offset_right = 570.0
+offset_bottom = 308.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("1_jghhm")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 100
 text = "Warrior:
 Greataxe attacks
 High damage"
