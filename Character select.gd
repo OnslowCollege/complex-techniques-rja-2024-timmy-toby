@@ -1,5 +1,9 @@
 extends Control
 
+##
+## THIS CODE IS MADE BY TOBY
+##
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Character_container/Acolyte/Acolyte_label.hide()
