@@ -191,25 +191,25 @@ func _handle_combat(new_combat_state):
 			match enemy_name:
 				"King Minos":
 					$EnemyContainer/Enemy.texture = CombatVariables.minos_sprite
-				"She-wolf":
+				"The She-Wolf":
 					$EnemyContainer/Enemy.texture = CombatVariables.shewolf_sprite
 				"Cerberus":
 					$EnemyContainer/Enemy.texture = CombatVariables.cerberus_sprite
-				"Minotaur":
+				"The Minotaur":
 					$EnemyContainer/Enemy.texture = CombatVariables.minotaur_sprite
 				"Geryon":
 					$EnemyContainer/Enemy.texture = CombatVariables.geryon_sprite
 				"Lucifer":
 					$EnemyContainer/Enemy.texture = CombatVariables.lucifer_sprite
-				"Limbust sinner":
+				"Limbust Sinner":
 					$EnemyContainer/Enemy.texture = CombatVariables.limbust_sinner_sprite
-				"Gleed sinner":
+				"Gleed Sinner":
 					$EnemyContainer/Enemy.texture = CombatVariables.gleed_sinner_sprite
-				"Wreresy sinner":
+				"Wreresy Sinner":
 					$EnemyContainer/Enemy.texture = CombatVariables.wreresy_sinner_sprite
-				"Vraud sinner":
+				"Vraud Sinner":
 					$EnemyContainer/Enemy.texture = CombatVariables.vraud_sinner_sprite
-				"Treachery sinner":
+				"Treachery Sinner":
 					$EnemyContainer/Enemy.texture = CombatVariables.treachery_sinner_sprite
 			
 			# Initializes player and enemy health bars
@@ -265,17 +265,17 @@ func find_boss():
 	# Runs when on a boss tile, figures out the specific boss you're meant to fight
 	match CombatVariables.bosses_killed:
 		0:
-			CombatVariables.Assign_boss(CombatVariables.minos_boss_stats)
+			CombatVariables.Choose_enemy("minos_boss")
 		1:
-			CombatVariables.Assign_boss(CombatVariables.shewolf_boss_stats)
+			CombatVariables.Choose_enemy("shewolf_boss")
 		2:
-			CombatVariables.Assign_boss(CombatVariables.cerberus_boss_stats)
+			CombatVariables.Choose_enemy("cerberus_boss")
 		3:
-			CombatVariables.Assign_boss(CombatVariables.minotaur_boss_stats)
+			CombatVariables.Choose_enemy("minotaur_boss")
 		4:
-			CombatVariables.Assign_boss(CombatVariables.geryon_boss_stats)
+			CombatVariables.Choose_enemy("geryon_boss")
 		5:
-			CombatVariables.Assign_boss(CombatVariables.lucifer_boss_stats)
+			CombatVariables.Choose_enemy("lucifer_boss")
 	
 	boss_effect = CombatVariables.boss_effect
 
@@ -284,13 +284,13 @@ func find_enemy():
 	# Uses next_level, since its more readable and there are no enemies before Minos
 	match CombatVariables.next_level:
 		"Limbust":
-			CombatVariables.choose
+			CombatVariables.Choose_enemy("limbust_enemy")
 		"Gleed":
-			CombatVariables.Assign_enemy(CombatVariables.gleed_enemy_stats)
+			CombatVariables.Choose_enemy("gleed_enemy")
 		"Wreresy":
-			CombatVariables.Assign_enemy(CombatVariables.wreresy_enemy_stats)
+			CombatVariables.Choose_enemy("wreresy_enemy")
 		"Vraud":
-			CombatVariables.Assign_enemy(CombatVariables.vraud_enemy_stats)
+			CombatVariables.Choose_enemy("vraud_enemy")
 		"Treachery":
-			CombatVariables.Assign_enemy(CombatVariables.treachery_enemy_stats)
+			CombatVariables.Choose_enemy("treachery")
 

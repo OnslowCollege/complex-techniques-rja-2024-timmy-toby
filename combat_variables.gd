@@ -106,11 +106,11 @@ func Assign_stats():
 	
 	## Bosses
 	minos_boss.Set_properties("King Minos", 200, 50, gen_enemy_moveset)
-	shewolf_boss.Set_properties("King Minos", 200, 50, gen_enemy_moveset)
-	cerberus_boss.Set_properties("King Minos", 200, 50, gen_enemy_moveset)
-	minotaur_boss.Set_properties("King Minos", 200, 50, gen_enemy_moveset)
-	geryon_boss.Set_properties("King Minos", 200, 50, gen_enemy_moveset)
-	lucifer_boss.Set_properties("King Minos", 200, 50, gen_enemy_moveset)
+	shewolf_boss.Set_properties("The She-Wolf", 200, 50, gen_enemy_moveset)
+	cerberus_boss.Set_properties("Cerberus", 200, 50, gen_enemy_moveset)
+	minotaur_boss.Set_properties("The Minotaur", 200, 50, gen_enemy_moveset)
+	geryon_boss.Set_properties("Geryon", 200, 50, gen_enemy_moveset)
+	lucifer_boss.Set_properties("Lucifer", 200, 50, gen_enemy_moveset)
 	# And boss effects
 	minos_boss.Set_boss_effect(gen_boss_effect)
 	shewolf_boss.Set_boss_effect(gen_boss_effect)
@@ -121,11 +121,38 @@ func Assign_stats():
 
 func Choose_enemy(enemy_to_fight):
 	match enemy_to_fight:
+		## Enemies
 		"limbust_enemy":
 			current_enemy = limbust_enemy
 		"gleed_enemy":
 			current_enemy = gleed_enemy
+		"wreresy_enemy":
+			current_enemy = wreresy_enemy
+		"vraud_enemy":
+			current_enemy = vraud_enemy
+		"treachery_enemy":
+			current_enemy = treachery_enemy
+		## Bosses
 		"minos_boss":
 			current_enemy = minos_boss
 		"shewolf_boss":
 			current_enemy = shewolf_boss
+		"cerberus_boss":
+			current_enemy = cerberus_boss
+		"minotaur_boss":
+			current_enemy = minotaur_boss
+		"geryon_boss":
+			current_enemy = geryon_boss
+		"lucifer_boss":
+			current_enemy = lucifer_boss
+	
+	enemy_name = current_enemy.enemy_name
+	max_enemy_health = current_enemy.max_enemy_health
+	current_enemy_health = current_enemy.max_enemy_health
+	enemy_damage = current_enemy.enemy_damage
+	enemy_moveset = current_enemy.enemy_moveset
+	
+	if enemy_or_boss == "Boss":
+		boss_effect = current_enemy.boss_effect
+	else:
+		pass
