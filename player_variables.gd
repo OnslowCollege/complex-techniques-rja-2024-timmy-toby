@@ -151,6 +151,12 @@ func Choose_class(chosen_class: String):
 			current_class = mage_class
 		"Paladin":
 			current_class = paladin_class
+		"Performer":
+			current_class = performer_class
+		"Warrior":
+			current_class = warrior_class
+		"Acolyte":
+			current_class = acolyte_class
 	
 	player_class = current_class.player_class
 	max_health = current_class.max_health

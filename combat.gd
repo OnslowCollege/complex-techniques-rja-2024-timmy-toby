@@ -3,25 +3,6 @@ extends Control
 ## Combat specific variables
 var combat_state
 
-## Stat blocks for each combat instance
-# Enemy
-var enemy_name: String
-var max_enemy_health: int
-var current_enemy_health: int
-var enemy_damage: int
-var enemy_moveset: Array
-var boss_effect: Object
-
-# Player
-var max_health: int
-var current_health: int
-var damage: int
-var stamina: int
-var moveset: Array
-
-var karma: int
-var karma_level: int
-
 ## Signals
 signal exit_victory_screen
 signal textbox_closed
@@ -112,7 +93,7 @@ func display_text(text):
 
 func _on_act_1_pressed():
 	$ActionPanel.hide()
-	on_hit("Player", damage, 1)
+	on_hit("Player", PlayerVariables.damage, 1)
 
 func _on_act_2_pressed():
 	
@@ -137,25 +118,25 @@ func on_hit(user, base_damage, source):
 	match user:
 		"Initialize": # Initial, sets the healthbar
 			# Changing the player healthbar to appropriate values
-			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.max_value = max_health
-			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.value = current_health
-			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar/Playerlabel.text = "HP: %s/%s" % [current_health, max_health]
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.max_value = PlayerVariables.max_health
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.value = PlayerVariables.current_health
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar/Playerlabel.text = "HP: %s/%s" % [PlayerVariables.current_health, PlayerVariables.max_health]
 			
 			# Changing the enemies healthbar to appropriate values
-			$EnemyContainer/EnemyHealthbar.max_value = max_enemy_health
-			$EnemyContainer/EnemyHealthbar.value = current_enemy_health
-			$EnemyContainer/EnemyHealthbar/EnemyLabel.text = "HP: %s/%s" % [current_enemy_health, max_enemy_health]
+			$EnemyContainer/EnemyHealthbar.max_value = CombatVariables.max_enemy_health
+			$EnemyContainer/EnemyHealthbar.value = CombatVariables.current_enemy_health
+			$EnemyContainer/EnemyHealthbar/EnemyLabel.text = "HP: %s/%s" % [CombatVariables.current_enemy_health, CombatVariables.max_enemy_health]
 		"Player": ## Called during players turn
-			current_enemy_health -= base_damage
+			CombatVariables.current_enemy_health -= base_damage
 			
-			$EnemyContainer/EnemyHealthbar.value = current_enemy_health
-			$EnemyContainer/EnemyHealthbar/EnemyLabel.text = "HP: %s/%s" % [current_enemy_health, max_enemy_health]
+			$EnemyContainer/EnemyHealthbar.value = CombatVariables.current_enemy_health
+			$EnemyContainer/EnemyHealthbar/EnemyLabel.text = "HP: %s/%s" % [CombatVariables.current_enemy_health, CombatVariables.max_enemy_health]
 			_handle_combat(COMBAT_STATES.ENEMY)
 		"Enemy": ## Called during enemies turn
-			current_health -= base_damage
+			PlayerVariables.current_health -= base_damage
 			
-			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.value = current_health
-			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar/Playerlabel.text = "HP: %s/%s" % [current_health, max_health]
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.value = PlayerVariables.current_health
+			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar/Playerlabel.text = "HP: %s/%s" % [PlayerVariables.current_health, PlayerVariables.max_health]
 			_handle_combat(COMBAT_STATES.PLAYER)
 
 
@@ -165,30 +146,12 @@ func _handle_combat(new_combat_state):
 	
 	match combat_state:
 		COMBAT_STATES.START:
-			print(CombatVariables.bosses_killed, " Bosses killed")
-			
-			max_health = PlayerVariables.current_class.max_health
-			current_health = PlayerVariables.current_health
-			damage = PlayerVariables.damage
-			moveset = PlayerVariables.moveset
-
-			karma = PlayerVariables.karma
-			karma_level = PlayerVariables.karma_level
-			
 			match CombatVariables.enemy_or_boss:
 				"Boss":
 					find_boss()
 				"Enemy":
 					find_enemy()
-			
-			enemy_name = CombatVariables.enemy_name
-			max_enemy_health = CombatVariables.max_enemy_health
-			current_enemy_health = CombatVariables.current_enemy_health
-			enemy_damage = CombatVariables.enemy_damage
-			enemy_moveset = CombatVariables.enemy_moveset
-			boss_effect = CombatVariables.boss_effect
-			
-			match enemy_name:
+			match CombatVariables.enemy_name: # Cant this go in _ready()?
 				"King Minos":
 					$EnemyContainer/Enemy.texture = CombatVariables.minos_sprite
 				"The She-Wolf":
@@ -234,7 +197,7 @@ func _handle_combat(new_combat_state):
 func on_player_turn():
 	$ActionPanel.show()
 	
-	match current_enemy_health:
+	match CombatVariables.current_enemy_health:
 		0:
 			_handle_combat(COMBAT_STATES.WIN)
 		_:
@@ -242,8 +205,8 @@ func on_player_turn():
 
 func on_enemy_turn():
 	await get_tree().create_timer(1).timeout
-	on_hit("Enemy", enemy_damage, 1)
-	match current_health:
+	on_hit("Enemy", CombatVariables.enemy_damage, 1)
+	match PlayerVariables.current_health:
 		0:
 			_handle_combat(COMBAT_STATES.LOSE)
 		_:
@@ -276,8 +239,6 @@ func find_boss():
 			CombatVariables.Choose_enemy("geryon_boss")
 		5:
 			CombatVariables.Choose_enemy("lucifer_boss")
-	
-	boss_effect = CombatVariables.boss_effect
 
 
 func find_enemy():
@@ -292,5 +253,5 @@ func find_enemy():
 		"Vraud":
 			CombatVariables.Choose_enemy("vraud_enemy")
 		"Treachery":
-			CombatVariables.Choose_enemy("treachery")
+			CombatVariables.Choose_enemy("treachery_enemy")
 

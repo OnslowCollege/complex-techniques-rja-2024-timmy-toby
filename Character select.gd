@@ -20,12 +20,12 @@ func _on_paladin_pressed():
 
 
 func _on_performer_pressed():
-	PlayerVariables.Assign_classes()
+	PlayerVariables.Choose_class("Performer")
 	start_game()
 
 
 func _on_warrior_pressed():
-	PlayerVariables.Assign_classes()
+	PlayerVariables.Choose_class("Warrior")
 	start_game()
 
 

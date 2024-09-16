@@ -42,7 +42,7 @@ var gen_enemy_moveset: Array = []
 
 ## Boss effect instances
 
-var gen_boss_effect: Object
+var gen_boss_effect: Boss_effect_block = Boss_effect_block.new()
 
 # Preloading all relevant sprites.
 
@@ -182,3 +182,4 @@ class Boss_effect_block:
 	
 	func Apply_boss_effect(boss_effect: String):
 		# Uses a match case statement to differentiate between different boss stats
+		pass
