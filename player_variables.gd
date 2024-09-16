@@ -83,6 +83,29 @@ var mage_atk_list: Array = [
 var paladin_atk_list: Array = [
 	paladin_atk1,
 	paladin_atk2,
+	paladin_atk3,
+	paladin_atk4
+]
+
+var performer_atk_list: Array = [
+	performer_atk1,
+	performer_atk2,
+	performer_atk3,
+	performer_atk4
+]
+
+var warrior_atk_list: Array = [
+	warrior_atk1,
+	warrior_atk2,
+	warrior_atk3,
+	warrior_atk4,
+]
+
+var acolyte_atk_list: Array = [
+	acolyte_atk1,
+	acolyte_atk2,
+	acolyte_atk3,
+	acolyte_atk4,
 ]
 
 ## Class stat block
@@ -115,11 +138,11 @@ func _ready():
 
 ## Class assignment method
 func Assign_classes():
-	mage_class.Set_properties("Mage", 100, 25, 20, mage_atk_list, 0, 0)
-	paladin_class.Set_properties("Paladin", 100, 25, 20, paladin_atk_list, 0, 0)
-	# performer_class = class_stat_block.new()
-	# warrior_class = class_stat_block.new()
-	# acolyte_class = class_stat_block.new()
+	mage_class.Set_properties("Mage", 100, 50, 20, mage_atk_list, 0, 0)
+	paladin_class.Set_properties("Paladin", 200, 25, 20, paladin_atk_list, 0, 0)
+	performer_class.Set_properties("Performer", 100, 25, 20, performer_atk_list, 0, 0)
+	warrior_class.Set_properties("Warrior", 150, 30, 25, warrior_atk_list, 0, 0)
+	acolyte_class.Set_properties("Acolyte", 125, 25, 20, acolyte_atk_list, 20, 1)
 
 ## Class choice method
 func Choose_class(chosen_class: String):
@@ -147,18 +170,40 @@ class Attack_stat_block:
 	var accuracy_value: int # Percent chance that the attack will hit 0%-100%
 	
 	var is_delayed_key: bool # If true, activates the delay 
+	var is_block_key: bool # If true, will negate the next attack by the player damage value
 	
 	
-	func Set_properties(name: String, value: int, accuracy: int, is_delayed: bool):
+	func Set_properties(name: String, value: int, accuracy: int, is_delayed: bool, is_block: bool):
 		attack_name = attack_name
 		motion_value = motion_value
 		accuracy_value = accuracy
 		is_delayed_key = is_delayed
+		is_block_key = is_block
 
 ## Assigning stats to each object
 
 func Set_attack_properties():
-	mage_atk1.Set_properties("Fireball", 100, 100, false)
-	mage_atk2.Set_properties("Fireball", 100, 100, false)
-	mage_atk3.Set_properties("Fireball", 100, 100, false)
-	mage_atk4.Set_properties("Fireball", 100, 100, false)
+	mage_atk1.Set_properties("Balefire", 100, 100, false, false) # Normal attack, ineffcient ideally
+	mage_atk2.Set_properties("Heretical storm", 100, 100, false, false) # High accuracy attack
+	mage_atk3.Set_properties("Pagan's curse", 100, 100, true, false) # Strong attack, delayed
+	mage_atk4.Set_properties("Arcane barrier", 100, 100, false, true) # Blocking attack
+	
+	paladin_atk1.Set_properties("Great slash", 100, 100, false, false)
+	paladin_atk1.Set_properties("Testing jab", 100, 100, false, false)
+	paladin_atk1.Set_properties("By His sword", 100, 100, true, false)
+	paladin_atk1.Set_properties("By His shield", 100, 100, false, true)
+	
+	performer_atk1.Set_properties("Lute strike", 100, 100, false, false)
+	performer_atk1.Set_properties("Gale-step kick", 100, 100, false, false)
+	performer_atk1.Set_properties("Rending tune", 100, 100, true, false)
+	performer_atk1.Set_properties("Prayer in C major", 100, 100, false, true)
+	
+	warrior_atk1.Set_properties("Cut", 100, 100, false, false)
+	warrior_atk1.Set_properties("Swift feint", 100, 100, false, false)
+	warrior_atk1.Set_properties("Skullsplitter", 100, 100, true, false)
+	warrior_atk1.Set_properties("A Pagan's vitality", 100, 100, false, true)
+	
+	acolyte_atk1.Set_properties("Prayerful strike", 100, 100, false, false)
+	acolyte_atk1.Set_properties("Holy Utterance", 100, 100, false, false)
+	acolyte_atk1.Set_properties("His Light", 100, 100, true, false)
+	acolyte_atk1.Set_properties("Destined protection", 100, 100, false, true)

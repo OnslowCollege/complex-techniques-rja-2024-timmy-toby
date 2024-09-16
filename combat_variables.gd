@@ -34,6 +34,8 @@ var lucifer_boss: boss = boss.new()
 
 ## Enemy attack instances
 
+var enemy_normal_atk: Attack_stat_block = Attack_stat_block.new()
+
 ## Enemy moveset Arrays
 
 var gen_enemy_moveset: Array = []
@@ -82,18 +84,6 @@ class boss:
 		boss_effect = effect
 
 func _ready():
-	limbust_enemy = enemy.new()
-	gleed_enemy = enemy.new()
-	wreresy_enemy = enemy.new()
-	vraud_enemy = enemy.new()
-	treachery_enemy = enemy.new()
-	
-	minos_boss = boss.new()
-	shewolf_boss = boss.new()
-	cerberus_boss = boss.new()
-	minotaur_boss = boss.new()
-	geryon_boss = boss.new()
-	lucifer_boss = boss.new()
 	Assign_stats()
 
 func Assign_stats():
@@ -156,3 +146,39 @@ func Choose_enemy(enemy_to_fight):
 		boss_effect = current_enemy.boss_effect
 	else:
 		pass
+
+class Attack_stat_block:
+	var attack_name: String # Name of the attack
+	
+	var motion_value: int # Percent modification of the base damage
+	var accuracy_value: int # Percent chance that the attack will hit 0%-100%
+	
+	var is_delayed_key: bool # If true, activates the delay 
+	var is_block_key: bool # If true, will negate the next attack by the player damage value
+	
+	
+	func Set_properties(name: String, value: int, accuracy: int, is_delayed: bool, is_block: bool):
+		attack_name = attack_name
+		motion_value = motion_value
+		accuracy_value = accuracy
+		is_delayed_key = is_delayed
+		is_block_key = is_block
+
+## Assigning stats to each object
+
+func Set_attack_properties():
+	pass
+
+class Boss_effect_block:
+	# Property and two methods, one small one big
+	# Property is literally just the boss name
+	# First method assigns that property, second method handles the specific effects on its own.
+	var boss_effect: String
+	
+	
+	func Set_Property(boss_effect_name: String):
+		boss_effect = boss_effect_name
+	
+	
+	func Apply_boss_effect(boss_effect: String):
+		# Uses a match case statement to differentiate between different boss stats
