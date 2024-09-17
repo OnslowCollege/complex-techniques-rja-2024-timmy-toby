@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://7gu35m4nfksc"]
+
+[ext_resource type="Texture2D" uid="uid://d2fljukoal108" path="res://backgrounds/Win screen.png" id="1_07ihk"]
+[ext_resource type="FontFile" uid="uid://bd1yqlqefl5ng" path="res://fonts/Mountain king/MountainKingRegular-woBYn.ttf" id="2_l2ute"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_07ihk")
+
+[node name="You Win!" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_top = 20.0
+offset_right = 2404.0
+offset_bottom = 813.0
+grow_horizontal = 2
+scale = Vector2(0.19, 0.19)
+theme_override_fonts/font = ExtResource("2_l2ute")
+theme_override_font_sizes/font_size = 800
+text = "YOU WIN!"
+
+[node name="Play again?" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 25.0
+offset_right = 2985.0
+offset_bottom = 826.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("2_l2ute")
+theme_override_font_sizes/font_size = 800
+text = "Play again?"
