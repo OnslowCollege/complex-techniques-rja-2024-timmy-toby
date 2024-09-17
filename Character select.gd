@@ -9,29 +9,28 @@ func _ready():
 	$Control_warrior/Warrior_label.hide()
 
 
-
-func _on_acolyte_pressed():
-	PlayerVariables.Assign_class(PlayerVariables.acolyte_stats)
-	start_game()
-
-
 func _on_mage_pressed():
-	PlayerVariables.Assign_class(PlayerVariables.mage_stats)
+	PlayerVariables.Choose_class("Mage")
 	start_game()
 
 
 func _on_paladin_pressed():
-	PlayerVariables.Assign_class(PlayerVariables.paladin_stats)
+	PlayerVariables.Choose_class("Paladin")
 	start_game()
 
 
 func _on_performer_pressed():
-	PlayerVariables.Assign_class(PlayerVariables.performer_stats)
+	PlayerVariables.Choose_class("Performer")
 	start_game()
 
 
 func _on_warrior_pressed():
-	PlayerVariables.Assign_class(PlayerVariables.warrior_stats)
+	PlayerVariables.Choose_class("Warrior")
+	start_game()
+
+
+func _on_acolyte_pressed():
+	PlayerVariables.Choose_class("Acolyte")
 	start_game()
 
 

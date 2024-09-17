@@ -20,85 +20,92 @@ var warrior_combat_sprite = load("res://character/Warrior/Warrior back_view.png"
 var acolyte_overworld_sprite = load("res://character/Acolyte/Acolyte overworld.png")
 var acolyte_combat_sprite = load("res://character/Acolyte/Acolyte back_view.png")
 
-# Actual variables
+# Stat variables to be modified, kept in this form so I don't have to call a property of a property in the combat and player scenes.
+
+var current_class: Object # Assigned in the _ready() method
+
 var player_class: String
 
 var max_health: int
 var current_health: int
 var damage: int
 var stamina: int
+
 var moveset: Array
 
 var karma: int
 var karma_level: int
 
-var mage_class: class_stat_block
-var paladin_class: class_stat_block
-var performer_class: class_stat_block
-var warrior_class: class_stat_block
-var acolyte_class: class_stat_block
+# Variables for the class instances themselves.
 
+var mage_class: class_stat_block = class_stat_block.new()
+var paladin_class: class_stat_block = class_stat_block.new()
+var performer_class: class_stat_block = class_stat_block.new()
+var warrior_class: class_stat_block = class_stat_block.new()
+var acolyte_class: class_stat_block = class_stat_block.new()
 
-# Stats are held in an array before assignment to the classes themselves.
-const mage_stats: Array = [
-	"Mage", # player_class
-	1000, # max_health
-	25, # damage
-	20, # stamina
-	[], # moveset
-	0, # karma
-	0, # karma_level
+## Instancing Attack objects
+
+var mage_atk1: Attack_stat_block = Attack_stat_block.new()
+var mage_atk2: Attack_stat_block = Attack_stat_block.new()
+var mage_atk3: Attack_stat_block = Attack_stat_block.new()
+var mage_atk4: Attack_stat_block = Attack_stat_block.new()
+
+var paladin_atk1: Attack_stat_block = Attack_stat_block.new()
+var paladin_atk2: Attack_stat_block = Attack_stat_block.new()
+var paladin_atk3: Attack_stat_block = Attack_stat_block.new()
+var paladin_atk4: Attack_stat_block = Attack_stat_block.new()
+
+var performer_atk1: Attack_stat_block = Attack_stat_block.new()
+var performer_atk2: Attack_stat_block = Attack_stat_block.new()
+var performer_atk3: Attack_stat_block = Attack_stat_block.new()
+var performer_atk4: Attack_stat_block = Attack_stat_block.new()
+
+var warrior_atk1: Attack_stat_block = Attack_stat_block.new()
+var warrior_atk2: Attack_stat_block = Attack_stat_block.new()
+var warrior_atk3: Attack_stat_block = Attack_stat_block.new()
+var warrior_atk4: Attack_stat_block = Attack_stat_block.new()
+
+var acolyte_atk1: Attack_stat_block = Attack_stat_block.new()
+var acolyte_atk2: Attack_stat_block = Attack_stat_block.new()
+var acolyte_atk3: Attack_stat_block = Attack_stat_block.new()
+var acolyte_atk4: Attack_stat_block = Attack_stat_block.new()
+
+## Assigning Attack objects into arrays for easy access and easy parameter inputs
+
+var mage_atk_list: Array = [
+	mage_atk1,
+	mage_atk2,
+	mage_atk3,
+	mage_atk4
 ]
 
-const paladin_stats: Array = [
-	"Paladin", # player_class
-	10, # max_health
-	25, # damage
-	20, # stamina
-	[], # moveset
-	0, # karma
-	0, # karma_level
+var paladin_atk_list: Array = [
+	paladin_atk1,
+	paladin_atk2,
+	paladin_atk3,
+	paladin_atk4
 ]
 
-const performer_stats: Array = [
-	"Performer", # player_class
-	100, # max_health
-	25, # damage
-	20, # stamina
-	[], # moveset
-	0, # karma
-	0, # karma_level
+var performer_atk_list: Array = [
+	performer_atk1,
+	performer_atk2,
+	performer_atk3,
+	performer_atk4
 ]
 
-const warrior_stats: Array = [
-	"Warrior", # player_class
-	100, # max_health
-	25, # damage
-	20, # stamina
-	[], # moveset
-	0, # karma
-	0, # karma_level
+var warrior_atk_list: Array = [
+	warrior_atk1,
+	warrior_atk2,
+	warrior_atk3,
+	warrior_atk4,
 ]
 
-const acolyte_stats: Array = [
-	"Acolyte", # player_class
-	100, # max_health
-	25, # damage
-	20, # stamina
-	[], # moveset
-	0, # karma
-	0, # karma_level
-]
-
-# Used as the input for property names when adding stats to the instances
-const property_key: Array = [
-	"player_class",
-	"max_health",
-	"damage",
-	"stamina",
-	"moveset",
-	"karma",
-	"karma_level",
+var acolyte_atk_list: Array = [
+	acolyte_atk1,
+	acolyte_atk2,
+	acolyte_atk3,
+	acolyte_atk4,
 ]
 
 ## Class stat block
@@ -107,6 +114,7 @@ class class_stat_block: # Funny name lol
 	var player_class: String
 	
 	var max_health: int
+	var current_health: int
 	var damage: int
 	var stamina: int
 	var moveset: Array
@@ -114,153 +122,94 @@ class class_stat_block: # Funny name lol
 	var karma: int
 	var karma_level: int
 	
-	func setup_class(setup_player_class, setup_max_health, setup_damage, setup_stamina, setup_moveset, setup_karma, setup_karma_level):
-		pass
-	
-	
+	func Set_properties(player_class_name: String, player_health: int, player_damage: int, player_stamina: int, player_moveset: Array, player_karma: int, player_karma_level: int) :
+		player_class = player_class_name
+		max_health = player_health
+		damage = player_damage
+		stamina = player_stamina
+		moveset = player_moveset
+		karma = player_karma
+		karma_level = player_karma_level
 
 func _ready():
-	# Instancing class objects
-	mage_class = class_stat_block.new()
-	paladin_class = class_stat_block.new()
-	performer_class = class_stat_block.new()
-	warrior_class = class_stat_block.new()
-	acolyte_class = class_stat_block.new()
+	Assign_classes()
+	Set_attack_properties()
 
-## Class assignment function
-func Assign_class(chosen_class):
-	for i in chosen_class.size():
-		match chosen_class[0]:
-			"Mage":
-				print("Reached", i)
-				print(property_key[i])
-				print(mage_stats[i])
-				mage_class.set(property_key[i], mage_stats[i])
-			"Paladin":
-				print("Reached", i)
-				paladin_class.set(property_key[i], paladin_stats[i])
-			"Performer":
-				print("Reached", i)
-				performer_class.set(property_key[i], performer_stats[i])
-			"Warrior":
-				print("Reached", i)
-				warrior_class.set(property_key[i], warrior_stats[i])
-			"Acolyte":
-				print("Reached", i)
-				acolyte_class.set(property_key[i], acolyte_stats[i])
+
+## Class assignment method
+func Assign_classes():
+	mage_class.Set_properties("Mage", 100, 50, 20, mage_atk_list, 0, 0)
+	paladin_class.Set_properties("Paladin", 200, 25, 20, paladin_atk_list, 0, 0)
+	performer_class.Set_properties("Performer", 100, 25, 20, performer_atk_list, 0, 0)
+	warrior_class.Set_properties("Warrior", 150, 30, 25, warrior_atk_list, 0, 0)
+	acolyte_class.Set_properties("Acolyte", 125, 25, 20, acolyte_atk_list, 20, 1)
+
+## Class choice method
+func Choose_class(chosen_class: String):
 	match chosen_class:
-		mage_stats:
-			print(mage_class.player_class)
-			print(mage_class.max_health)
-			Assign_stats(mage_class)
-		paladin_stats:
-			Assign_stats(paladin_class)
-		performer_stats:
-			Assign_stats(performer_class)
-		warrior_stats:
-			Assign_stats(warrior_class)
-		acolyte_stats:
-			Assign_stats(acolyte_class)
-
-func Assign_stats(class_to_be_assigned):
+		"Mage":
+			current_class = mage_class
+		"Paladin":
+			current_class = paladin_class
+		"Performer":
+			current_class = performer_class
+		"Warrior":
+			current_class = warrior_class
+		"Acolyte":
+			current_class = acolyte_class
 	
-	print(class_to_be_assigned.player_class)
-	
-	player_class = class_to_be_assigned.player_class
-	max_health = class_to_be_assigned.max_health
-	current_health = class_to_be_assigned.max_health
-	damage = class_to_be_assigned.damage
-	stamina = class_to_be_assigned.stamina
-	moveset = class_to_be_assigned.moveset
-	karma = class_to_be_assigned.karma
-	karma_level = class_to_be_assigned.karma_level
-	
-	
-	print(player_class, " = Player class", max_health, " = Maximum max_health", damage, " = Damage", stamina, " = Stamina", karma, " = Karma", karma_level, " = Karma Level")
+	player_class = current_class.player_class
+	max_health = current_class.max_health
+	current_health = current_class.max_health
+	damage = current_class.damage
+	stamina = current_class.stamina
+	moveset = current_class.moveset
+	karma = current_class.karma
+	karma_level = current_class.karma_level
 
-## Moveset class instances
+## Attack class
 
-var m_attack_1: moveset_stat_block
-var m_attack_2: moveset_stat_block
-var m_attack_3: moveset_stat_block
-var m_attack_4: moveset_stat_block
-
-var pa_attack_1: moveset_stat_block
-var pa_attack_2: moveset_stat_block
-var pa_attack_3: moveset_stat_block
-var pa_attack_4: moveset_stat_block
-
-var pe_attack_1: moveset_stat_block
-var pe_attack_2: moveset_stat_block
-var pe_attack_3: moveset_stat_block
-var pe_attack_4: moveset_stat_block
-
-var w_attack_1: moveset_stat_block
-var w_attack_2: moveset_stat_block
-var w_attack_3: moveset_stat_block
-var w_attack_4: moveset_stat_block
-
-var a_attack_1: moveset_stat_block
-var a_attack_2: moveset_stat_block
-var a_attack_3: moveset_stat_block
-var a_attack_4: moveset_stat_block
-
-## 2d list of each class:es movement stat
-
-const m_attack_stats: Array = [
-	# 2nd dimension lists: attack_name, 
-	["Fireball", 200, 100, false],
-	["Fireball", 200, 100, false],
-	["Fireball", 200, 100, false],
-	["Fireball", 200, 100, false],
-]
-
-const pa_attack_stats: Array = [
-	["Sword swing", 200, 100, false],
-	["Sword swing", 200, 100, false],
-	["Sword swing", 200, 100, false],
-	["Sword swing", 200, 100, false],
-]
-
-const pe_attack_stats: Array = [
-	["Striptease", 200, 100, false],
-	["Striptease", 200, 100, false],
-	["Striptease", 200, 100, false],
-	["Striptease", 200, 100, false],
-]
-
-const w_attack_stats: Array = [
-	["Kills you", 100000, 100, false],
-	["Kills you", 100000, 100, false],
-	["Kills you", 100000, 100, false],
-	["Kills you", 100000, 100, false],
-]
-
-const a_attack_stats: Array = [
-	["Holy water spray", 10, 100, false],
-	["Holy water spray", 10, 100, false],
-	["Holy water spray", 10, 100, false],
-	["Holy water spray", 10, 100, false],
-]
-
-## Moveset class
-
-class moveset_stat_block:
+class Attack_stat_block:
 	var attack_name: String # Name of the attack
 	
 	var motion_value: int # Percent modification of the base damage
-	var accuracy: int # Percent chance that the attack will hit 0%-100%
+	var accuracy_value: int # Percent chance that the attack will hit 0%-100%
 	
-	var is_delayed: bool # If true, activates the delay 
+	var is_delayed_key: bool # If true, activates the delay 
+	var is_block_key: bool # If true, will negate the next attack by the player damage value
 	
 	
-	func set_properties(attack_name_stat: String, motion_stat: int, accuracy_stat: int, is_delayed_stat: bool):
-		attack_name = attack_name_stat
-		motion_value = motion_stat
-		accuracy = accuracy_stat
-		is_delayed = is_delayed_stat
-	
-	func set_attack():
-		pass
+	func Set_properties(name: String, value: int, accuracy: int, is_delayed: bool, is_block: bool):
+		attack_name = attack_name
+		motion_value = motion_value
+		accuracy_value = accuracy
+		is_delayed_key = is_delayed
+		is_block_key = is_block
 
-##
+## Assigning stats to each object
+
+func Set_attack_properties():
+	mage_atk1.Set_properties("Balefire", 100, 100, false, false) # Normal attack, ineffcient ideally
+	mage_atk2.Set_properties("Heretical storm", 100, 100, false, false) # High accuracy attack
+	mage_atk3.Set_properties("Pagan's curse", 100, 100, true, false) # Strong attack, delayed
+	mage_atk4.Set_properties("Arcane barrier", 100, 100, false, true) # Blocking attack
+	
+	paladin_atk1.Set_properties("Great slash", 100, 100, false, false)
+	paladin_atk1.Set_properties("Testing jab", 100, 100, false, false)
+	paladin_atk1.Set_properties("By His sword", 100, 100, true, false)
+	paladin_atk1.Set_properties("By His shield", 100, 100, false, true)
+	
+	performer_atk1.Set_properties("Lute strike", 100, 100, false, false)
+	performer_atk1.Set_properties("Gale-step kick", 100, 100, false, false)
+	performer_atk1.Set_properties("Rending tune", 100, 100, true, false)
+	performer_atk1.Set_properties("Prayer in C major", 100, 100, false, true)
+	
+	warrior_atk1.Set_properties("Cut", 100, 100, false, false)
+	warrior_atk1.Set_properties("Swift feint", 100, 100, false, false)
+	warrior_atk1.Set_properties("Skullsplitter", 100, 100, true, false)
+	warrior_atk1.Set_properties("A Pagan's vitality", 100, 100, false, true)
+	
+	acolyte_atk1.Set_properties("Prayerful strike", 100, 100, false, false)
+	acolyte_atk1.Set_properties("Holy Utterance", 100, 100, false, false)
+	acolyte_atk1.Set_properties("His Light", 100, 100, true, false)
+	acolyte_atk1.Set_properties("Destined protection", 100, 100, false, true)
