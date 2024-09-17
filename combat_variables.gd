@@ -16,21 +16,35 @@ var enemy_damage: int
 var enemy_moveset: Array
 var boss_effect: Object
 
-# Classes to be instanced
-var limbust_enemy: enemy
-var gleed_enemy: enemy
-var wreresy_enemy: enemy
-var vraud_enemy: enemy
-var treachery_enemy: enemy
+var current_enemy: Object # Carries the values for the current enemy being fought
 
-var minos_boss: boss
-var shewolf_boss: boss
-var cerberus_boss: boss
-var minotaur_boss: boss
-var geryon_boss: boss
-var lucifer_boss: boss
+## Enemy and boss instances
+var limbust_enemy: enemy = enemy.new()
+var gleed_enemy: enemy = enemy.new()
+var wreresy_enemy: enemy = enemy.new()
+var vraud_enemy: enemy = enemy.new()
+var treachery_enemy: enemy = enemy.new()
 
-# Loading boss sprites
+var minos_boss: boss = boss.new()
+var shewolf_boss: boss = boss.new()
+var cerberus_boss: boss = boss.new()
+var minotaur_boss: boss = boss.new()
+var geryon_boss: boss = boss.new()
+var lucifer_boss: boss = boss.new()
+
+## Enemy attack instances
+
+var enemy_normal_atk: Attack_stat_block = Attack_stat_block.new()
+
+## Enemy moveset Arrays
+
+var gen_enemy_moveset: Array = []
+
+## Boss effect instances
+
+var gen_boss_effect: Boss_effect_block = Boss_effect_block.new()
+
+# Preloading all relevant sprites.
 
 var minos_sprite = load("res://bosses/Minos.png")
 var shewolf_sprite = load("res://bosses/She-wolf.png")
@@ -45,209 +59,127 @@ var wreresy_sinner_sprite = load("res://enemies/Wreresy sinner.png")
 var vraud_sinner_sprite = load("res://enemies/Vraud sinner.png")
 var treachery_sinner_sprite = load("res://enemies/Treachery sinner.png")
 
-# Enemy stats
-const limbust_enemy_stats: Array = [
-	"Limbust sinner", # enemy_name
-	50, # max_enemy_health
-	12, # enemy_damage
-	[] # enemy_moveset
-]
-
-const gleed_enemy_stats: Array = [
-	"Gleed sinner", # enemy_name
-	50, # max_enemy_health
-	12, # enemy_damage
-	[] # enemy_moveset
-]
-
-const wreresy_enemy_stats: Array = [
-	"Wreresy sinner", # enemy_name
-	50, # max_enemy_health
-	12, # enemy_damage
-	[] # enemy_moveset
-]
-
-const vraud_enemy_stats: Array = [
-	"Vraud sinner", # enemy_name
-	50, # max_enemy_health
-	12, # enemy_damage
-	[] # enemy_moveset
-]
-
-const treachery_enemy_stats: Array = [
-	"Treachery sinner", # enemy_name
-	50, # max_enemy_health
-	12, # enemy_damage
-	[] # enemy_moveset
-]
-
-# Boss stats
-const minos_boss_stats: Array = [
-	"King Minos", # boss_name
-	200, # max_boss_health
-	25, # boss_damage
-	[], # boss_moveset
-	# placeholder_effect # boss_effect
-]
-
-const shewolf_boss_stats: Array = [
-	"She-wolf", # boss_name
-	150, # max_boss_health
-	25, # boss_damage
-	[], # boss_moveset
-	# placeholder_effect # boss_effect
-]
-
-const cerberus_boss_stats: Array = [
-	"Cerberus", # boss_name
-	200, # max_boss_health
-	25, # boss_damage
-	[], # boss_moveset
-	# placeholder_effect # boss_effect
-]
-
-const minotaur_boss_stats: Array = [
-	"Minotaur", # boss_name
-	200, # max_boss_health
-	25, # boss_damage
-	[], # boss_moveset
-	# placeholder_effect # boss_effect
-]
-
-const geryon_boss_stats: Array = [
-	"Geryon", # boss_name
-	200, # max_boss_health
-	25, # boss_damage
-	[], # boss_moveset
-	# placeholder_effect # boss_effect
-]
-
-const lucifer_boss_stats: Array = [
-	"Lucifer", # boss_name
-	200, # max_boss_health
-	25, # boss_damage
-	[], # boss_moveset
-	# placeholder_effect # boss_effect
-]
-
-const enemy_property_key: Array = [
-	"enemy_name",
-	"max_enemy_health",
-	"enemy_damage",
-	"enemy_moveset",
-]
-
-const boss_property_key: Array = [
-	"boss_name",
-	"max_boss_health",
-	"boss_damage",
-	"boss_moveset",
-	"boss_effect",
-]
-
 ## Basic enemy class
 class enemy: 
-	var enemy_name
+	var enemy_name: String
 	
-	var max_enemy_health
-	var enemy_damage
+	var max_enemy_health: int
+	var enemy_damage: int
 	
-	var enemy_moveset
+	var enemy_moveset: Array
+	
+	func Set_properties(name: String, health: int, damage: int, moveset: Array):
+		enemy_name = name
+		max_enemy_health = health
+		enemy_damage = damage
+		enemy_moveset = moveset
 
 ## Boss class
 class boss:
-	var boss_name
+	extends enemy
 	
-	var max_boss_health
-	var boss_damage
+	var boss_effect: Object
 	
-	var boss_moveset
-	var boss_effect
+	func Set_boss_effect(effect: Object):
+		boss_effect = effect
 
 func _ready():
-	limbust_enemy = enemy.new()
-	gleed_enemy = enemy.new()
-	wreresy_enemy = enemy.new()
-	vraud_enemy = enemy.new()
-	treachery_enemy = enemy.new()
+	Assign_stats()
+
+func Assign_stats():
+	## Enemies
+	limbust_enemy.Set_properties("Limbust Sinner", 50, 10, gen_enemy_moveset)
+	gleed_enemy.Set_properties("Gleed Sinner", 50, 10, gen_enemy_moveset)
+	wreresy_enemy.Set_properties("Wreresy Sinner", 50, 10, gen_enemy_moveset)
+	vraud_enemy.Set_properties("Vraud Sinner", 50, 10, gen_enemy_moveset)
+	treachery_enemy.Set_properties("Treachery Sinner", 50, 10, gen_enemy_moveset)
 	
-	minos_boss = boss.new()
-	shewolf_boss = boss.new()
-	cerberus_boss = boss.new()
-	minotaur_boss = boss.new()
-	geryon_boss = boss.new()
-	lucifer_boss = boss.new()
+	## Bosses
+	minos_boss.Set_properties("King Minos", 200, 50, gen_enemy_moveset)
+	shewolf_boss.Set_properties("The She-Wolf", 200, 50, gen_enemy_moveset)
+	cerberus_boss.Set_properties("Cerberus", 200, 50, gen_enemy_moveset)
+	minotaur_boss.Set_properties("The Minotaur", 200, 50, gen_enemy_moveset)
+	geryon_boss.Set_properties("Geryon", 200, 50, gen_enemy_moveset)
+	lucifer_boss.Set_properties("Lucifer", 200, 50, gen_enemy_moveset)
+	# And boss effects
+	minos_boss.Set_boss_effect(gen_boss_effect)
+	shewolf_boss.Set_boss_effect(gen_boss_effect)
+	cerberus_boss.Set_boss_effect(gen_boss_effect)
+	minotaur_boss.Set_boss_effect(gen_boss_effect)
+	geryon_boss.Set_boss_effect(gen_boss_effect)
+	lucifer_boss.Set_boss_effect(gen_boss_effect)
 
-func Assign_enemy(encountered_enemy):
-	for i in encountered_enemy.size():
-		match encountered_enemy[0]:
-			"Limbust sinner":
-				limbust_enemy.set(enemy_property_key[i], limbust_enemy_stats[i])
-			"Gleed sinner":
-				gleed_enemy.set(enemy_property_key[i], gleed_enemy_stats[i])
-			"Wreresy sinner":
-				wreresy_enemy.set(enemy_property_key[i], wreresy_enemy_stats[i])
-			"Vraud sinner":
-				vraud_enemy.set(enemy_property_key[i], vraud_enemy_stats[i])
-			"Treachery sinner":
-				treachery_enemy.set(enemy_property_key[i], treachery_enemy_stats[i])
-	match encountered_enemy[0]:
-		"Limbust sinner":
-			Assign_stats(limbust_enemy)
-		"Gleed sinner":
-			Assign_stats(gleed_enemy)
-		"Wreresy sinner":
-			Assign_stats(wreresy_enemy)
-		"Vraud sinner":
-			Assign_stats(vraud_enemy)
-		"Treachery sinner":
-			Assign_stats(treachery_enemy)
-
-func Assign_boss(encountered_boss):
-	for i in encountered_boss.size():
-		match encountered_boss:
-			minos_boss_stats:
-				print(boss_property_key[i])
-				print(minos_boss_stats[i])
-				minos_boss.set(boss_property_key[i], minos_boss_stats[i])
-			shewolf_boss_stats:
-				shewolf_boss.set(boss_property_key[i], shewolf_boss_stats[i])
-			cerberus_boss_stats:
-				cerberus_boss.set(boss_property_key[i], cerberus_boss_stats[i])
-			minotaur_boss_stats:
-				minotaur_boss.set(boss_property_key[i], minotaur_boss_stats[i])
-			geryon_boss_stats:
-				geryon_boss.set(boss_property_key[i], geryon_boss_stats[i])
-			lucifer_boss_stats:
-				lucifer_boss.set(boss_property_key[i], lucifer_boss_stats[i])
-	match encountered_boss[0]:
-			"King Minos":
-				Assign_stats(minos_boss)
-			"She-wolf":
-				Assign_stats(shewolf_boss)
-			"Cerberus":
-				Assign_stats(cerberus_boss)
-			"Minotaur":
-				Assign_stats(minotaur_boss)
-			"Geryon":
-				Assign_stats(geryon_boss)
-			"Lucifer":
-				Assign_stats(lucifer_boss)
-
-func Assign_stats(enemy_to_be_assigned):
-	# Def can be merged into being one function shared 
-	match enemy_or_boss:
-		"Enemy":
-			enemy_name = enemy_to_be_assigned.enemy_name
-			max_enemy_health = enemy_to_be_assigned.max_enemy_health
-			current_enemy_health = enemy_to_be_assigned.max_enemy_health
-			enemy_damage = enemy_to_be_assigned.enemy_damage
-			enemy_moveset = enemy_to_be_assigned.enemy_moveset
-		"Boss":
-			enemy_name = enemy_to_be_assigned.boss_name
-			max_enemy_health = enemy_to_be_assigned.max_boss_health
-			current_enemy_health = enemy_to_be_assigned.max_boss_health
-			enemy_damage = enemy_to_be_assigned.boss_damage
-			enemy_moveset = enemy_to_be_assigned.boss_moveset
-			boss_effect = enemy_to_be_assigned.boss_effect
+func Choose_enemy(enemy_to_fight):
+	match enemy_to_fight:
+		## Enemies
+		"limbust_enemy":
+			current_enemy = limbust_enemy
+		"gleed_enemy":
+			current_enemy = gleed_enemy
+		"wreresy_enemy":
+			current_enemy = wreresy_enemy
+		"vraud_enemy":
+			current_enemy = vraud_enemy
+		"treachery_enemy":
+			current_enemy = treachery_enemy
+		## Bosses
+		"minos_boss":
+			current_enemy = minos_boss
+		"shewolf_boss":
+			current_enemy = shewolf_boss
+		"cerberus_boss":
+			current_enemy = cerberus_boss
+		"minotaur_boss":
+			current_enemy = minotaur_boss
+		"geryon_boss":
+			current_enemy = geryon_boss
+		"lucifer_boss":
+			current_enemy = lucifer_boss
 	
+	enemy_name = current_enemy.enemy_name
+	max_enemy_health = current_enemy.max_enemy_health
+	current_enemy_health = current_enemy.max_enemy_health
+	enemy_damage = current_enemy.enemy_damage
+	enemy_moveset = current_enemy.enemy_moveset
+	
+	if enemy_or_boss == "Boss":
+		boss_effect = current_enemy.boss_effect
+	else:
+		pass
+
+class Attack_stat_block:
+	var attack_name: String # Name of the attack
+	
+	var motion_value: int # Percent modification of the base damage
+	var accuracy_value: int # Percent chance that the attack will hit 0%-100%
+	
+	var is_delayed_key: bool # If true, activates the delay 
+	var is_block_key: bool # If true, will negate the next attack by the player damage value
+	
+	
+	func Set_properties(name: String, value: int, accuracy: int, is_delayed: bool, is_block: bool):
+		attack_name = attack_name
+		motion_value = motion_value
+		accuracy_value = accuracy
+		is_delayed_key = is_delayed
+		is_block_key = is_block
+
+## Assigning stats to each object
+
+func Set_attack_properties():
+	pass
+
+class Boss_effect_block:
+	# Property and two methods, one small one big
+	# Property is literally just the boss name
+	# First method assigns that property, second method handles the specific effects on its own.
+	var boss_effect: String
+	
+	
+	func Set_Property(boss_effect_name: String):
+		boss_effect = boss_effect_name
+	
+	
+	func Apply_boss_effect(boss_effect: String):
+		# Uses a match case statement to differentiate between different boss stats
+		pass
