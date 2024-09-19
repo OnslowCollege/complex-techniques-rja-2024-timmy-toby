@@ -1,0 +1,29 @@
+Acolyte: 
+Mace Strike: 70 power 100 accuracy
+Prayerful Strike: 110 power 70 accuracy
+His Light: 90 power 90 accuracy
+Divine Protection: blocks for 50
+
+Mage:
+*Thwack*: 50 power 90 accuracy
+Arcane Bolt: 70 power 100 accuracy
+Balefire: 110 power 70 accuracy
+Arcane Barrier: blocks for 50
+
+Paladin:
+Slash: 55 power 100 accuracy
+Great Slash: 70 power 90 accuracy
+By His Sword: 110 power 70 accuracy
+By His Shield: block for 70
+
+Performer:
+Lute Strike: 50 power 100 accuracy
+Harsh Sound: 70 power 100 accuracy
+Rending Tune: 110 power 70 accuracy
+Protective Hymn: blocks for 50
+
+Warrior:
+Axe Strike: 50 power 100 accuracy
+Skull Splitter: 110 power 70 accuracy
+Wild Attack: 150 power 50 accuracy
+Tough Skin: block for 30
