@@ -216,7 +216,7 @@ func _handle_combat(new_combat_state):
 			on_hit("Initialize", 0, "Initialize")
 			## Combat functionality
 			$MarginContainer/Dialoguebox.hide()
-			$ActionPanel.hide()
+			# $ActionPanel.hide()
 			
 			display_text("IS THAT THE JENSEN ACKLES???")
 			await textbox_closed
