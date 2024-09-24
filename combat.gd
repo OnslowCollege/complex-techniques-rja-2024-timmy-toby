@@ -115,8 +115,9 @@ func on_hit(user, base_damage, source):
 	# user = source of the health modification.
 	# base_damage = amount of damage to be multiplied off of
 	# source = button which the attack derived from, subtract by 1 to find the index for corresponding moveset list object.
+	
 	match user:
-		"Initialize": # Initial, sets the healthbar
+		"Initialize": # Initial modification, sets the healthbar
 			# Changing the player healthbar to appropriate values
 			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.max_value = PlayerVariables.max_health
 			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.value = PlayerVariables.current_health
@@ -127,13 +128,13 @@ func on_hit(user, base_damage, source):
 			$EnemyContainer/EnemyHealthbar.value = CombatVariables.current_enemy_health
 			$EnemyContainer/EnemyHealthbar/EnemyLabel.text = "HP: %s/%s" % [CombatVariables.current_enemy_health, CombatVariables.max_enemy_health]
 		"Player": ## Called during players turn
-			CombatVariables.current_enemy_health -= base_damage
+			# damage function happens here (source)
 			
 			$EnemyContainer/EnemyHealthbar.value = CombatVariables.current_enemy_health
 			$EnemyContainer/EnemyHealthbar/EnemyLabel.text = "HP: %s/%s" % [CombatVariables.current_enemy_health, CombatVariables.max_enemy_health]
 			_handle_combat(COMBAT_STATES.ENEMY)
 		"Enemy": ## Called during enemies turn
-			PlayerVariables.current_health -= base_damage
+			# damage function happens here (rand_int 1-2)
 			
 			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.value = PlayerVariables.current_health
 			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar/Playerlabel.text = "HP: %s/%s" % [PlayerVariables.current_health, PlayerVariables.max_health]
