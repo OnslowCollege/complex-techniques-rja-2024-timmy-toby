@@ -67,3 +67,7 @@ func _on_blessing_level_pressed():
 	# Blessing level + 1, max health + 10, max stamina + 10,
 	# blessing points - 5
 	$"Karma level".region_rect.position.y += 26
+
+
+func _on_exit_button_pressed():
+	pass

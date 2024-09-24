@@ -77,7 +77,7 @@ func _on_floor_0_position_information(moveOptions, currentTileType):
 		"Start":
 			pass
 		"Bonfire":
-			print("Restore health")
+			get_tree().change_scene_to_file("res://Shop.tscn")
 		"Lore":
 			print("yap yap yap")
 		"Enemy":
