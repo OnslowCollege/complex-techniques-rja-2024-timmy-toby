@@ -137,9 +137,11 @@ func on_hit(user, base_damage, source):
 	match user:
 		"Initialize": # Initial, sets the healthbar
 			# Changing the player healthbar to appropriate values
-			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.max_value = max_health
-			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar.value = current_health
-			$PlayerPanel/PlayerMargin/PlayerDataHbox/Playerhealthbar/Playerlabel.text = "HP: %s/%s" % [current_health, max_health]
+			max_health = 50
+			current_health = 20
+			$PlayerDataHbox/Playerhealthbar.max_value = max_health
+			$PlayerDataHbox/Playerhealthbar.value = current_health
+			$PlayerDataHbox/Playerhealthbar/HealthBarLabel.text = "HP: %s/%s" % [current_health, max_health]
 			
 			# Changing the enemies healthbar to appropriate values
 			$EnemyContainer/EnemyHealthbar.max_value = max_enemy_health
